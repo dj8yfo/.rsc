@@ -1,0 +1,4 @@
+#!/bin/bash
+set -e
+EMACSCLIENT=/Applications/Emacs.app/Contents/MacOS/bin/emacsclient
+exec $EMACSCLIENT -c "$@" #-a ~/local/bin/emacsc "$@"
