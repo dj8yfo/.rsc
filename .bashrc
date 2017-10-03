@@ -4,6 +4,8 @@ export PATH="/Users/sysmanj/local/bin:/usr/local/sbin:$PATH"
 export RUST_SRC_PATH=$(rustc --print sysroot)/lib/rustlib/src/rust/src
 export OPENSSL_INCLUDE_DIR=`brew --prefix openssl`/include
 export OPENSSL_LIB_DIR=`brew --prefix openssl`/lib
+export SNAPPY_LIB_DIR=/usr/local/lib
+export ROCKSDB_LIB_DIR=/usr/local/lib
 #export DEP_OPENSSL_INCLUDE=$(brew --prefix openssl)/include
 
 ##
