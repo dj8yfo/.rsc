@@ -1,4 +1,5 @@
 export PATH="$(pyenv root)/shims:/Library/Frameworks/Python.framework/Versions/2.7/bin/:/System/Library/Frameworks/Python.framework/Versions/2.7/bin:/Users/sysmanj/.cargo/bin:/usr/local/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/go/bin:/usr/local/MacGPG2/bin:$PATH"
+export TERM="tmux-256color"
 export PATH="/opt/local/bin:/opt/local/sbin:$PATH"
 export PATH="/Users/sysmanj/local/bin:/usr/local/sbin:$PATH"
 export WORKON_HOME="/Users/sysmanj/Crystal/.env"
@@ -21,9 +22,10 @@ export ROCKSDB_LIB_DIR=/usr/local/lib
 
 eval $(gdircolors -b $HOME/.dircolors)
 alias emacsclient="/Applications/Emacs.app/Contents/MacOS/bin/emacsclient"
+alias vim=nvim
 alias ls='/usr/local/bin/gls --color -h --group-directories-first'
 
 export EDITOR="ec"
 
 export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+# [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm

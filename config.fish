@@ -7,12 +7,13 @@ set -x SNAPPY_LIB_DIR /usr/local/lib
 set -x ROCKSDB_LIB_DIR /usr/local/lib
 set -x OPENSSL_LIB_DIR (brew --prefix openssl)/lib
 alias emacs='/Applications/Emacs.app/Contents/MacOS/Emacs'
+alias vim=nvim
 set -x EDITOR "et"
 set -x GTAGSCONF $HOME/.globalrc
 set -x GTAGSLABEL "ctags"
 set -x NVM_DIR $HOME/.nvm
-set -x TERM "screen-256color"
-bass \. "$NVM_DIR/nvm.sh" ';' nvm install v8
+set -x TERM "tmux-256color"
+# bass \. "$NVM_DIR/nvm.sh" ';' nvm install v8
 set -x CLIPSS_PATH "$HOME/Downloads/tools/clipss"
 set -x CLIPSS_FILE "/tmp/clipss_file.txt"
 set -x CLIPSS_PORT "9116"
