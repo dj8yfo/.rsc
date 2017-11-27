@@ -1,6 +1,8 @@
 set -U fish_key_bindings fish_vi_key_bindings
 # source ~/.iterm2_shell_integration.fish
-set PATH (pyenv root)/shims /Users/sysmanj/local/bin /Library/Frameworks/Python.framework/Versions/2.7/bin /System/Library/Frameworks/Python.framework/Versions/2.7/bin /Users/sysmanj/.cargo/bin /usr/local/bin /usr/local/bin /usr/bin /bin /usr/sbin /sbin /usr/local/go/bin /usr/local/MacGPG2/bin /usr/local/sbin $PATH
+set PATH /Users/sysmanj/.pyenv/bin /Users/sysmanj/local/bin /Users/sysmanj/.cargo/bin /usr/local/bin /usr/local/bin /usr/bin /bin /usr/sbin /sbin /usr/local/go/bin /usr/local/MacGPG2/bin /usr/local/sbin $PATH
+eval "pyenv init -"
+eval "pyenv virtualenv-init -"
 set -x RUST_SRC_PATH (rustc --print sysroot)/lib/rustlib/src/rust/src/
 set -x OPENSSL_INCLUDE_DIR (brew --prefix openssl)/include
 set -x SNAPPY_LIB_DIR /usr/local/lib
