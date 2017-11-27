@@ -1,4 +1,4 @@
-export PATH="/Users/sysmanj/.cargo/bin:/usr/local/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/go/bin:/usr/local/MacGPG2/bin:$PATH"
+export PATH="/Users/sysmanj/bin:/Users/sysmanj/.cargo/bin:/usr/local/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/go/bin:/usr/local/MacGPG2/bin:$PATH"
 export TERM="tmux-256color"
 export PATH="/opt/local/bin:/opt/local/sbin:$PATH"
 export PATH="/Users/sysmanj/local/bin:/usr/local/sbin:$PATH"
