@@ -8,6 +8,7 @@ export OPENSSL_INCLUDE_DIR=`brew --prefix openssl`/include
 export OPENSSL_LIB_DIR=`brew --prefix openssl`/lib
 export SNAPPY_LIB_DIR=/usr/local/lib
 export ROCKSDB_LIB_DIR=/usr/local/lib
+export PAGER='vim -R -u ~/.config/nvim/init-psql.vim -'
 
 export PATH="/Users/sysmanj/.pyenv/bin:$PATH"
 eval "$(pyenv init -)"
