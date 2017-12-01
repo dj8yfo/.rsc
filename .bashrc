@@ -1,5 +1,5 @@
 export PATH="/Users/sysmanj/bin:/Users/sysmanj/.cargo/bin:/usr/local/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/go/bin:/usr/local/MacGPG2/bin:$PATH"
-export TERM="tmux-256color"
+export TERM="xterm-256color"
 export PATH="/opt/local/bin:/opt/local/sbin:$PATH"
 export PATH="/Users/sysmanj/local/bin:/usr/local/sbin:$PATH"
 export WORKON_HOME="/Users/sysmanj/Crystal/.env"
@@ -8,7 +8,7 @@ export OPENSSL_INCLUDE_DIR=`brew --prefix openssl`/include
 export OPENSSL_LIB_DIR=`brew --prefix openssl`/lib
 export SNAPPY_LIB_DIR=/usr/local/lib
 export ROCKSDB_LIB_DIR=/usr/local/lib
-export PAGER='vim -R -u ~/.config/nvim/psqlvimrc.vim -'
+export PYTHONPATH="/Users/sysmanj/Crystal/cb-backend"
 
 export PATH="/Users/sysmanj/.pyenv/bin:$PATH"
 eval "$(pyenv init -)"
@@ -27,7 +27,7 @@ alias emacsclient="/Applications/Emacs.app/Contents/MacOS/bin/emacsclient"
 alias vim=nvim
 alias ls='/usr/local/bin/gls --color -h --group-directories-first'
 
-export EDITOR="ec"
+export EDITOR="vim"
 
 export NVM_DIR="$HOME/.nvm"
 # [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
