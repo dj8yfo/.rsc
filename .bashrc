@@ -25,6 +25,8 @@ set -o vi
 eval $(gdircolors -b $HOME/.dircolors)
 alias emacsclient="/Applications/Emacs.app/Contents/MacOS/bin/emacsclient"
 alias vim=nvim
+alias p='pushd'
+alias o='popd'
 alias ls='/usr/local/bin/gls --color -h --group-directories-first'
 
 export EDITOR="vim"
