@@ -25,11 +25,25 @@ set -o vi
 eval $(gdircolors -b $HOME/.dircolors)
 alias emacsclient="/Applications/Emacs.app/Contents/MacOS/bin/emacsclient"
 alias vim=nvim
-alias p='pushd'
-alias o='popd'
+
+function mypushd {
+	pushd "${@}" >/dev/null;
+	dirs -v;
+}
+
+function mypopd {
+	popd "${@}" >/dev/null;
+	dirs -v;
+}
+
+alias d='dirs -v'
+alias c='mypushd'
+alias o='mypopd'
+
 alias ls='/usr/local/bin/gls --color -h --group-directories-first'
 
 export EDITOR="vim"
 
 export NVM_DIR="$HOME/.nvm"
 # [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+p ~/Crystal/cb-backend
