@@ -51,9 +51,9 @@ mypushd ~/.emacs.d/local-configs
 HISTFILE=~/.histfile
 HISTSIZE=1000
 SAVEHIST=1000
-bindkey -v
 
 autoload -U edit-command-line
 zle -N edit-command-line
 bindkey '\C-x\C-e' edit-command-line
 PS1='%m %1d$ '
+bindkey -v
