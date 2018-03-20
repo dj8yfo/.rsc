@@ -1,8 +1,6 @@
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 autoload -U edit-command-line
-zle -N edit-command-line
-bindkey '\C-x\C-e' edit-command-line
 PS1='%m %1d$ '
 
 # Path to your oh-my-zsh installation.
@@ -134,4 +132,7 @@ HISTFILE=~/.histfile
 HISTSIZE=1000
 SAVEHIST=1000
 
+zle -N edit-command-line
+bindkey '\C-x\C-e' edit-command-line
 bindkey -v
+bindkey -M vicmd '/' history-incremental-search-backward
