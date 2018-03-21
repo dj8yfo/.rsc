@@ -127,7 +127,6 @@ alias ls='ls --color -h --group-directories-first'
 
 export EDITOR="nvim"
 
-export NVM_DIR="$HOME/.nvm"
 HISTFILE=~/.histfile
 HISTSIZE=1000
 SAVEHIST=1000
