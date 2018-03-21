@@ -135,4 +135,4 @@ SAVEHIST=1000
 zle -N edit-command-line
 bindkey '\C-x\C-e' edit-command-line
 bindkey -v
-bindkey -M vicmd '/' history-incremental-search-backward
+bindkey '\e/' history-incremental-pattern-search-backward
