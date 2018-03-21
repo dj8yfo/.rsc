@@ -11,3 +11,6 @@ apt-get install ttf-liberation
 
 apt-get install zsh
 wget https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | zsh
+
+cp .bashrc .xinitrc .xmodmap .zprofile .zshrc ~/
+chsh -s `which zsh`
