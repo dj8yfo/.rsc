@@ -136,6 +136,5 @@ bindkey '\C-x\C-e' edit-command-line
 bindkey -v
 bindkey '\e/' history-incremental-pattern-search-backward
 
-export PATH="/home/sysmanj/.pyenv/versions/powerline/bin:$PATH"
-powerline-daemon -q
-. /home/sysmanj/.pyenv/versions/powerline/lib/python3.6/site-packages/powerline/bindings/zsh/powerline.zsh
+/home/sysmanj/.pyenv/versions/powerline/bin/powerline-daemon -q
+#. /home/sysmanj/.pyenv/versions/powerline/lib/python3.6/site-packages/powerline/bindings/zsh/powerline.zsh
