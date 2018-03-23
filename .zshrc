@@ -137,4 +137,5 @@ bindkey -v
 bindkey '\e/' history-incremental-pattern-search-backward
 
 /home/sysmanj/.pyenv/versions/powerline/bin/powerline-daemon -q
-#. /home/sysmanj/.pyenv/versions/powerline/lib/python3.6/site-packages/powerline/bindings/zsh/powerline.zsh
+export POWERLINE_CONFIG_COMMAND=/home/sysmanj/.pyenv/versions/powerline/bin/powerline-config
+#/home/sysmanj/.pyenv/versions/powerline/lib/python3.6/site-packages/powerline/bindings/zsh/powerline.zsh
