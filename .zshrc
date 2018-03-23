@@ -1,15 +1,15 @@
+source ~/.xinitrc
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 autoload -U edit-command-line
 PS1='%m %1d$ '
-
 # Path to your oh-my-zsh installation.
 export ZSH=/home/sysmanj/.oh-my-zsh
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="robbyrussell"
+ZSH_THEME="amuse"
 
 # Set list of themes to load
 # Setting this variable when ZSH_THEME=random
@@ -94,7 +94,7 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-export TERM="xterm-256color"
+export TERM="tmux-256color"
 
 export PATH="/home/sysmanj/.pyenv/bin:$PATH"
 eval "$(pyenv init -)"
@@ -135,3 +135,7 @@ zle -N edit-command-line
 bindkey '\C-x\C-e' edit-command-line
 bindkey -v
 bindkey '\e/' history-incremental-pattern-search-backward
+
+export PATH="/home/sysmanj/.pyenv/versions/powerline/bin:$PATH"
+powerline-daemon -q
+. /home/sysmanj/.pyenv/versions/powerline/lib/python3.6/site-packages/powerline/bindings/zsh/powerline.zsh
