@@ -1,15 +1,14 @@
 source ~/.xinitrc
 # If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
+export PATH=$HOME/bin:/usr/local/bin:$PATH
 autoload -U edit-command-line
 PS1='%m %1d$ '
 # Path to your oh-my-zsh installation.
-export ZSH=/home/sysmanj/.oh-my-zsh
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="amuse"
+ZSH_THEME="gnzh"
 
 # Set list of themes to load
 # Setting this variable when ZSH_THEME=random
@@ -60,11 +59,6 @@ ZSH_THEME="amuse"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(
-  git
-)
-
-source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
@@ -100,9 +94,6 @@ export PATH="/home/sysmanj/.pyenv/bin:$PATH"
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
 
-#export DEP_OPENSSL_INCLUDE=$(brew --prefix openssl)/include
-# MacPorts Installer addition on 2017-03-10_at_13:32:17: adding an appropriate PATH variable for use with MacPorts.
-# Finished adapting your PATH environment variable for use with MacPorts.
 
 # GIT_PROMPT_ONLY_IN_REPO=1
 # source ~/.bash-git-prompt/gitprompt.sh
@@ -122,7 +113,8 @@ function mypopd {
 alias d='dirs -v'
 alias c='mypushd'
 alias o='mypopd'
-
+c  ~
+c  ~/Documents/code/python
 alias ls='ls --color -h --group-directories-first'
 
 export EDITOR="nvim"
@@ -131,11 +123,11 @@ HISTFILE=~/.histfile
 HISTSIZE=1000
 SAVEHIST=1000
 
-zle -N edit-command-line
-bindkey '\C-x\C-e' edit-command-line
-bindkey -v
-bindkey '\e/' history-incremental-pattern-search-backward
 
 /home/sysmanj/.pyenv/versions/powerline/bin/powerline-daemon -q
 export POWERLINE_CONFIG_COMMAND=/home/sysmanj/.pyenv/versions/powerline/bin/powerline-config
 #/home/sysmanj/.pyenv/versions/powerline/lib/python3.6/site-packages/powerline/bindings/zsh/powerline.zsh
+plugins=(git vi-mode dircycle)
+
+export ZSH=/home/sysmanj/.oh-my-zsh
+source $ZSH/oh-my-zsh.sh
