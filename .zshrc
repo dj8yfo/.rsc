@@ -131,3 +131,4 @@ plugins=(git vi-mode dircycle)
 
 export ZSH=/home/sysmanj/.oh-my-zsh
 source $ZSH/oh-my-zsh.sh
+bindkey '^R' history-incremental-search-backward
