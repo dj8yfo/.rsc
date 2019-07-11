@@ -1,14 +1,14 @@
 source ~/.xinitrc
 # If you come from bash you might have to change your $PATH.
-export PATH=$HOME/bin:/usr/local/bin:$PATH
+export PATH=$HOME/bin:/usr/local/bin:/home/sysmanj/Downloads/firefox:$PATH
 autoload -U edit-command-line
 PS1='%m %1d$ '
-# Path to your oh-my-zsh installation.
+#NETKIT_HOME Path to your oh-my-zsh installation.
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="gnzh"
+ZSH_THEME="amuse"
 
 # Set list of themes to load
 # Setting this variable when ZSH_THEME=random
@@ -114,8 +114,9 @@ alias d='dirs -v'
 alias c='mypushd'
 alias o='mypopd'
 c  ~
-c  ~/Documents/code/python
-alias ls='ls --color -h --group-directories-first'
+c  ~/Documents/code/netkit_labs
+alias ls='ls -lah --color  --group-directories-first'
+alias ec='emacsclient -nw  -c -a ""'
 
 export EDITOR="nvim"
 
@@ -132,3 +133,7 @@ plugins=(git vi-mode dircycle)
 export ZSH=/home/sysmanj/.oh-my-zsh
 source $ZSH/oh-my-zsh.sh
 bindkey '^R' history-incremental-search-backward
+
+export NETKIT_HOME=/home/sysmanj/Documents/code/netkit
+export MANPATH=:$NETKIT_HOME/man
+export PATH="$NETKIT_HOME/bin:$PATH"
