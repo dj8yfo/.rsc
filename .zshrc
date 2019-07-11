@@ -113,8 +113,6 @@ function mypopd {
 alias d='dirs -v'
 alias c='mypushd'
 alias o='mypopd'
-c  ~
-c  ~/Documents/code/netkit_labs
 alias ls='ls -lah --color  --group-directories-first'
 alias ec='emacsclient -nw  -c -a ""'
 
