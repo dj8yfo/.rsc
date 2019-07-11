@@ -114,7 +114,9 @@ alias d='dirs -v'
 alias c='mypushd'
 alias o='mypopd'
 alias ls='ls -lah --color  --group-directories-first'
-alias ec='emacsclient -nw  -c -a ""'
+alias et='emacsclient -nw  -c -a ""'
+alias ec='emacsclient -c -a ""'
+alias sudo='sudo '
 
 export EDITOR="nvim"
 
