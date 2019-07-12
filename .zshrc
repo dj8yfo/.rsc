@@ -1,6 +1,7 @@
 source ~/.xinitrc
 # If you come from bash you might have to change your $PATH.
 export PATH=$HOME/bin:/usr/local/bin:/home/sysmanj/Downloads/firefox:$PATH
+export JAVA_HOME=/usr/lib/jvm/jdk1.8.0_211
 autoload -U edit-command-line
 PS1='%m %1d$ '
 #NETKIT_HOME Path to your oh-my-zsh installation.
@@ -118,7 +119,7 @@ alias et='emacsclient -nw  -c -a ""'
 alias ec='emacsclient -c -a ""'
 alias sudo='sudo '
 
-export EDITOR="nvim"
+export EDITOR="et"
 
 HISTFILE=~/.histfile
 HISTSIZE=1000
