@@ -121,6 +121,9 @@ alias sudo='sudo '
 
 export EDITOR='emacsclient -nw  -c -a ""'
 
+export GTAGSCONF=/usr/local/share/gtags/gtags.conf
+export GTAGSLABEL=pygments
+
 HISTFILE=~/.histfile
 HISTSIZE=1000
 SAVEHIST=1000
