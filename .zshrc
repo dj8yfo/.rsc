@@ -119,7 +119,7 @@ alias et='emacsclient -nw  -c -a ""'
 alias ec='emacsclient -c -a ""'
 alias sudo='sudo '
 
-export EDITOR="et"
+export EDITOR='emacsclient -nw  -c -a ""'
 
 HISTFILE=~/.histfile
 HISTSIZE=1000
