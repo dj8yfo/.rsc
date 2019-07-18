@@ -131,7 +131,7 @@ SAVEHIST=1000
 
 
 /home/sysmanj/.pyenv/versions/powerline/bin/powerline-daemon -q
-export POWERLINE_CONFIG_COMMAND=/home/sysmanj/.pyenv/versions/powerline/bin/powerline-config
+export PATH="/home/sysmanj/.pyenv/versions/powerline/bin/:$PATH"
 #/home/sysmanj/.pyenv/versions/powerline/lib/python3.6/site-packages/powerline/bindings/zsh/powerline.zsh
 plugins=(git vi-mode dircycle)
 
