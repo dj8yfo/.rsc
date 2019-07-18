@@ -117,6 +117,7 @@ alias o='mypopd'
 alias ls='ls -lah --color  --group-directories-first'
 alias et='emacsclient -nw  -c -a ""'
 alias ec='emacsclient -c -a ""'
+alias rg='rg -L'
 alias sudo='sudo '
 
 export EDITOR='emacsclient -nw  -c -a ""'
