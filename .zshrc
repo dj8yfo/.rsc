@@ -9,7 +9,7 @@ PS1='%m %1d$ '
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="amuse"
+ZSH_THEME="jnrowe"
 
 # Set list of themes to load
 # Setting this variable when ZSH_THEME=random
@@ -111,9 +111,9 @@ function mypopd {
 	dirs -v;
 }
 
-alias d='dirs -v'
-alias c='mypushd'
-alias o='mypopd'
+# alias d='dirs -v'
+# alias c='mypushd'
+# alias o='mypopd'
 alias ls='ls -lah --color  --group-directories-first'
 alias et='emacsclient -nw  -c -a ""'
 alias ec='emacsclient -c -a ""'
@@ -133,7 +133,9 @@ SAVEHIST=1000
 /home/sysmanj/.pyenv/versions/powerline/bin/powerline-daemon -q
 export PATH="/home/sysmanj/.pyenv/versions/powerline/bin/:$PATH"
 #/home/sysmanj/.pyenv/versions/powerline/lib/python3.6/site-packages/powerline/bindings/zsh/powerline.zsh
-plugins=(git vi-mode dircycle)
+plugins=(colored-man-pages colorize fasd git vi-mode dircycle git-aliases)
+
+eval "$(fasd --init posix-alias zsh-hook zsh-ccomp zsh-ccomp-install zsh-wcomp zsh-wcomp-install)"
 
 export ZSH=/home/sysmanj/.oh-my-zsh
 source $ZSH/oh-my-zsh.sh

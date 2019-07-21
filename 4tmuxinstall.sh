@@ -17,3 +17,5 @@ sudo cp ter*pcf.gz /usr/share/fonts/X11/misc
 sudo mkfontdir /usr/share/fonts/X11/misc
 sudo rm /etc/fonts/conf.d/70-no-bitmaps.conf
 sudo ln -s /etc/fonts/conf.avail/70-yes-bitmaps.conf /etc/fonts/conf.d/70-yes-bitmaps.conf
+sudo apt-get install fasd
+git clone git@github.com:peterhurford/git-aliases.zsh.git ~/.oh-my-zsh/custom/plugins/git-aliases
