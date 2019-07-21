@@ -119,6 +119,7 @@ alias et='emacsclient -nw  -c -a ""'
 alias ec='emacsclient -c -a ""'
 alias rg='rg -L'
 alias sudo='sudo '
+alias ff='f -e fe'
 
 export EDITOR='emacsclient -nw  -c -a ""'
 
