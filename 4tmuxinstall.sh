@@ -19,3 +19,9 @@ sudo rm /etc/fonts/conf.d/70-no-bitmaps.conf
 sudo ln -s /etc/fonts/conf.avail/70-yes-bitmaps.conf /etc/fonts/conf.d/70-yes-bitmaps.conf
 sudo apt-get install fasd
 git clone git@github.com:peterhurford/git-aliases.zsh.git ~/.oh-my-zsh/custom/plugins/git-aliases
+
+chmod +x music.sh
+chmod +x safeeys.sh
+cp music.sh $HOME/
+cp safeeys.sh $HOME/
+cp .tmux-pane.conf $HOME/
