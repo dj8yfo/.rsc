@@ -132,7 +132,7 @@ SAVEHIST=1000
 
 
 /home/sysmanj/.pyenv/versions/powerline/bin/powerline-daemon -q
-export PATH="/home/sysmanj/.pyenv/versions/powerline/bin/:$PATH"
+# export PATH="/home/sysmanj/.pyenv/versions/powerline/bin/:$PATH"
 #/home/sysmanj/.pyenv/versions/powerline/lib/python3.6/site-packages/powerline/bindings/zsh/powerline.zsh
 plugins=(colored-man-pages colorize fasd git vi-mode dircycle git-aliases zsh-completions)
 autoload -U compinit && compinit

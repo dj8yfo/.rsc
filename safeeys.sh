@@ -1,3 +1,4 @@
 #!/bin/sh
 # set -e
-pkill safeeyes ; safeeyes
+sleep 3
+safeeyes

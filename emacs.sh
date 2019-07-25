@@ -1,3 +1,3 @@
 #!/bin/sh
 # set -e
-sleep 4 ; fw ~/Documents
+sleep 6 ; emacs
