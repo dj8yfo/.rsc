@@ -131,9 +131,8 @@ HISTSIZE=1000
 SAVEHIST=1000
 
 
-/home/sysmanj/.pyenv/versions/powerline/bin/powerline-daemon -q
-# export PATH="/home/sysmanj/.pyenv/versions/powerline/bin/:$PATH"
-#/home/sysmanj/.pyenv/versions/powerline/lib/python3.6/site-packages/powerline/bindings/zsh/powerline.zsh
+/home/sysmanj/.pyenv/versions/3.6.4/bin/powerline-daemon -q
+source /home/sysmanj/.pyenv/versions/3.6.4/lib/python3.6/site-packages/powerline/bindings/zsh/powerline.zsh
 plugins=(colored-man-pages colorize fasd git vi-mode dircycle git-aliases zsh-completions)
 autoload -U compinit && compinit
 
@@ -146,3 +145,6 @@ bindkey '^R' history-incremental-search-backward
 export NETKIT_HOME=/home/sysmanj/Documents/code/netkit
 export MANPATH=:$NETKIT_HOME/man
 export PATH="$NETKIT_HOME/bin:$PATH"
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="/home/sysmanj/.sdkman"
+[[ -s "/home/sysmanj/.sdkman/bin/sdkman-init.sh" ]] && source "/home/sysmanj/.sdkman/bin/sdkman-init.sh"
