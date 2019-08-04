@@ -9,7 +9,7 @@ PS1='%m %1d$ '
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME=trapd00r
+ZSH_THEME=flazz
 
 # Set list of themes to load
 # Setting this variable when ZSH_THEME=random
@@ -145,6 +145,7 @@ bindkey '^R' history-incremental-search-backward
 export NETKIT_HOME=/home/sysmanj/Documents/code/netkit
 export MANPATH=:$NETKIT_HOME/man
 export PATH="$NETKIT_HOME/bin:$PATH"
+export ANDROID_SDK_ROOT=/home/sysmanj/Android/Sdk
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="/home/sysmanj/.sdkman"
 [[ -s "/home/sysmanj/.sdkman/bin/sdkman-init.sh" ]] && source "/home/sysmanj/.sdkman/bin/sdkman-init.sh"
