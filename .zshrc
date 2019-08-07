@@ -120,6 +120,8 @@ alias ec='emacsclient -c -a ""'
 alias rg='rg -L'
 alias sudo='sudo '
 alias ff='f -e fe'
+alias tmus='tmux attach-session -t cmus || tmux new-session -A -D -s cmus "$(which cmus)"'
+unset TMUX
 
 export EDITOR='emacsclient -nw  -c -a ""'
 

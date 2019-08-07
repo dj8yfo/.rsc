@@ -1,3 +1,5 @@
 #!/bin/sh
-sleep 3
-parole ~/Music/djent/sort/2019_07_23/ ~/Music/djent/sort/2019_07_21/ ~/Music/djent/sort/2019_07_19/
+/usr/local/bin/tmux new-session -d -s cmus '/usr/bin/cmus'
+sleep 4
+/usr/bin/cmus-remote -C "load ~/.music-current"
+/usr/bin/cmus-remote -p

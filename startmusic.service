@@ -1,0 +1,11 @@
+[Unit]
+Description=cmus
+
+[Service]
+Type=forking
+User=sysmanj
+ExecStart=/home/sysmanj/music.sh
+Environment="HOME=/home/sysmanj" "USERNAME=sysmanj"
+
+[Install]
+WantedBy=multi-user.target
