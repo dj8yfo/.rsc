@@ -120,10 +120,14 @@ alias ec='emacsclient -c -a ""'
 alias rg='rg -L'
 alias sudo='sudo '
 alias ff='f -e fe'
-alias tmus='tmux attach-session -t cmus || tmux new-session -A -D -s cmus "$(which cmus)"'
+alias zmus='tmux attach-session -t cmus || tmux new-session -A -D -s cmus "$(which cmus)"'
 unset TMUX
 
 export EDITOR='emacsclient -nw  -c -a ""'
+function eman ()
+{
+    emacsclient -nw  -c -a "" -e "(man \"$1\")";
+}
 
 export GTAGSCONF=/usr/local/share/gtags/gtags.conf
 export GTAGSLABEL=pygments
@@ -147,6 +151,7 @@ bindkey '^R' history-incremental-search-backward
 export NETKIT_HOME=/home/sysmanj/Documents/code/netkit
 export MANPATH=:$NETKIT_HOME/man
 export PATH="$NETKIT_HOME/bin:$PATH"
+export PATH=~/bin:$PATH
 export ANDROID_SDK_ROOT=/home/sysmanj/Android/Sdk
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="/home/sysmanj/.sdkman"
