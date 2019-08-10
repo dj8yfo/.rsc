@@ -29,7 +29,9 @@ set spoolfile = "+INBOX"
 set postponed="+[Gmail]/Drafts"
 #set record="+[Gmail]/Sent Mail" # Causes duplicates in Gmail
 #set trash="+[Gmail]/Bin" # If disabled, mail will be archived (in Gmail)
-
+set include                               # Include the message in replies.
+set sort_aux=date-received
+set editor='emacsclient -nw -c -a ""'
 ##
 ## GENERIC
 ##
@@ -55,3 +57,13 @@ set date_format="!%a, %b %d, %Y at %I:%M:%S%p %Z"
 # Default index format
 #set index_format="%4C %Z %{%b %d} %-15.15L (%?l?%4l&%4c?) %s"
 set index_format="%4C %Z %{%b %d %H:%M}  %-15.15L (%?l?%4l&%4c?) %s"
+
+set sidebar_visible
+set sidebar_format = "%B%?F? [%F]?%* %?N?%N/?%S"
+set mail_check_stats
+bind index,pager \CP sidebar-prev
+# Ctrl-Shift-P – Previous Mailbox
+bind index,pager \CN sidebar-next
+# Ctrl-Shift-N – Next Mailbox
+bind index,pager \CO sidebar-open
+# Ctrl-Shift-O – Open Highlighted Mailbox

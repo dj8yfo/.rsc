@@ -120,8 +120,12 @@ alias ec='emacsclient -c -a ""'
 alias rg='rg -L'
 alias sudo='sudo '
 alias ff='f -e fe'
-alias zmus='tmux attach-session -t cmus || tmux new-session -A -D -s cmus "$(which cmus)"'
+export CMUS_SOCKET=/home/sysmanj/.config/cmus/socket
+alias zmus='tmux attach-session -t cmus || tmux new-session -A -D -s cmus "$(which cmus) --listen $CMUS_SOCKET"'
+alias stop='cmus-remote --server /home/sysmanj/.config/cmus/socket -u'
+alias play='cmus-remote --server /home/sysmanj/.config/cmus/socket -p'
 unset TMUX
+alias mutt='neomutt'
 
 export EDITOR='emacsclient -nw  -c -a ""'
 function eman ()
