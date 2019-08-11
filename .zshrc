@@ -126,6 +126,9 @@ alias stop='cmus-remote --server /home/sysmanj/.config/cmus/socket -u'
 alias play='cmus-remote --server /home/sysmanj/.config/cmus/socket -p'
 unset TMUX
 alias mutt='neomutt'
+alias notes='firefox /home/sysmanj/Documents/code/tasking/notes-html/notes.html'
+alias push_notes='cd /home/sysmanj/Documents/code/tasking && ./script.sh'
+alias pull_notes='cd /home/sysmanj/Documents/code/tasking && ./pullscript.sh'
 
 export EDITOR='emacsclient -nw  -c -a ""'
 function eman ()
@@ -156,6 +159,8 @@ export NETKIT_HOME=/home/sysmanj/Documents/code/netkit
 export MANPATH=:$NETKIT_HOME/man
 export PATH="$NETKIT_HOME/bin:$PATH"
 export PATH=~/bin:$PATH
+export PATH=/usr/local/texlive/2019/bin/x86_64-linux:$PATH
+
 export ANDROID_SDK_ROOT=/home/sysmanj/Android/Sdk
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="/home/sysmanj/.sdkman"
