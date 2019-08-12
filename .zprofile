@@ -21,3 +21,5 @@ if [ -d "$HOME/bin" ] ; then
     PATH="$HOME/bin:$PATH"
 fi
 source ~/.xinitrc
+
+export PATH="$HOME/.cargo/bin:$PATH"
