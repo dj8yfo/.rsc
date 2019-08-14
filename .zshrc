@@ -129,6 +129,7 @@ alias mutt='neomutt'
 alias notes='firefox /home/sysmanj/Documents/code/tasking/notes-html/notes.html'
 alias push_notes='cd /home/sysmanj/Documents/code/tasking && ./script.sh'
 alias pull_notes='cd /home/sysmanj/Documents/code/tasking && ./pullscript.sh'
+alias go='xdg-open'
 
 export EDITOR='emacsclient -nw  -c -a ""'
 function eman ()
