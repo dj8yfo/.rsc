@@ -117,13 +117,11 @@ function mypopd {
 alias ls='ls -lah --color  --group-directories-first'
 alias et='emacsclient -nw  -c -a ""'
 alias ec='emacsclient -c -a ""'
-alias rg='rg -L'
 alias sudo='sudo '
 alias ff='f -e fe'
 export CMUS_SOCKET=/home/sysmanj/.config/cmus/socket
 alias zmus='tmux attach-session -t cmus || tmux new-session -A -D -s cmus "$(which cmus) --listen $CMUS_SOCKET"'
-alias stop='cmus-remote --server /home/sysmanj/.config/cmus/socket -u'
-alias play='cmus-remote --server /home/sysmanj/.config/cmus/socket -p'
+alias pause='cmus-remote --server /home/sysmanj/.config/cmus/socket -u'
 unset TMUX
 alias mutt='neomutt'
 alias notes='firefox /home/sysmanj/Documents/code/tasking/notes-html/notes.html'
@@ -141,7 +139,7 @@ export GTAGSCONF=/usr/local/share/gtags/gtags.conf
 export GTAGSLABEL=pygments
 
 HISTFILE=~/.histfile
-HISTSIZE=1000
+HISTSIZE=100000
 SAVEHIST=1000
 
 
