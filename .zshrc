@@ -9,7 +9,7 @@ PS1='%m %1d$ '
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME=flazz
+ZSH_THEME=strug
 
 # Set list of themes to load
 # Setting this variable when ZSH_THEME=random
@@ -128,6 +128,7 @@ alias notes='firefox /home/sysmanj/Documents/code/tasking/notes-html/notes.html'
 alias push_notes='cd /home/sysmanj/Documents/code/tasking && ./script.sh'
 alias pull_notes='cd /home/sysmanj/Documents/code/tasking && ./pullscript.sh'
 alias go='xdg-open'
+alias histe='et $HISTFILE'
 
 export EDITOR='emacsclient -nw  -c -a ""'
 function eman ()
