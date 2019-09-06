@@ -129,6 +129,7 @@ alias push_notes='cd /home/sysmanj/Documents/code/tasking && ./script.sh'
 alias pull_notes='cd /home/sysmanj/Documents/code/tasking && ./pullscript.sh'
 alias go='xdg-open'
 alias histe='et $HISTFILE'
+alias ra='ranger'
 
 export EDITOR='emacsclient -nw  -c -a ""'
 function eman ()
