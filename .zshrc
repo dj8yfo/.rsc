@@ -166,3 +166,4 @@ export ANDROID_SDK_ROOT=/home/sysmanj/Android/Sdk
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="/home/sysmanj/.sdkman"
 [[ -s "/home/sysmanj/.sdkman/bin/sdkman-init.sh" ]] && source "/home/sysmanj/.sdkman/bin/sdkman-init.sh"
+zsh /home/sysmanj/Documents/.conf/stat.sh
