@@ -35,7 +35,7 @@ URxvt*transparent: true
 #   some nice listings are at:
 #     http://www.nisrv.com/drupal/?q=node/11
 #     http://www.htmlgoodies.com/tutorials/colors/article.php/3478921
-URxvt*tintColor: Blue
+URxvt*tintColor: olivedrab2
 
 # shading - 0 to 99 darkens, 101 to 200 lightens.
 #   Don't use with tintColor; just use a darker or lighter color instead.
