@@ -60,13 +60,13 @@ URxvt*background: Blue
 #  Fedora/debian packages: bitstream-vera-sans-mono-fonts/ttf-bitstream-vera 
 #URxvt*font: xft:Bitstream Vera Sans Mono:pixelsize=15:antialias=false:hinting=true
 #URxvt*boldFont: xft:Bitstream Vera Sans Mono:bold:pixelsize=15:antialias=false:hinting=true
-URxvt*font: xft:IBM Plex Mono Light-11:pixelsize=17:antialias=false:hinting=true
-URxvt*boldFont: xft:IBM Plex Mono SemiBold-11:pixelsize=17:antialias=false:hinting=true
+#URxvt*font: xft:IBM Plex Mono Light-11:pixelsize=17:antialias=false:hinting=true
+#URxvt*boldFont: xft:IBM Plex Mono SemiBold-11:pixelsize=17:antialias=false:hinting=true
 #
 # Xft: DejaVu fonts
 #  Fedora/debian packages: dejavu-sans-mono-fonts/ttf-dejavu 
-# URxvt*font: xft:DejaVu Sans Mono:pixelsize=12:antialias=true:hinting=true
-# URxvt*boldFont: xft:DejaVu Sans Mono:bold:pixelsize=12:antialias=true:hinting=true
+URxvt*font: xft:DejaVu Sans Mono:pixelsize=15:antialias=false:hinting=true
+URxvt*boldFont: xft:DejaVu Sans Mono:bold:pixelsize=15:antialias=false:hinting=true
 #
 # Xft: Liberation fonts
 #  Fedora/debian packages: liberation-mono-fonts/ttf-liberation
@@ -87,8 +87,6 @@ URxvt*boldFont: xft:IBM Plex Mono SemiBold-11:pixelsize=17:antialias=false:hinti
 #  the following line to your ~/.bashrc ($HOME/.bashrc) file under
 #  the heading "# User specific aliases and functions":
 #   alias ls="ls -h --color=auto"
-URxvt*color4: RoyalBlue
-URxvt*color12: RoyalBlue
 
 # scrollbar - true (default) or false
 URxvt*scrollBar: true
