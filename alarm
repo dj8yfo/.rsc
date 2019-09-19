@@ -1,0 +1,12 @@
+#!/bin/bash
+
+if [ $# -eq  0 ]
+then
+    echo 'no time arg'
+    exit 89
+else
+    echo "all goot , staging alarm at $1"
+fi
+
+
+at $1 -f /usr/local/bin/alarm_clock.sh
