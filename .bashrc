@@ -6,6 +6,8 @@ eval "$(pyenv virtualenv-init -)"
 
 set -o vi
 
+HISTSIZE=100000
+SAVEHIST=1000
 #eval $(gdircolors -b $HOME/.dircolors)
 alias vim=nvim
 
@@ -23,6 +25,11 @@ alias d='dirs -v'
 alias c='mypushd'
 alias o='mypopd'
 
+alias ls='ls -lah --color  --group-directories-first'
+alias et='emacsclient -nw  -c -a ""'
+alias ec='emacsclient -c -a ""'
+alias sudo='sudo '
 alias ls='ls --color -h --group-directories-first'
+alias histe='et $HISTFILE'
 
-export EDITOR="nvim"
+export EDITOR='emacsclient -nw  -c -a ""'
