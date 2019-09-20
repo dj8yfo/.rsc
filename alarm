@@ -1,5 +1,5 @@
 #!/bin/bash
-
+set -v
 if [ $# -eq  0 ]
 then
     echo 'no time arg'
@@ -9,4 +9,4 @@ else
 fi
 
 
-at $1 -f /usr/local/bin/alarm_clock.sh
+at "$1" -f /usr/local/bin/alarm_clock.sh
