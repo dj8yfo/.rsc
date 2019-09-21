@@ -65,8 +65,8 @@ URxvt*background: Blue
 #
 # Xft: DejaVu fonts
 #  Fedora/debian packages: dejavu-sans-mono-fonts/ttf-dejavu 
-URxvt*font: xft:DejaVu Sans Mono:pixelsize=15:antialias=false:hinting=true
-URxvt*boldFont: xft:DejaVu Sans Mono:bold:pixelsize=15:antialias=false:hinting=true
+URxvt*font: xft:Source Code Pro for Powerline:Light:pixelsize=16:antialias=false:hinting=true
+URxvt*boldFont: xft:Source Code Pro for Powerline:Black:pixelsize=16:antialias=false:hinting=true
 #
 # Xft: Liberation fonts
 #  Fedora/debian packages: liberation-mono-fonts/ttf-liberation
