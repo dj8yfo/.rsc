@@ -9,7 +9,7 @@ PS1='%m %1d$ '
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME=strug
+ZSH_THEME=half-life
 
 # Set list of themes to load
 # Setting this variable when ZSH_THEME=random
@@ -114,12 +114,13 @@ function mypopd {
 # alias d='dirs -v'
 # alias c='mypushd'
 # alias o='mypopd'
-alias ls='ls -lah --color  --group-directories-first'
+alias ls='ls -ah --color  --group-directories-first'
 alias et='emacsclient -nw  -c -a ""'
 alias ec='emacsclient -c -a ""'
 alias sudo='sudo '
 alias ff='f -e fe'
 export CMUS_SOCKET=/home/sysmanj/.config/cmus/socket
+export LSCOLORS=
 alias zmus='tmux attach-session -t cmus || tmux new-session -A -D -s cmus "$(which cmus) --listen $CMUS_SOCKET"'
 alias pause='cmus-remote --server /home/sysmanj/.config/cmus/socket -u'
 unset TMUX
@@ -167,3 +168,5 @@ export ANDROID_SDK_ROOT=/home/sysmanj/Android/Sdk
 export SDKMAN_DIR="/home/sysmanj/.sdkman"
 [[ -s "/home/sysmanj/.sdkman/bin/sdkman-init.sh" ]] && source "/home/sysmanj/.sdkman/bin/sdkman-init.sh"
 zsh /home/sysmanj/Documents/.conf/stat.sh
+
+eval $(dircolors -b $HOME/.dircolors)
