@@ -135,7 +135,7 @@ alias ra='ranger'
 export EDITOR='emacsclient -nw  -c -a ""'
 function eman ()
 {
-    emacsclient -nw  -c -a "" -e "(man \"$1\")";
+    emacsclient -nw  -c -a "" -e "(progn (switch-to-buffer (man \"$1\")) (delete-other-windows))";
 }
 
 export GTAGSCONF=/usr/local/share/gtags/gtags.conf
