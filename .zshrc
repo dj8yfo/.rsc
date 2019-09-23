@@ -170,3 +170,5 @@ export SDKMAN_DIR="/home/sysmanj/.sdkman"
 zsh /home/sysmanj/Documents/.conf/stat.sh
 
 eval $(dircolors -b $HOME/.dircolors)
+# wget https://raw.github.com/trapd00r/LS_COLORS/master/LS_COLORS -O $HOME/.dircolors
+# echo 'eval $(dircolors -b $HOME/.dircolors)' >> $HOME/.bashrc
