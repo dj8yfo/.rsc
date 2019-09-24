@@ -172,3 +172,7 @@ zsh /home/sysmanj/Documents/.conf/stat.sh
 eval $(dircolors -b $HOME/.dircolors)
 # wget https://raw.github.com/trapd00r/LS_COLORS/master/LS_COLORS -O $HOME/.dircolors
 # echo 'eval $(dircolors -b $HOME/.dircolors)' >> $HOME/.bashrc
+
+bindkey '^[[1;2D' insert-cycledleft
+bindkey '^[[1;2C' insert-cycledright
+#dircycle bindings for urxvt
