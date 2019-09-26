@@ -35,7 +35,7 @@ URxvt*transparent: true
 #   some nice listings are at:
 #     http://www.nisrv.com/drupal/?q=node/11
 #     http://www.htmlgoodies.com/tutorials/colors/article.php/3478921
-URxvt*tintColor: #900707
+URxvt*tintColor: #999999
 URxvt.cursorColor:  #dc74d1
 URxvt.pointerColor: #dc74d1
 

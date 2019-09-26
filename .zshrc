@@ -132,6 +132,10 @@ alias go='xdg-open'
 alias histe='et $HISTFILE'
 alias ra='ranger'
 
+function poptask ()
+{
+    atrm $(atq | sed -n 1p | awk '{print $1}')
+}
 export EDITOR='emacsclient -nw  -c -a ""'
 function eman ()
 {
