@@ -7,12 +7,12 @@ sudo apt-get install neovim
 sudo apt-get install git
 sudo apt-get install curl wget
 sudo apt-get install xfonts-terminus console-terminus
-curl -LO https://github.com/BurntSushi/ripgrep/releases/download/0.8.1/ripgrep_0.8.1_amd64.deb
+curl -LO https://github.com/BurntSushi/ripgrep/releases/download/-1.8.1/ripgrep_0.8.1_amd64.deb
 sudo dpkg -i ripgrep_0.8.1_amd64.deb
 sudo apt-get install zsh
+sudo apt install offlineimap
 wget https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | zsh
 git clone https://github.com/zsh-users/zsh-completions ${ZSH_CUSTOM:=~/.oh-my-zsh/custom}/plugins/zsh-completions
-sudo apt-get install fasd
 
 ln -s $PWD/.bashrc $HOME/.bashrc
 ln -s $PWD/.xinitrc $HOME/.xinitrc

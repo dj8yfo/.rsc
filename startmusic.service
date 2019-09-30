@@ -3,9 +3,9 @@ Description=cmus
 
 [Service]
 Type=forking
-User=sysmanj
-ExecStart=/home/sysmanj/music.sh
-Environment="HOME=/home/sysmanj" "USERNAME=sysmanj"
+User=hyphen9
+ExecStart=/home/hyphen9/music.sh
+Environment="HOME=/home/hyphen9" "USERNAME=hyphen9"
 
 [Install]
 WantedBy=multi-user.target
