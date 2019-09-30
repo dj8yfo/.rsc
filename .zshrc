@@ -1,6 +1,6 @@
 source ~/.xinitrc
 # If you come from bash you might have to change your $PATH.
-export PATH=$HOME/bin:/usr/local/bin:/home/sysmanj/Downloads/firefox:$PATH
+export PATH=$HOME/bin:/usr/local/bin:$HOME/Downloads/firefox:$PATH
 export JAVA_HOME=/usr/lib/jvm/jdk1.8.0_211
 autoload -U edit-command-line
 PS1='%m %1d$ '
@@ -91,7 +91,7 @@ DISABLE_LS_COLORS="true"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 export TERM="rxvt-256color"
 
-export PATH="/home/sysmanj/.pyenv/bin:$PATH"
+export PATH="$HOME/.pyenv/bin:$PATH"
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
 
@@ -119,15 +119,15 @@ alias et='emacsclient -nw  -c -a ""'
 alias ec='emacsclient -c -a ""'
 alias sudo='sudo '
 alias ff='f -e fe'
-export CMUS_SOCKET=/home/sysmanj/.config/cmus/socket
+export CMUS_SOCKET=$HOME/.config/cmus/socket
 export LSCOLORS=
 alias zmus='tmux attach-session -t cmus || tmux new-session -A -D -s cmus "$(which cmus) --listen $CMUS_SOCKET"'
-alias pause='cmus-remote --server /home/sysmanj/.config/cmus/socket -u'
+alias pause='cmus-remote --server $HOME/.config/cmus/socket -u'
 unset TMUX
 alias mutt='neomutt'
-alias notes='firefox /home/sysmanj/Documents/code/tasking/notes-html/notes.html'
-alias push_notes='cd /home/sysmanj/Documents/code/tasking && ./script.sh'
-alias pull_notes='cd /home/sysmanj/Documents/code/tasking && ./pullscript.sh'
+alias notes='firefox $HOME/Documents/code/tasking/notes-html/notes.html'
+alias push_notes='cd $HOME/Documents/code/tasking && ./script.sh'
+alias pull_notes='cd $HOME/Documents/code/tasking && ./pullscript.sh'
 alias go='xdg-open'
 alias histe='et $HISTFILE'
 alias ra='ranger'
@@ -150,28 +150,28 @@ HISTSIZE=100000
 SAVEHIST=1000
 
 
-/home/sysmanj/.pyenv/versions/3.6.4/bin/powerline-daemon -q
-source /home/sysmanj/.pyenv/versions/3.6.4/lib/python3.6/site-packages/powerline/bindings/zsh/powerline.zsh
+$HOME/.pyenv/versions/3.6.4/bin/powerline-daemon -q
+source $HOME/.pyenv/versions/3.6.4/lib/python3.6/site-packages/powerline/bindings/zsh/powerline.zsh
 plugins=(colored-man-pages colorize fasd git vi-mode dircycle git-aliases zsh-completions)
 autoload -U compinit && compinit
 
 eval "$(fasd --init posix-alias zsh-hook zsh-ccomp zsh-ccomp-install zsh-wcomp zsh-wcomp-install)"
 
-export ZSH=/home/sysmanj/.oh-my-zsh
+export ZSH=$HOME/.oh-my-zsh
 source $ZSH/oh-my-zsh.sh
 bindkey '^R' history-incremental-search-backward
 
-export NETKIT_HOME=/home/sysmanj/Documents/code/netkit
+export NETKIT_HOME=$HOME/Documents/code/netkit
 export MANPATH=:$NETKIT_HOME/man
 export PATH="$NETKIT_HOME/bin:$PATH"
 export PATH=~/bin:$PATH
 export PATH=/usr/local/texlive/2019/bin/x86_64-linux:$PATH
 
-export ANDROID_SDK_ROOT=/home/sysmanj/Android/Sdk
+export ANDROID_SDK_ROOT=$HOME/Android/Sdk
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
-export SDKMAN_DIR="/home/sysmanj/.sdkman"
-[[ -s "/home/sysmanj/.sdkman/bin/sdkman-init.sh" ]] && source "/home/sysmanj/.sdkman/bin/sdkman-init.sh"
-zsh /home/sysmanj/Documents/.conf/stat.sh
+export SDKMAN_DIR="$HOME/.sdkman"
+[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
+zsh $HOME/Documents/.conf/stat.sh
 
 eval $(dircolors -b $HOME/.dircolors)
 # wget https://raw.github.com/trapd00r/LS_COLORS/master/LS_COLORS -O $HOME/.dircolors

@@ -1,6 +1,6 @@
 export TERM="xterm-256color"
 
-export PATH="/home/sysmanj/.pyenv/bin:$PATH"
+export PATH="$HOME/.pyenv/bin:$PATH"
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
 

@@ -1,13 +1,12 @@
 #!/bin/sh
-set -e
+#set -e
 
-add-apt-repository ppa:neovim-ppa/unstable
+sudo add-apt-repository -y ppa:neovim-ppa/unstable
 sudo apt-get update
 sudo apt-get install neovim
-sudo apt-get install task
 sudo apt-get install git
+sudo apt-get install curl wget
 sudo apt-get install xfonts-terminus console-terminus
-sudo apt-get install ttf-liberation
 curl -LO https://github.com/BurntSushi/ripgrep/releases/download/0.8.1/ripgrep_0.8.1_amd64.deb
 sudo dpkg -i ripgrep_0.8.1_amd64.deb
 sudo apt-get install zsh
