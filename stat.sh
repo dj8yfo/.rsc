@@ -9,4 +9,4 @@ printf 'days left till new year: %s\n' $[365 - $(date +%j)]
     who
     uptime
     printf 'days left till new year: %s' $[365 - $(date +%j)]
-} > /home/sysmanj/session.log
+} > $HOME/session.log
