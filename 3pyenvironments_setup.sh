@@ -1,4 +1,6 @@
 #!/bin/sh
+set -e
+set -v
 pyenv install 3.6.4
 pyenv global 3.6.4
 pip install powerline-status
