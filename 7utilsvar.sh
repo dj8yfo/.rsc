@@ -16,3 +16,4 @@ sudo systemctl enable startmusic
 echo 'bind -f common q shell tmux detach' > $HOME/.config/cmus/rc
 
 sudo cp cpdownload /usr/local/bin
+sudo chmod +x /usr/local/bin/cpdownload
