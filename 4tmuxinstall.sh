@@ -17,6 +17,4 @@ sudo rm /etc/fonts/conf.d/70-no-bitmaps.conf
 sudo ln -s /etc/fonts/conf.avail/70-yes-bitmaps.conf /etc/fonts/conf.d/70-yes-bitmaps.conf
 
 popd
-chmod +x music.sh
-cp ./music.sh $HOME/
 cp ./.tmux-pane.conf $HOME/
