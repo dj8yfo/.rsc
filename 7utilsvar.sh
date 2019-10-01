@@ -23,6 +23,7 @@ sudo apt-get install -y xprintidle
 
 ln -s $PWD/safeeyes.sh $HOME/safeeyes.sh
 ls -l $HOME/safeeyes.sh
+cp ./safeeyes.json $HOME/.config/safeeyes/safeeyes.json
 
 sudo ln -s $PWD/safeeyes.service /lib/systemd/system/safeeyes.service
 sudo systemctl start safeeyes
