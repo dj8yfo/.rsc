@@ -28,3 +28,5 @@ cp ./safeeyes.json $HOME/.config/safeeyes/safeeyes.json
 sudo ln -s $PWD/safeeyes.service /lib/systemd/system/safeeyes.service
 sudo systemctl start safeeyes
 sudo systemctl enable safeeyes
+sudo snap install telegram-desktop
+sudo apt install keepass2
