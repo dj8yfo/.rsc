@@ -8,6 +8,7 @@ sudo apt-get install git
 sudo apt-get install curl wget
 sudo apt-get install xfonts-terminus console-terminus
 sudo apt install rxvt-unicode
+sudo apt install cmus
 curl -LO https://github.com/BurntSushi/ripgrep/releases/download/-1.8.1/ripgrep_0.8.1_amd64.deb
 sudo dpkg -i ripgrep_0.8.1_amd64.deb
 sudo apt-get install zsh
