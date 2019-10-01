@@ -1,0 +1,11 @@
+#!/bin/bash
+set -e
+if [ -z "$1" ];
+then
+    echo 'no message arg'
+    exit 3
+fi
+
+git add -A
+git commit -m "$1"
+git push origin

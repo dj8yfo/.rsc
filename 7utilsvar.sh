@@ -30,3 +30,6 @@ sudo systemctl start safeeyes
 sudo systemctl enable safeeyes
 sudo snap install telegram-desktop
 sudo apt install keepass2
+
+sudo cp ./gitpush /usr/local/bin
+sudo chmod +x /usr/local/bin/gitpush
