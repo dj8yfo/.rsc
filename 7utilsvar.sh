@@ -17,3 +17,13 @@ echo 'bind -f common q shell tmux detach' > $HOME/.config/cmus/rc
 
 sudo cp cpdownload /usr/local/bin
 sudo chmod +x /usr/local/bin/cpdownload
+
+sudo apt-get install -y safeeyes
+sudo apt-get install -y xprintidle
+
+ln -s $PWD/safeeyes.sh $HOME/safeeyes.sh
+ls -l $HOME/safeeyes.sh
+
+sudo ln -s $PWD/safeeyes.service /lib/systemd/system/safeeyes.service
+sudo systemctl start safeeyes
+sudo systemctl enable safeeyes
