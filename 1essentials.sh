@@ -8,7 +8,10 @@ sudo apt-get install git
 sudo apt-get install curl wget
 sudo apt-get install xfonts-terminus console-terminus
 sudo apt install rxvt-unicode
-sudo apt install cmus
+sudo apt install cmus vlc
+sudo apt install at
+wget -O  ~/Desktop/alarm_clock_1.wav http://soundbible.com/grab.php\?id\=2176\&type\=wav
+sudo cp alarm_clock.sh alarm /usr/local/bin
 curl -LO https://github.com/BurntSushi/ripgrep/releases/download/-1.8.1/ripgrep_0.8.1_amd64.deb
 sudo dpkg -i ripgrep_0.8.1_amd64.deb
 sudo apt-get install zsh
