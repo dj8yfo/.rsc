@@ -14,3 +14,5 @@ sudo ln -s $PWD/startmusic.service /lib/systemd/system/startmusic.service
 sudo systemctl start startmusic
 sudo systemctl enable startmusic
 echo 'bind -f common q shell tmux detach' > $HOME/.config/cmus/rc
+
+sudo cp cpdownload /usr/local/bin
