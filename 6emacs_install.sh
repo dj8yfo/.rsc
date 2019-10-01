@@ -32,3 +32,10 @@ popd
 emacs --version
 notes_dir=$HOME/Documents/code/tasking
 git clone git@github.com:gisochre/tasking.git $notes_dir
+
+sudo apt-get install -y offlineimap
+sudo apt-get install -y maildir-utils
+sudo apt-get install -y mu4e
+cp .offlineimaprc $HOME/.offlineimaprc
+ln -s $PWD/.authinfo.gpg $HOME/.authinfo.gpg
+mu index
