@@ -136,7 +136,8 @@ function poptask ()
 {
     atrm $(atq | sed -n 1p | awk '{print $1}')
 }
-export EDITOR='emacsclient -nw  -c -a ""'
+#export EDITOR='emacsclient -nw  -c -a ""'
+export EDITOR='nvim'
 function eman ()
 {
     emacsclient -nw  -c -a "" -e "(progn (switch-to-buffer (man \"$1\")) (delete-other-windows))";
