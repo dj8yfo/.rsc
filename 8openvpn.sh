@@ -5,3 +5,5 @@ echo "deb http://build.openvpn.net/debian/openvpn/release/2.4 bionic main" > /et
 sudo apt update
 sudo apt-get install -y openvpn
 sudo apt-get install -y network-manager-openvpn-gnome
+#   https://github.com/NicolasGuilloux/KGet-Integrator
+# awesome download manager
