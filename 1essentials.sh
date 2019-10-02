@@ -25,6 +25,10 @@ sudo update-desktop-database
 popd
 sudo cp ./var-scripts/days-between /usr/local/bin
 sudo chmod +x /usr/local/bin/days-between
+
+sudo cp ./var-scripts/alarmsequence /usr/local/bin
+sudo chmod +x /usr/local/bin/alarmsequence
+
 # sudo add-apt-repository -y ppa:mmstick76/alacritty
 # sudo apt-get install -y alacritty
 rm $HOME/.config/alacritty/alacritty.yml

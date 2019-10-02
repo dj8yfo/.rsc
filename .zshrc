@@ -134,7 +134,7 @@ alias ra='ranger'
 
 function poptask ()
 {
-    atrm $(atq | sed -n 1p | awk '{print $1}')
+    atrm $(atq | sort -k1 -rn | sed -n 1p | awk '{print $1}')
 }
 #export EDITOR='emacsclient -nw  -c -a ""'
 export EDITOR='nvim'

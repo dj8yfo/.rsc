@@ -1,0 +1,15 @@
+#!/bin/bash
+
+if [ -z "$1" -o -z "$2" ];
+then
+	echo 'args absent'
+	echo 'alarmsequence "2019-12-03 05:55" 3'
+	exit 4
+fi
+
+CURRENT=$(date  -d "$1" '+%F %T.%N %Z')
+for ((i=0; i<"$2";i++)); do
+    next=$(date -d"$CURRENT +$i minutes" '+%H:%M %F ')
+echo $next
+alarm "$next"
+done
