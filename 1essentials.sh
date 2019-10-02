@@ -8,8 +8,24 @@ sudo apt-get install git
 sudo apt-get install curl wget tree
 sudo apt-get install xfonts-terminus console-terminus
 sudo apt install -y rxvt-unicode xclip xsel
-sudo add-apt-repository -y ppa:mmstick76/alacritty
-sudo apt-get install -y alacritty
+#rustup
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+softhome=$HOME/Documents/soft
+mkdir -p $softhome
+alacrity_home=$softhome/alacritty
+git clone https://github.com/jwilm/alacritty.git $alacrity_home
+sudo apt-get install -y cmake pkg-config libfreetype6-dev libfontconfig1-dev libxcb-xfixes0-dev
+
+pushd $alacrity_home
+cargo build --release
+sudo cp target/release/alacritty /usr/local/bin # or anywhere else in $PATH
+sudo cp extra/logo/alacritty-term.svg /usr/share/pixmaps/Alacritty.svg
+sudo desktop-file-install extra/linux/alacritty.desktop
+sudo update-desktop-database
+popd
+
+# sudo add-apt-repository -y ppa:mmstick76/alacritty
+# sudo apt-get install -y alacritty
 rm $HOME/.config/alacritty/alacritty.yml
 ln -s $PWD/alacritty.yml $HOME/.config/alacritty/alacritty.yml
 curl -LO https://github.com/BurntSushi/ripgrep/releases/download/-1.8.1/ripgrep_0.8.1_amd64.deb
