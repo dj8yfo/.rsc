@@ -23,7 +23,7 @@ sudo cp extra/logo/alacritty-term.svg /usr/share/pixmaps/Alacritty.svg
 sudo desktop-file-install extra/linux/alacritty.desktop
 sudo update-desktop-database
 popd
-sudo cp days-between /usr/local/bin
+sudo cp ./var-scripts/days-between /usr/local/bin
 sudo chmod +x /usr/local/bin/days-between
 # sudo add-apt-repository -y ppa:mmstick76/alacritty
 # sudo apt-get install -y alacritty

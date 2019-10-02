@@ -32,7 +32,7 @@ Param_Error ()        # Command-line parameters wrong.
   echo "Usage: `basename $0` [M]M/[D]D/YYYY [M]M/[D]D/YYYY"
   echo "       (date must be after 1/3/1600)"
   exit $E_PARAM_ERR
-}  
+}
 
 
 Parse_Date ()                 # Parse date from command-line params.
@@ -41,7 +41,7 @@ Parse_Date ()                 # Parse date from command-line params.
   dm=${1%/**}                 # Day and month.
   day=${dm#*/}
   let "year = `basename $1`"  # Not a filename, but works just the same.
-}  
+}
 
 
 check_date ()                 # Checks for invalid date(s) passed.
@@ -73,7 +73,7 @@ day_index ()          # Gauss' Formula:
   then
     let "month += 12"
     let "year -= 1"
-  fi  
+  fi
 
   let "year -= $REFYR"
   let "indexyr = $year / $CENTURY"
@@ -87,13 +87,13 @@ day_index ()          # Gauss' Formula:
 
   echo $Days
 
-}  
+}
 
 
 calculate_difference ()            # Difference between two day indices.
 {
   let "diff = $1 - $2"             # Global variable.
-}  
+}
 
 
 abs ()                             #  Absolute value
@@ -111,7 +111,7 @@ abs ()                             #  Absolute value
 if [ $# -ne "$ARGS" ]              # Require two command-line params.
 then
   Param_Error
-fi  
+fi
 
 Parse_Date $1
 check_date $day $month $year       #  See if valid date.
