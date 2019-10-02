@@ -2,6 +2,7 @@
 sudo apt-get install -y librsvg2-dev
 sudo apt-get install -y libjpeg8-dev libgif-dev libtiff-dev libgnutls28-dev mailutils
 sudo apt-get install -y libxaw7-dev
+sudo apt-get install -y libxml2-dev
 sudo apt-get install -y wordnet
 dest_d=$HOME/Documents/soft/emacs-install
 mkdir -p $dest_d
@@ -38,4 +39,5 @@ sudo apt-get install -y maildir-utils
 sudo apt-get install -y mu4e
 cp .offlineimaprc $HOME/.offlineimaprc
 ln -s $PWD/.authinfo.gpg $HOME/.authinfo.gpg
+offlineimap
 mu index
