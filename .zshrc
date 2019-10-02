@@ -152,6 +152,7 @@ SAVEHIST=1000
 
 
 $HOME/.pyenv/versions/3.6.4/bin/powerline-daemon -q
+export POWERLINE_CONFIG_COMMAND=$(pyenv which powerline-config)
 source $HOME/.pyenv/versions/3.6.4/lib/python3.6/site-packages/powerline/bindings/zsh/powerline.zsh
 plugins=(colored-man-pages colorize fasd git vi-mode dircycle zsh-completions)
 autoload -U compinit && compinit
