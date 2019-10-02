@@ -89,7 +89,7 @@ DISABLE_LS_COLORS="true"
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-export TERM="rxvt-256color"
+export TERM="xterm-256color"
 
 export PATH="$HOME/.pyenv/bin:$PATH"
 eval "$(pyenv init -)"
