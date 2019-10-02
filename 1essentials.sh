@@ -8,6 +8,10 @@ sudo apt-get install git
 sudo apt-get install curl wget tree
 sudo apt-get install xfonts-terminus console-terminus
 sudo apt install -y rxvt-unicode xclip xsel
+sudo add-apt-repository -y ppa:mmstick76/alacritty
+sudo apt-get install -y alacritty
+rm $HOME/.config/alacritty/alacritty.yml
+ln -s $PWD/alacritty.yml $HOME/.config/alacritty/alacritty.yml
 curl -LO https://github.com/BurntSushi/ripgrep/releases/download/-1.8.1/ripgrep_0.8.1_amd64.deb
 sudo dpkg -i ripgrep_0.8.1_amd64.deb
 sudo apt-get install zsh
