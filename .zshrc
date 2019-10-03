@@ -153,6 +153,22 @@ function prip ()
     ps afux | grep --color=always -C $context "$1"
 }
 
+function prg ()
+{
+    if [ -z "$1" ]; then
+        echo "example: prip 6301 3; prip 6301"
+        return 2
+    fi
+
+    if [ -z "$2" ];
+    then
+        context=3
+    else
+        context="$2"
+    fi
+    ps afx -o ruser,pid,comm | grep --color=always -C $context "$1"
+}
+
 #export EDITOR='emacsclient -nw  -c -a ""'
 export EDITOR='nvim'
 function eman ()
