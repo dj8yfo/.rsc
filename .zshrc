@@ -102,13 +102,13 @@ eval "$(pyenv virtualenv-init -)"
 alias vim=nvim
 
 function mypushd {
-	pushd "${@}" >/dev/null;
-	dirs -v;
+    pushd "${@}" >/dev/null;
+    dirs -v;
 }
 
 function mypopd {
-	popd "${@}" >/dev/null;
-	dirs -v;
+    popd "${@}" >/dev/null;
+    dirs -v;
 }
 
 # alias d='dirs -v'
@@ -136,6 +136,23 @@ function poptask ()
 {
     atrm $(atq | sort -k1 -rn | sed -n 1p | awk '{print $1}')
 }
+
+function prip ()
+{
+    if [ -z "$1" ]; then
+        echo "example: prip 6301 3; prip 6301"
+        return 2
+    fi
+
+    if [ -z "$2" ];
+    then
+        context=3
+    else
+        context="$2"
+    fi
+    ps afux | grep --color=always -C $context "$1"
+}
+
 #export EDITOR='emacsclient -nw  -c -a ""'
 export EDITOR='nvim'
 function eman ()
