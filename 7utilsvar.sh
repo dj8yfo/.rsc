@@ -34,5 +34,12 @@ sudo apt install keepass2
 sudo cp ./gitpush /usr/local/bin
 sudo chmod +x /usr/local/bin/gitpush
 
-sudo apt install taskwarrior
+sudo apt-get install -y taskwarrior cpanminus
 ln -s $HOME/Documents/code/tasking/.task.d $HOME/.task
+ln -s $HOME/Documents/code/tasking/.tasknotes.d $HOME/tasknotes
+
+git clone https://github.com/ValiValpas/taskopen.git /tmp/taskopen
+pushd /tmp/taskopen
+sudo make PREFIX=/usr install
+popd
+sudo cpanm install JSON
