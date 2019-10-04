@@ -29,6 +29,8 @@ sudo chmod +x /usr/local/bin/days-between
 sudo cp ./var-scripts/alarmsequence /usr/local/bin
 sudo chmod +x /usr/local/bin/alarmsequence
 
+sudo cp ./var-scripts/set-bri /usr/local/bin
+sudo chmod +x /usr/local/bin/set-bri
 # sudo add-apt-repository -y ppa:mmstick76/alacritty
 # sudo apt-get install -y alacritty
 rm $HOME/.config/alacritty/alacritty.yml
