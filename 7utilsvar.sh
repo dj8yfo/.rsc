@@ -33,3 +33,6 @@ sudo apt install keepass2
 
 sudo cp ./gitpush /usr/local/bin
 sudo chmod +x /usr/local/bin/gitpush
+
+sudo apt install taskwarrior
+ln -s $HOME/Documents/code/tasking/.task.d $HOME/.task

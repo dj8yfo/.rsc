@@ -131,6 +131,7 @@ alias pull_notes='cd $HOME/Documents/code/tasking && ./pullscript.sh'
 alias go='xdg-open'
 alias histe='et $HISTFILE'
 alias ra='ranger'
+alias atq='atq | sort'
 
 function poptask ()
 {
