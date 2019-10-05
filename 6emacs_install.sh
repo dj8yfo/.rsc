@@ -41,3 +41,5 @@ cp .offlineimaprc $HOME/.offlineimaprc
 ln -s $PWD/.authinfo.gpg $HOME/.authinfo.gpg
 offlineimap
 mu index
+sudo apt-get install -y shellcheck
+pip install bashate
