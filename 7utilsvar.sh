@@ -39,7 +39,12 @@ ln -s $HOME/Documents/code/tasking/.task.d $HOME/.task
 ln -s $HOME/Documents/code/tasking/.tasknotes.d $HOME/tasknotes
 
 git clone https://github.com/ValiValpas/taskopen.git /tmp/taskopen
+rm -rf /tmp/taskopen
 pushd /tmp/taskopen
 sudo make PREFIX=/usr install
 popd
+rm $HOME/.taskrc
+ln -s $PWD/.taskrc $HOME/.taskrc
+rm $HOME/.taskopenrc
+ln -s $PWD/.taskopenrc $HOME/.taskopenrc
 sudo cpanm install JSON
