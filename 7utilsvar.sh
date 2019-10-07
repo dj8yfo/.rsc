@@ -5,7 +5,7 @@ ranger --copy-config=all
 sudo apt install -y cmus vlc
 sudo apt install -y at
 wget -O  ~/Desktop/alarm_clock_1.wav http://soundbible.com/grab.php\?id\=2176\&type\=wav
-sudo cp alarm_clock.sh alarm /usr/local/bin
+sudo cp ./var-scripts/alarm_clock.sh ./var-scripts/alarm /usr/local/bin
 
 chmod +x music.sh
 ln -s $PWD/music.sh $HOME/music.sh
@@ -31,7 +31,7 @@ sudo systemctl enable safeeyes
 sudo snap install telegram-desktop
 sudo apt install keepass2
 
-sudo cp ./gitpush /usr/local/bin
+sudo cp ./var-scripts/gitpush /usr/local/bin
 sudo chmod +x /usr/local/bin/gitpush
 
 sudo apt-get install -y taskwarrior cpanminus

@@ -47,6 +47,6 @@ ln -s $PWD/.xmodmap $HOME/.xmodmap
 ln -s $PWD/.zshrc $HOME/.zshrc
 ln -s $PWD/.zprofile $HOME/.zprofile
 cp better-completion.zsh $HOME/.oh-my-zsh/custom/
-sudo ln -s $PWD/fe /usr/local/bin/fe
-sudo ln -s $PWD/fw /usr/local/bin/fw
+sudo ln -s $PWD/var-scripts/fe /usr/local/bin/fe
+sudo ln -s $PWD/var-scripts/fw /usr/local/bin/fw
 chsh -s `which zsh`

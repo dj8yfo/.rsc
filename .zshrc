@@ -207,7 +207,7 @@ export ANDROID_SDK_ROOT=$HOME/Android/Sdk
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
-zsh $HOME/Documents/.conf/stat.sh
+zsh $HOME/Documents/.conf/var-scripts/stat.sh
 
 eval $(dircolors -b $HOME/.dircolors)
 # wget https://raw.github.com/trapd00r/LS_COLORS/master/LS_COLORS -O $HOME/.dircolors
