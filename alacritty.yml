@@ -102,7 +102,7 @@ tabspaces: 8
 font:
   # Normal (roman) font face
   normal:
-    # -PfEd-Agave-normal-normal-normal-*-15-*-*-*-m-0-iso10646-1 
+    # -PfEd-Agave-normal-normal-normal-*-15-*-*-*-m-0-iso10646-1
     #
     # Default:
     #   - (macOS) Menlo
@@ -115,7 +115,7 @@ font:
 
   # Bold font face
   bold:
-    # -PfEd-Agave-normal-normal-normal-*-15-*-*-*-m-0-iso10646-1 
+    # -PfEd-Agave-normal-normal-normal-*-15-*-*-*-m-0-iso10646-1
     #
     # If the bold family is not specified, it will fall back to the
     # value specified for the normal font.
@@ -136,7 +136,7 @@ font:
     style: Italic
 
   # Point size
-  size: 15.0
+  size: 14.0
 
   # Offset is the extra space around each character. `offset.y` can be thought of
   # as modifying the line spacing, and `offset.x` as modifying the letter spacing.
