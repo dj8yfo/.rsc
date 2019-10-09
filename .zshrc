@@ -9,7 +9,7 @@ PS1='%m %1d$ '
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME=3den
+ZSH_THEME=terminalparty
 
 # Set list of themes to load
 # Setting this variable when ZSH_THEME=random
