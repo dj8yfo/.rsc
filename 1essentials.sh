@@ -45,6 +45,8 @@ ln -s $PWD/.bashrc $HOME/.bashrc
 ln -s $PWD/.xinitrc $HOME/.xinitrc
 ln -s $PWD/.xmodmap $HOME/.xmodmap
 ln -s $PWD/.zshrc $HOME/.zshrc
+
+ln -s $PWD/.dircolors $HOME/.dircolors
 ln -s $PWD/.zprofile $HOME/.zprofile
 cp better-completion.zsh $HOME/.oh-my-zsh/custom/
 sudo ln -s $PWD/var-scripts/fe /usr/local/bin/fe
