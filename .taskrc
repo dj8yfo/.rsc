@@ -28,12 +28,20 @@ include /usr/share/taskwarrior/dark-gray-blue-256.theme
 #include /usr/share/taskwarrior/solarized-dark-256.theme
 #include /usr/share/taskwarrior/solarized-light-256.theme
 #include /usr/share/taskwarrior/no-color.theme
-report.simple.description=Simple list of open tasks by project
-report.simple.columns=id,project,description.count,due,status
-report.simple.labels=ID,Proj,Desc,Due,Status
-report.simple.sort=project+/,entry+
-report.simple.filter=status:pending
+report.links.description=Links list
+report.links.columns=id,start.age,entry.age,depends,priority,project,tags,recur,scheduled.countdown,due.relative,until.remaining,description,urgency
+report.links.filter=+ref
+report.links.labels=ID,Active,Age,Deps,P,Project,Tag,Recur,S,Due,Until,Description,Urg
+report.links.sort=project+/,entry+
+report.next.filter=status:pending +UNBLOCKED -ref
+report.next.sort=entry-,start+
 urgency.user.tag.later.coefficient=-6.0
 urgency.user.project.Home.coefficient=45.0
 urgency.blocking.coefficient=15.0
 search.case.sensitive=no
+uda.reviewed.type=date
+uda.reviewed.label=Reviewed
+report._reviewed.description=Tasksh review report.  Adjust the filter to your needs.
+report._reviewed.columns=uuid
+report._reviewed.sort=reviewed+,modified+
+report._reviewed.filter=( reviewed.none: or reviewed.before:now-6days ) and ( +PENDING or +WAITING )
