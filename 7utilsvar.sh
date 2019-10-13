@@ -4,7 +4,7 @@ ranger --copy-config=all
 
 sudo apt install -y cmus vlc
 sudo apt install -y at
-wget -O  ~/Desktop/alarm_clock_1.wav http://soundbible.com/grab.php\?id\=2176\&type\=wav
+wget -O  ~/Desktop/alarm_clock_1.wav https://soundbible.com/grab.php?id=1477&type=wav
 sudo cp ./var-scripts/alarm_clock.sh ./var-scripts/alarm /usr/local/bin
 
 chmod +x music.sh
