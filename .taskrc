@@ -35,6 +35,7 @@ report.links.labels=ID,Active,Age,Deps,P,Project,Tag,Recur,S,Due,Until,Descripti
 report.links.sort=project+/,entry+
 report.next.filter=status:pending +UNBLOCKED -ref -background (-grand and -subtask or +next) -irrelevant
 report.next.sort=entry-,start+
+report.next.columns=id,start.age,entry.age,depends,priority,project,tags,recur,scheduled.countdown,due.relative,until.remaining,description.truncated,urgency
 urgency.user.tag.later.coefficient=-6.0
 urgency.user.project.Home.coefficient=45.0
 urgency.blocking.coefficient=15.0
