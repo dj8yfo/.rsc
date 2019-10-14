@@ -12,3 +12,4 @@ tar -xjSf netkit-kernel-i386-K2.8.tar.bz2
 mv ./netkit $NETKIT_HOME
 popd
 rm -rf $dest
+sudo apt-get install -y graphviz
