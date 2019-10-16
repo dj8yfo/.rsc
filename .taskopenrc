@@ -1,5 +1,5 @@
 
-#BROWSER='xdg-open $FILE &>/dev/null'
+BROWSER='firefox $FILE &>/dev/null'
 #EDITOR='vim'
 #FILE_CMD='xdg-open'
 TASKBIN='task'
@@ -13,11 +13,11 @@ NOTES_FOLDER="$HOME/tasknotes/"
 NOTES_EXT=".txt"
 
 # Path to notes file. UUID will be replaced with the actual uuid of
-# the task. If NOTES_CMD 
+# the task. If NOTES_CMD
 # Default is: ${NOTES_FOLDER}UUID${NOTES_EXT}
 #NOTES_FILE="$HOME/tasknotes/UUID.txt"
 
-# Command that opens notes. UUID will be replaced with the actual uuid of 
+# Command that opens notes. UUID will be replaced with the actual uuid of
 # the task.
 # Default is: $EDITOR $NOTES_FILE
 #NOTES_CMD="vim "$HOME/tasknotes/$UUID.txt""
@@ -40,7 +40,7 @@ PATH_EXT=/usr/share/taskopen/scripts
 
 # Regular expression that referes to the NOTES_FILE.
 # Default is: Notes
-#NOTES_REGEX="Notes" 
+#NOTES_REGEX="Notes"
 
 # Regular expression that identifies annotations openable by BROWSER.
 # Default is: www|http
@@ -66,6 +66,6 @@ PATH_EXT=/usr/share/taskopen/scripts
 #NO_ANNOTATION_HOOK=addnote
 
 # Make additional taskwarrior attributes available as sort keys and environment variables.
-# E.g. TASK_ATTRIBUTES="project,tags" allows to sort by "task_project" or "task_tags" and to use 
+# E.g. TASK_ATTRIBUTES="project,tags" allows to sort by "task_project" or "task_tags" and to use
 # "$TASK_PROJECT" or "$TASK_TAGS" within your (custom) commands.
 #TASK_ATTRIBUTES=""

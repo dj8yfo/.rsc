@@ -195,7 +195,6 @@ eval "$(fasd --init posix-alias zsh-hook zsh-ccomp zsh-ccomp-install zsh-wcomp z
 
 export ZSH=$HOME/.oh-my-zsh
 source $ZSH/oh-my-zsh.sh
-bindkey '^R' history-incremental-search-backward
 
 export NETKIT_HOME=$HOME/Documents/code/netkit
 export MANPATH=:$NETKIT_HOME/man
@@ -214,6 +213,7 @@ eval $(dircolors -b $HOME/.dircolors)
 # echo 'eval $(dircolors -b $HOME/.dircolors)' >> $HOME/.bashrc
 set -o emacs
 
+bindkey '^R' history-incremental-search-backward
 bindkey '^[[1;6D' insert-cycledleft
 bindkey '^[[1;6C' insert-cycledright
 #dircycle bindings for urxvt
