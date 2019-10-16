@@ -4,7 +4,7 @@ export PATH="$HOME/.pyenv/bin:$PATH"
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
 
-set -o vi
+set -o emacs
 
 shopt -s cdspell
 shopt -s cdable_vars

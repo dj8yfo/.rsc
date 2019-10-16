@@ -138,6 +138,8 @@ font:
   # Point size
   size: 12.0
 
+  # antialias: none
+
   # Offset is the extra space around each character. `offset.y` can be thought of
   # as modifying the line spacing, and `offset.x` as modifying the letter spacing.
   offset:
@@ -271,7 +273,7 @@ colors:
 # Specifying a `duration` of `0` will disable the visual bell.
 visual_bell:
   animation: EaseOutExpo
-  duration: 400
+  duration: 0
   color: '0xffffff'
 
 # Background opacity

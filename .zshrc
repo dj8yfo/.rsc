@@ -9,7 +9,7 @@ PS1='%m %1d$ '
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME=terminalparty
+ZSH_THEME=sorin
 
 # Set list of themes to load
 # Setting this variable when ZSH_THEME=random
@@ -189,7 +189,7 @@ $HOME/.pyenv/versions/3.6.4/bin/powerline-daemon -q
 export POWERLINE_CONFIG_COMMAND=$(pyenv which powerline-config)
 source $HOME/.pyenv/versions/3.6.4/lib/python3.6/site-packages/powerline/bindings/zsh/powerline.zsh
 plugins=(colored-man-pages colorize fasd git vi-mode dircycle zsh-completions)
-autoload -U compinit && compinit
+# autoload -U compinit && compinit
 
 eval "$(fasd --init posix-alias zsh-hook zsh-ccomp zsh-ccomp-install zsh-wcomp zsh-wcomp-install)"
 
@@ -212,7 +212,8 @@ export SCR_SAVE_FILE=$HOME/.scripts-run
 eval $(dircolors -b $HOME/.dircolors)
 # wget https://raw.github.com/trapd00r/LS_COLORS/master/LS_COLORS -O $HOME/.dircolors
 # echo 'eval $(dircolors -b $HOME/.dircolors)' >> $HOME/.bashrc
+set -o emacs
 
-bindkey '^[[1;2D' insert-cycledleft
-bindkey '^[[1;2C' insert-cycledright
+bindkey '^[[1;6D' insert-cycledleft
+bindkey '^[[1;6C' insert-cycledright
 #dircycle bindings for urxvt
