@@ -188,9 +188,9 @@ SAVEHIST=1000
 $HOME/.pyenv/versions/3.6.4/bin/powerline-daemon -q
 export POWERLINE_CONFIG_COMMAND=$(pyenv which powerline-config)
 source $HOME/.pyenv/versions/3.6.4/lib/python3.6/site-packages/powerline/bindings/zsh/powerline.zsh
-ZSH_COLORIZE_STYLE="solarized-dark"
+ZSH_COLORIZE_STYLE="emacs"
 plugins=(colored-man-pages colorize fasd git vi-mode dircycle zsh-completions colorize)
-# autoload -U compinit && compinit
+autoload -U compinit && compinit
 
 eval "$(fasd --init posix-alias zsh-hook zsh-ccomp zsh-ccomp-install zsh-wcomp zsh-wcomp-install)"
 
