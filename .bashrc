@@ -5,6 +5,8 @@ eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
 
 set -o emacs
+bind 'set mark-modified-lines on'
+
 
 shopt -s cdspell
 shopt -s cdable_vars
