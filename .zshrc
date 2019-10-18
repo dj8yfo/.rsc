@@ -217,5 +217,9 @@ set -o emacs
 bindkey '^R' history-incremental-search-backward
 bindkey '^[[1;6D' insert-cycledleft
 bindkey '^[[1;6C' insert-cycledright
-bindkey "^[/" where-is
+bindkey "\e/" where-is
+bindkey "\ep" history-beginning-search-backward
+bindkey "\en" history-beginning-search-forward
+bindkey "\ev" visual-mode
+bindkey -s '\C-xb' bindkey
 #dircycle bindings for urxvt
