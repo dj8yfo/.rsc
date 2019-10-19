@@ -1,7 +1,7 @@
 
 BROWSER='firefox $FILE &>/dev/null'
 #EDITOR='vim'
-#FILE_CMD='xdg-open'
+FILE_CMD='echo'
 TASKBIN='task'
 
 # If you sync tasks NOTES_FOLDER should be a location that syncs and is available to
