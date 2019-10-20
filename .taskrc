@@ -48,3 +48,5 @@ report._reviewed.sort=reviewed+,modified+
 report._reviewed.filter=( reviewed.none: or reviewed.before:now-6days ) and ( +PENDING or +WAITING )
 
 color.tag.next=rgb435
+color.due=rgb004
+color.due.today=rgb040

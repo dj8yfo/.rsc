@@ -132,6 +132,8 @@ alias go='xdg-open'
 alias histe='et $HISTFILE'
 alias ra='ranger'
 alias atq='atq | sort'
+alias t='task'
+alias to='taskopen'
 
 function poptask ()
 {
