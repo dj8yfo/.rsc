@@ -224,4 +224,6 @@ bindkey "\ep" history-beginning-search-backward
 bindkey "\en" history-beginning-search-forward
 bindkey "\ev" visual-mode
 bindkey -s '\C-xb' bindkey
+bindkey  '\C-r' history-incremental-pattern-search-backward
+bindkey  '\C-s' history-incremental-pattern-search-forward
 #dircycle bindings for urxvt

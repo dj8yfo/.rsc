@@ -50,3 +50,4 @@ report._reviewed.filter=( reviewed.none: or reviewed.before:now-6days ) and ( +P
 color.tag.next=rgb435
 color.due=rgb004
 color.due.today=rgb040
+color.active=rgb555 on rgb013
