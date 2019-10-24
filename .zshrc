@@ -9,7 +9,7 @@ PS1='%m %1d$ '
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME=gnzh
+ZSH_THEME=jbergantine
 
 # Set list of themes to load
 # Setting this variable when ZSH_THEME=random
@@ -214,16 +214,51 @@ export SCR_SAVE_FILE=$HOME/.scripts-run
 eval $(dircolors -b $HOME/.dircolors)
 # wget https://raw.github.com/trapd00r/LS_COLORS/master/LS_COLORS -O $HOME/.dircolors
 # echo 'eval $(dircolors -b $HOME/.dircolors)' >> $HOME/.bashrc
-set -o emacs
 
-bindkey '^R' history-incremental-search-backward
-bindkey '^[[1;6D' insert-cycledleft
-bindkey '^[[1;6C' insert-cycledright
-bindkey "\e/" where-is
-bindkey "\ep" history-beginning-search-backward
-bindkey "\en" history-beginning-search-forward
-bindkey "\ev" visual-mode
-bindkey -s '\C-xb' bindkey
-bindkey  '\C-r' history-incremental-pattern-search-backward
-bindkey  '\C-s' history-incremental-pattern-search-forward
+function toggle_bindings()
+{
+    if bindkey -lL main | grep emacs >& /dev/null; then
+        echo "vim bindings (hybrid)"
+        bindkey -v
+    else
+        echo "emacs bindings"
+        bindkey -e
+    fi
+}
+zle -N toggle_bindings
+function multi_bind()
+{
+    bindkey -M emacs $*
+    bindkey -M viins $*
+    bindkey -M vicmd $*
+}
+multi_bind "\e'" toggle_bindings
+
+multi_bind  '\C-r' history-incremental-pattern-search-backward
+multi_bind  '\C-s' history-incremental-pattern-search-forward
+
+multi_bind "\e/" where-is
+multi_bind "\ep" history-beginning-search-backward
+multi_bind "\en" history-beginning-search-forward
+multi_bind "\eb" backward-word
+multi_bind "\ef" forward-word
+multi_bind "\ed" kill-word
+multi_bind "\C-w" backward-kill-word
+multi_bind "\C-_" undo
+multi_bind "\C-h" backward-delete-char
+multi_bind "\C-d" delete-char-or-list
+multi_bind "\C-b" backward-char
+multi_bind "\C-f" forward-char
+multi_bind "\C-a" beginning-of-line
+multi_bind "\C-e" end-of-line
+multi_bind "\C-k" kill-line
+multi_bind "\C-p" up-line-or-history
+multi_bind "\C-n" down-line-or-history
+bindkey -M emacs "\ev" visual-mode
+bindkey -M viins "\ev" visual-mode
+multi_bind '^[[1;6D' insert-cycledleft
+multi_bind '^[[1;6C' insert-cycledright
 #dircycle bindings for urxvt
+
+bindkey -v
+echo "vim (insert hybrid) bindings"
