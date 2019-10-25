@@ -254,8 +254,10 @@ multi_bind "\C-e" end-of-line
 multi_bind "\C-k" kill-line
 multi_bind "\C-p" up-line-or-history
 multi_bind "\C-n" down-line-or-history
-bindkey -M emacs "\ev" visual-mode
-bindkey -M viins "\ev" visual-mode
+multi_bind "\C-y" yank
+multi_bind "\ey" yank-pop
+multi_bind "\ev" visual-mode
+multi_bind "\ew" copy-region-as-kill
 multi_bind '^[[1;6D' insert-cycledleft
 multi_bind '^[[1;6C' insert-cycledright
 #dircycle bindings for urxvt
