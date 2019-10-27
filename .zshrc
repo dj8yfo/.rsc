@@ -255,6 +255,7 @@ multi_bind "\C-k" kill-line
 multi_bind "\C-p" up-line-or-history
 multi_bind "\C-n" down-line-or-history
 multi_bind "\C-y" yank
+multi_bind "\C-G" send-break
 multi_bind "\ey" yank-pop
 multi_bind "\ev" visual-mode
 multi_bind "\ew" copy-region-as-kill
