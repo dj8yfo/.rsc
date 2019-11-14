@@ -48,3 +48,6 @@ ln -s $PWD/.taskrc $HOME/.taskrc
 rm $HOME/.taskopenrc
 ln -s $PWD/.taskopenrc $HOME/.taskopenrc
 sudo cpanm install JSON
+
+pip install taskwarrior-time-tracking-hook
+ln -s $(pyenv which taskwarrior_time_tracking_hook) $HOME/.task/hooks/on-modify.timetracking

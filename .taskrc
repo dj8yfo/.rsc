@@ -17,25 +17,31 @@ data.location=~/.task
 #include /usr/share/taskwarrior/light-16.theme
 #include /usr/share/taskwarrior/light-256.theme
 #include /usr/share/taskwarrior/dark-16.theme
-include /usr/share/taskwarrior/dark-256.theme
+#include /usr/share/taskwarrior/dark-256.theme
 #include /usr/share/taskwarrior/dark-red-256.theme
 #include /usr/share/taskwarrior/dark-green-256.theme
 #include /usr/share/taskwarrior/dark-blue-256.theme
 #include /usr/share/taskwarrior/dark-violets-256.theme
 #include /usr/share/taskwarrior/dark-yellow-green.theme
 #include /usr/share/taskwarrior/dark-gray-256.theme
-#include /usr/share/taskwarrior/dark-gray-blue-256.theme
+include /usr/share/taskwarrior/dark-gray-blue-256.theme
 #include /usr/share/taskwarrior/solarized-dark-256.theme
 #include /usr/share/taskwarrior/solarized-light-256.theme
 #include /usr/share/taskwarrior/no-color.theme
+
+uda.totalactivetime.type=duration
+uda.totalactivetime.label=Total active time
+uda.totalactivetime.values=
+
 report.links.description=Links list
 report.links.columns=id,start.age,entry.age,depends,priority,project,tags,recur,scheduled.countdown,due.relative,until.remaining,description,urgency
 report.links.filter=+ref
 report.links.labels=ID,Active,Age,Deps,P,Project,Tag,Recur,S,Due,Until,Description,Urg
 report.links.sort=project+/,entry+
 report.next.filter=status:pending +UNBLOCKED -ref (-grand and -subtask or +next) -irrelevant
-report.next.sort=entry-,start+/
-report.next.columns=id,start.age,entry.age,depends,priority,project,tags,recur,scheduled.countdown,due.relative,until.remaining,description.combined,urgency
+report.next.sort=project+,entry-,start+/
+report.next.columns=id,totalactivetime,start.age,entry.age,depends,priority,project,tags,recur,scheduled.countdown,due.relative,until.remaining,description.combined,urgency
+report.next.labels=ID,SPENT_ON,Active,Age,Deps,P,Project,Tag,Recur,S,Due,Until,Description,Urg
 urgency.user.tag.later.coefficient=-6.0
 urgency.user.project.Home.coefficient=45.0
 urgency.blocking.coefficient=15.0
@@ -47,7 +53,11 @@ report._reviewed.columns=uuid
 report._reviewed.sort=reviewed+,modified+
 report._reviewed.filter=( reviewed.none: or reviewed.before:now-6days ) and ( +PENDING or +WAITING )
 
-color.tag.next=rgb435
+color.tag.next=rgb555
+color.tag.background=rgb015
 color.due=rgb004
 color.due.today=rgb040
 color.active=rgb555 on rgb013
+
+color.footnote=color5
+color.tagged=blue
