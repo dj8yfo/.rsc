@@ -1,5 +1,6 @@
 #!/bin/bash
 set -e
+echo 'Alacritty install start'
 softhome=$HOME/Documents/soft
 alacrity_home=$softhome/alacritty
 git clone https://github.com/jwilm/alacritty.git $alacrity_home
