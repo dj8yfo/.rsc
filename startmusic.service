@@ -5,7 +5,7 @@ Description=cmus
 Type=forking
 User=hypen9
 ExecStart=/home/hypen9/music.sh
-Environment="HOME=/home/hypen9" "USERNAME=hypen9" "POWERLINE_CONFIG_COMMAND=/home/hypen9/.pyenv/versions/3.6.4/bin/powerline-config"
+Environment="HOME=/home/hypen9" "USERNAME=hypen9" "POWERLINE_CONFIG_COMMAND=/home/hypen9/.pyenv/versions/3.8.0b4/bin/powerline-config"
 
 [Install]
 WantedBy=multi-user.target
