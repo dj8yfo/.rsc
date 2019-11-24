@@ -23,7 +23,7 @@ pushd $sylbnr_home
 git checkout develop
 rm -rf private
 my_spacemacs=$HOME/Documents/.spacemacs
-git clone git@github.com:gisochre/.spacemacs.git $my_spacemacs
+git clone git@github.com:dj8yfo/.spacemacs.git $my_spacemacs
 ln -s $my_spacemacs/private $sylbnr_home/private
 ln -s $my_spacemacs/.spacemacs $HOME/.spacemacs
 echo "LINKS established:"
@@ -32,7 +32,7 @@ ls -l $HOME/.spacemacs
 popd
 emacs --version
 notes_dir=$HOME/Documents/code/tasking
-git clone git@github.com:gisochre/tasking.git $notes_dir
+git clone git@github.com:dj8yfo/tasking.git $notes_dir
 
 sudo cp ./var-scripts/wd /usr/local/bin
 sudo chmod +x /usr/local/bin/wd
@@ -46,3 +46,6 @@ offlineimap
 mu index
 sudo apt-get install -y shellcheck
 pip install bashate
+
+mkdir -p $HOME/.docsets
+wget -O $HOME/.docsets/C.tgz http://tokyo.kapeli.com/feeds/C.tgz
