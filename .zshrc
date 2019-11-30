@@ -9,7 +9,7 @@ PS1='%m %1d$ '
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME=jbergantine
+ZSH_THEME=re5et
 
 # Set list of themes to load
 # Setting this variable when ZSH_THEME=random
@@ -140,7 +140,15 @@ alias t='task'
 alias to='taskopen'
 alias active='task +ACTIVE'
 alias book='task audio links'
-alias real='task proj:energy'
+alias buzz='task +alarm'
+alias abst='task context abstract'
+alias real='task context none'
+alias tsum='timew summary'
+alias kiss='cvlc $HOME/Documents/code/KissFM.m3u'
+function notes_compile ()
+{
+    emacs -batch --eval "(progn (require 'ox-html)(load-file \"/home/hypen9/Documents/.spacemacs/private/my-basic/notes.el\")(export-notes-to-html))"
+}
 function te ()
 {
     task "$*" edit

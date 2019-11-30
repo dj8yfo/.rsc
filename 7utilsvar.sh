@@ -4,7 +4,8 @@ ranger --copy-config=all
 
 sudo apt install -y cmus vlc
 sudo apt install -y at
-wget -O  ~/Desktop/alarm_clock_1.wav https://soundbible.com/grab.php?id=1477&type=wav
+cp ./var-scripts/alarm_clock_1.mp3 $HOME/Desktop/
+# wget -O  ~/Desktop/alarm_clock_1.wav https://soundbible.com/grab.php?id=1477&type=wav
 sudo cp ./var-scripts/alarm_clock.sh ./var-scripts/alarm /usr/local/bin
 
 chmod +x music.sh
@@ -29,13 +30,15 @@ sudo ln -s $PWD/safeeyes.service /lib/systemd/system/safeeyes.service
 sudo systemctl start safeeyes
 sudo systemctl enable safeeyes
 sudo snap install telegram-desktop
-sudo apt install keepass2
+sudo apt-get install -y install keepass2
 
 sudo cp ./var-scripts/gitpush /usr/local/bin
 sudo chmod +x /usr/local/bin/gitpush
 
 sudo apt-get install -y taskwarrior cpanminus
+rm -rf $HOME/.task
 ln -s $HOME/Documents/code/tasking/.task.d $HOME/.task
+rm -rf $HOME/tasknotes
 ln -s $HOME/Documents/code/tasking/.tasknotes.d $HOME/tasknotes
 
 git clone https://github.com/ValiValpas/taskopen.git /tmp/taskopen
@@ -51,3 +54,23 @@ sudo cpanm install JSON
 
 pip install taskwarrior-time-tracking-hook
 ln -s $(pyenv which taskwarrior_time_tracking_hook) $HOME/.task/hooks/on-modify.timetracking
+ln -s $PWD/var-scripts/on-add-emacs-schedule.py $HOME/.task/hooks/on-add-emacs-schedule.py
+chmod +x $HOME/.task/hooks/on-add-emacs-schedule.py
+
+ln -s $PWD/var-scripts/on-add-alarm-push.py $HOME/.task/hooks/on-add-alarm-push.py
+chmod +x $HOME/.task/hooks/on-add-alarm-push.py
+
+sudo apt-get install -y timewarrior
+rm -rf $HOME/.timewarrior
+ln -s $HOME/Documents/code/tasking/.timewarrior.d/ $HOME/.timewarrior
+pushd /tmp
+curl -O https://taskwarrior.org/download/timew-1.1.1.tar.gz
+tar -xf timew-1.1.1.tar.gz
+pushd timew-1.1.1
+cp ext/on-modify.timewarrior ~/.task/hooks
+chmod +x ~/.task/hooks/on-modify.timewarrior
+popd
+popd
+
+# http://rvm.io/ - this helped ))
+sudo gem install taskwarrior-web

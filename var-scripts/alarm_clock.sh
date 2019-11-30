@@ -1,9 +1,16 @@
 #!/bin/bash
-cmus-remote --server $HOME/.config/cmus/socket -s
-for i in $(seq 7);
+task +alarm
+if cmus-remote --server $HOME/.config/cmus/socket -C status | grep -w playing;
+then
+    stat=playing
+else
+    stat=stopped
+fi
+[ $stat = "playing" ] && cmus-remote --server $HOME/.config/cmus/socket -u
+for i in $(seq 1);
 do
-    cvlc ~/Desktop/alarm_clock_1.wav vlc://quit
+    cvlc ~/Desktop/alarm_clock_1.mp3 vlc://quit
     vlc vlc://quit
 done
-
-cmus-remote --server $HOME/.config/cmus/socket -p
+[ $stat = "playing" ] && cmus-remote --server $HOME/.config/cmus/socket -u
+task +alarm

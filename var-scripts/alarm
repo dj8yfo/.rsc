@@ -10,3 +10,5 @@ fi
 
 
 at "$1" -f /usr/local/bin/alarm_clock.sh
+# (cat /usr/local/bin/alarm_clock.sh; echo "zenity --info --text \"$desc\"") | at "$1"
+task +alarm
