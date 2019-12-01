@@ -3,9 +3,11 @@ set -e
 if [ -z "$1" ];
 then
     echo 'no message arg'
-    exit 3
+    arg=$(date +\"%Y-%m-%d:%H-%M\")
+else
+    arg="$1"
 fi
 
 git add -A
-git commit -m "$1"
+git commit -m "$arg"
 git push origin

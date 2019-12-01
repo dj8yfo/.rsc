@@ -130,7 +130,7 @@ alias prev='cmus-remote --server $HOME/.config/cmus/socket -r'
 unset TMUX
 alias mutt='neomutt'
 alias notes='firefox $HOME/Documents/code/tasking/notes-html/notes.html'
-alias push_notes='cd $HOME/Documents/code/tasking && ./script.sh'
+alias launch='cd $HOME/Documents/code/tasking && gitpush'
 alias pull_notes='cd $HOME/Documents/code/tasking && ./pullscript.sh'
 alias go='xdg-open'
 alias histe='et $HISTFILE'
