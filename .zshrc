@@ -285,3 +285,28 @@ multi_bind '^[[1;6C' insert-cycledright
 
 bindkey -v
 echo "vim (insert hybrid) bindings"
+
+function dance(){
+    bf=/home/hypen9/Documents/code/tasking/.tasknotes.d/2896ed34-be60-4650-84b8-f7240ad6e871.txt
+    logf=$HOME/.dance-log
+    ue=$(sed '1q;d' $bf)
+    na=$(sed '2q;d' $bf)
+    de=$(sed '3q;d' $bf)
+    sp=$(sed '4q;d' $bf)
+    ra=$(sed '5q;d' $bf)
+
+    tot=$(echo "scale=3; $ue*$ra+$na-$de" | bc)
+    echo "----------" | tee -a $logf | cat -
+    echo "totals: $tot" | tee -a $logf | cat -
+    le=$(echo "scale=3; $tot/$sp*30" | bc)
+    echo "days: $le" | tee -a $logf | cat -
+    cu=$(date -u '+%F %T')
+    cur=$(date -u '+%F %T.%N %Z')
+    echo $cu | tee -a $logf | cat -
+    ro=$(echo "($le+0.5)/1" | bc)
+    ne=$(date -d"$cur +$ro days" '+%F %T');
+    echo | tee -a $logf | cat -
+    echo "eow: $ne" | tee -a $logf | cat -
+    echo -e "----------\n" | tee -a $logf | cat -
+
+}
