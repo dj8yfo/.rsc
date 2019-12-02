@@ -92,8 +92,10 @@ DISABLE_LS_COLORS="true"
 export TERM="xterm-256color"
 
 export PATH="$HOME/.pyenv/bin:$PATH"
+export PATH="$HOME/.local/bin:$PATH"
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
+export PIPENV_VENV_IN_PROJECT=1
 
 
 # GIT_PROMPT_ONLY_IN_REPO=1
@@ -202,6 +204,7 @@ source $HOME/.pyenv/versions/3.8.0b4/lib/python3.8/site-packages/powerline/bindi
 export ZSH_COLORIZE_STYLE='stata-dark'
 plugins=(colored-man-pages colorize fasd git vi-mode dircycle zsh-completions colorize)
 autoload -U compinit && compinit
+eval "$(pipenv --completion)"
 
 eval "$(fasd --init posix-alias zsh-hook zsh-ccomp zsh-ccomp-install zsh-wcomp zsh-wcomp-install)"
 

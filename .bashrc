@@ -1,8 +1,11 @@
 export TERM="xterm-256color"
 
 export PATH="$HOME/.pyenv/bin:$PATH"
+export PATH="$HOME/.local/bin:$PATH"
+
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
+eval "$(pipenv --completion)"
 
 set -o emacs
 bind 'set mark-modified-lines on'
