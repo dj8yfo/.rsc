@@ -21,6 +21,7 @@ sudo chmod +x /usr/local/bin/cpdownload
 
 sudo apt-get install -y safeeyes
 sudo apt-get install -y xprintidle
+sudo apt-get install -y stgit
 
 ln -s $PWD/safeeyes.sh $HOME/safeeyes.sh
 ls -l $HOME/safeeyes.sh
