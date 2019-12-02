@@ -123,6 +123,8 @@ export CMUS_SOCKET=$HOME/.config/cmus/socket
 export LSCOLORS=
 alias zmus='tmux attach-session -t cmus || tmux new-session -A -D -s cmus "$(which cmus) --listen $CMUS_SOCKET"'
 alias pause='cmus-remote --server $HOME/.config/cmus/socket -u'
+alias next='cmus-remote --server $HOME/.config/cmus/socket -n'
+alias prev='cmus-remote --server $HOME/.config/cmus/socket -r'
 unset TMUX
 alias mutt='neomutt'
 alias notes='firefox $HOME/Documents/code/tasking/notes-html/notes.html'
@@ -134,6 +136,13 @@ alias ra='ranger'
 alias atq='atq | sort'
 alias t='task'
 alias to='taskopen'
+alias active='task +ACTIVE'
+alias book='task audio links'
+alias real='task proj:energy'
+function te ()
+{
+    task "$*" edit
+}
 
 function poptask ()
 {

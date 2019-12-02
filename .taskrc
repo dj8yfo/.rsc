@@ -39,7 +39,7 @@ report.links.filter=+ref
 report.links.labels=ID,Active,Age,Deps,P,Project,Tag,Recur,S,Due,Until,Description,Urg
 report.links.sort=project+/,entry+
 report.next.filter=status:pending +UNBLOCKED -ref (-grand and -subtask or +next) -irrelevant
-report.next.sort=project+/,entry-,start+/
+report.next.sort=project+/,tags+/,entry-,start+/
 report.next.columns=id,totalactivetime,start.age,entry.age,depends,priority,project,tags,recur,scheduled.countdown,due.relative,until.remaining,description.combined,urgency
 report.next.labels=ID,SPENT_ON,Active,Age,Deps,P,Project,Tag,Recur,S,Due,Until,Description,Urg
 urgency.user.tag.later.coefficient=-6.0
@@ -53,11 +53,12 @@ report._reviewed.columns=uuid
 report._reviewed.sort=reviewed+,modified+
 report._reviewed.filter=( reviewed.none: or reviewed.before:now-6days ) and ( +PENDING or +WAITING )
 
-color.tag.next=rgb555
-color.tag.background=rgb015
-color.due=rgb004
-color.due.today=rgb040
-color.active=rgb555 on rgb013
+color.tagged=white
+color.tag.background=inverse
+color.tag.ref=rgb432
+color.due=rgb505 on black
+color.tag.next=rgb530 on black
+color.due.today=blue on black
+color.active=underline on black
 
 color.footnote=color5
-color.tagged=blue
