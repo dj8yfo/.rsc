@@ -33,7 +33,7 @@ def recursive_traverse(fold, level=0):
             if os.path.isdir(filep):
                 recursive_traverse(filep, level + 1)
                 if not (filep == idmfolder) and \
-                    not (filep == djentfolder):
+                        not (filep == djentfolder):
                     print("{}removing: {}".format(tabs, filep))
                     os.rmdir(filep)
             else:
