@@ -33,11 +33,11 @@ uda.totalactivetime.type=duration
 uda.totalactivetime.label=Total active time
 uda.totalactivetime.values=
 
-report.links.description=Links list
-report.links.columns=start.age,entry.age,depends,priority,project,tags,recur,scheduled.countdown,due.relative,until.remaining,description,uuid,urgency
-report.links.filter=+ref status:completed
-report.links.labels=Active,Age,Deps,P,Project,Tag,Recur,S,Due,Until,Description,uuid,Urg
-report.links.sort=project+/,tags+/,entry-,start+/
+report.link.description=link list
+report.link.columns=start.age,entry.age,depends,priority,project,tags,recur,scheduled.countdown,due.relative,until.remaining,description,uuid,urgency
+report.link.filter=+ref status:completed
+report.link.labels=Active,Age,Deps,P,Project,Tag,Recur,S,Due,Until,Description,uuid,Urg
+report.link.sort=project+/,tags+/,entry-,start+/
 report.next.filter=status:pending +UNBLOCKED -ref (-grand and -subtask or +next) -irrelevant
 report.next.sort=project+/,tags+,due-,priority+,entry-,start+/
 report.next.columns=id,totalactivetime,entry.age,depends,project,tags,priority,recur,scheduled.countdown,due.relative,until.remaining,description.combined,urgency
@@ -67,3 +67,4 @@ color.footnote=color5
 
 verbose=yes
 context.abstract=proj.not:zy_energy
+alias.attach=exec '\/usr\/local\/bin\/attach_vifm' -t

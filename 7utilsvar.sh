@@ -71,6 +71,10 @@ cp ext/on-modify.timewarrior ~/.task/hooks
 chmod +x ~/.task/hooks/on-modify.timewarrior
 popd
 popd
+sudo apt-get install -y vifm
+sudo cp ./var-scripts/attach_vifm /usr/local/bin
+sudo chmod +x /usr/local/bin/attach_vifm
 
 # http://rvm.io/ - this helped ))
 sudo gem install taskwarrior-web
+
