@@ -252,6 +252,12 @@ function multi_bind()
     bindkey -M viins $*
     bindkey -M vicmd $*
 }
+function multi_bind_str()
+{
+    bindkey -s -M emacs $*
+    bindkey -s -M viins $*
+    bindkey -s -M vicmd $*
+}
 multi_bind "\e'" toggle_bindings
 
 multi_bind  '\C-r' history-incremental-pattern-search-backward
@@ -281,6 +287,7 @@ multi_bind "\ev" visual-mode
 multi_bind "\ew" copy-region-as-kill
 multi_bind '^[[1;6D' insert-cycledleft
 multi_bind '^[[1;6C' insert-cycledright
+multi_bind_str "\el" 'f -e nvim '
 #dircycle bindings for urxvt
 
 bindkey -v
