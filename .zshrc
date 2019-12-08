@@ -242,14 +242,47 @@ eval $(dircolors -b $HOME/.dircolors)
 
 function toggle_bindings()
 {
-    if bindkey -lL main | grep emacs >& /dev/null; then
-        echo "vim bindings (hybrid)"
-        bindkey -v
+
+    EX_USAGE=64
+    local target_mode
+    if [ -n "$1" ];
+    then
+	    target_mode="$1"
     else
-        echo "emacs bindings"
-        bindkey -e
+	    if bindkey -lL main | grep emacs >& /dev/null; 
+	    then
+		    target_mode="vi"
+	    else
+		    target_mode="emacs"
+	    fi
     fi
+    echo $target_mode
+    case "$target_mode" in
+	    "vi" )
+        echo -e "\n---------"
+        echo "vim bindings (emacs like in insert mode) with command mode default "
+        bindkey -v
+	# https://unix.stackexchange.com/questions/438307/zsh-start-new-prompt-in-command-mode-vi-mode
+	zle-line-init() { zle -K vicmd; } 
+	;;
+
+	    "emacs" )
+
+        echo -e "\n---------"
+	echo "emacs bindings"
+        bindkey -e
+	zle-line-init() { zle -K viins; } 
+	;;
+
+	    * )
+	echo "no valid variant chosen"
+	return $EX_USAGE
+	;;
+    esac 
+    zle -N zle-line-init
+    zle send-break
 }
+
 zle -N toggle_bindings
 function multi_bind()
 {
@@ -292,12 +325,12 @@ multi_bind "\ev" visual-mode
 multi_bind "\ew" copy-region-as-kill
 multi_bind '^[[1;6D' insert-cycledleft
 multi_bind '^[[1;6C' insert-cycledright
-multi_bind_str "\el" 'f -e nvim '
 #dircycle bindings for urxvt
+bindkey -s -M emacs "\C-u" 'f -e nvim '
+bindkey -s -M viins "\C-u" 'f -e nvim '
+bindkey -s -M vicmd "\C-u" 'if -e nvim '
 
-bindkey -v
-echo "vim (insert hybrid) bindings"
-
+toggle_bindings vi
 function dance(){
     bf=/home/hypen9/Documents/code/tasking/.tasknotes.d/2896ed34-be60-4650-84b8-f7240ad6e871.txt
     logf=$HOME/.dance-log
