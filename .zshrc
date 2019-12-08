@@ -1,3 +1,11 @@
+# bash header placeholder
+# #************************************************#
+# #                .zshrc                          #
+# #               written by dj8yfo                #
+# #                Month 11, 2384                  #
+# #                                                #
+# #           private bathtub babe .               #
+# #************************************************#
 source ~/.xinitrc
 # If you come from bash you might have to change your $PATH.
 export PATH=$HOME/bin:/usr/local/bin:$HOME/Downloads/firefox:$PATH
@@ -135,7 +143,7 @@ alias mutt='neomutt'
 alias launch='cd $HOME/Documents/code/tasking && gitpush'
 alias pull_notes='cd $HOME/Documents/code/tasking && ./pullscript.sh'
 alias go='xdg-open'
-alias histe='et $HISTFILE'
+alias histe='nvim $HISTFILE'
 alias ra='ranger'
 alias atq='atq | sort'
 alias t='task'
@@ -149,6 +157,8 @@ alias phony='task context background'
 alias real='task context none'
 alias tsum='timew summary'
 alias kiss='cvlc $HOME/Documents/code/KissFM.m3u'
+alias xi='xclip -sel clip -i'
+alias xo='xclip -sel clip -o'
 function notes_compile ()
 {
 	emacs -batch --eval "(progn (require 'ox-html)(load-file \"/home/hypen9/Documents/.spacemacs/private/my-basic/notes.el\")(export-notes-to-html))"
@@ -365,3 +375,12 @@ function rip {
 		fi
 		rm -f -- "$tempfile"
 	}
+
+function hs() { fc -lim "*$@*" 1 }
+
+bindkey -s -M emacs "\C-t" 'hs'
+bindkey -s -M viins "\C-t" 'hs'
+bindkey -s -M vicmd "\C-t" 'ihs '
+bindkey -s -M vicmd "1" 'i!'
+multi_bind_str "\C-q" 'task attach '
+
