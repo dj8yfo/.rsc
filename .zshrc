@@ -105,13 +105,13 @@ alias vim=nvim
 export MANPAGER="/bin/sh -c \"unset MANPAGER;col -b -x | nvim -c 'set ft=man nomod nolist'\""
 
 function mypushd {
-    pushd "${@}" >/dev/null;
-    dirs -v;
+	pushd "${@}" >/dev/null;
+	dirs -v;
 }
 
 function mypopd {
-    popd "${@}" >/dev/null;
-    dirs -v;
+	popd "${@}" >/dev/null;
+	dirs -v;
 }
 
 # alias d='dirs -v'
@@ -151,55 +151,55 @@ alias tsum='timew summary'
 alias kiss='cvlc $HOME/Documents/code/KissFM.m3u'
 function notes_compile ()
 {
-    emacs -batch --eval "(progn (require 'ox-html)(load-file \"/home/hypen9/Documents/.spacemacs/private/my-basic/notes.el\")(export-notes-to-html))"
+	emacs -batch --eval "(progn (require 'ox-html)(load-file \"/home/hypen9/Documents/.spacemacs/private/my-basic/notes.el\")(export-notes-to-html))"
 }
 function te ()
 {
-    task "$*" edit
+	task "$*" edit
 }
 
 function poptask ()
 {
-    atrm $(atq | sort -k1 -rn | sed -n 1p | awk '{print $1}')
+	atrm $(atq | sort -k1 -rn | sed -n 1p | awk '{print $1}')
 }
 
 function prip ()
 {
-    if [ -z "$1" ]; then
-        echo "example: prip 6301 3; prip 6301"
-        return 2
-    fi
+	if [ -z "$1" ]; then
+		echo "example: prip 6301 3; prip 6301"
+		return 2
+	fi
 
-    if [ -z "$2" ];
-    then
-        context=3
-    else
-        context="$2"
-    fi
-    ps afux | grep --color=always -C $context "$1"
+	if [ -z "$2" ];
+	then
+		context=3
+	else
+		context="$2"
+	fi
+	ps afux | grep --color=always -C $context "$1"
 }
 
 function prg ()
 {
-    if [ -z "$1" ]; then
-        echo "example: prip 6301 3; prip 6301"
-        return 2
-    fi
+	if [ -z "$1" ]; then
+		echo "example: prip 6301 3; prip 6301"
+		return 2
+	fi
 
-    if [ -z "$2" ];
-    then
-        context=3
-    else
-        context="$2"
-    fi
-    ps afx -o ruser,pid,comm | grep --color=always -C $context "$1"
+	if [ -z "$2" ];
+	then
+		context=3
+	else
+		context="$2"
+	fi
+	ps afx -o ruser,pid,comm | grep --color=always -C $context "$1"
 }
 
 #export EDITOR='emacsclient -nw  -c -a ""'
 export EDITOR='nvim'
 function eman ()
 {
-    emacsclient -nw  -c -a "" -e "(progn (switch-to-buffer (man \"$1\")) (delete-other-windows))";
+	emacsclient -nw  -c -a "" -e "(progn (switch-to-buffer (man \"$1\")) (delete-other-windows))";
 }
 
 export GTAGSCONF=/usr/local/share/gtags/gtags.conf
@@ -243,58 +243,58 @@ eval $(dircolors -b $HOME/.dircolors)
 function toggle_bindings()
 {
 
-    EX_USAGE=64
-    local target_mode
-    if [ -n "$1" ];
-    then
-	    target_mode="$1"
-    else
-	    if bindkey -lL main | grep emacs >& /dev/null; 
-	    then
-		    target_mode="vi"
-	    else
-		    target_mode="emacs"
-	    fi
-    fi
-    echo $target_mode
-    case "$target_mode" in
-	    "vi" )
-        echo -e "\n---------"
-        echo "vim bindings (emacs like in insert mode) with command mode default "
-        bindkey -v
-	# https://unix.stackexchange.com/questions/438307/zsh-start-new-prompt-in-command-mode-vi-mode
-	zle-line-init() { zle -K vicmd; } 
-	;;
+	EX_USAGE=64
+	local target_mode
+	if [ -n "$1" ];
+	then
+		target_mode="$1"
+	else
+		if bindkey -lL main | grep emacs >& /dev/null; 
+		then
+			target_mode="vi"
+		else
+			target_mode="emacs"
+		fi
+	fi
+	echo $target_mode
+	case "$target_mode" in
+		"vi" )
+			echo -e "\n---------"
+			echo "vim bindings (emacs like in insert mode) with command mode default "
+			bindkey -v
+			# https://unix.stackexchange.com/questions/438307/zsh-start-new-prompt-in-command-mode-vi-mode
+			zle-line-init() { zle -K vicmd; } 
+			;;
 
-	    "emacs" )
+		"emacs" )
 
-        echo -e "\n---------"
-	echo "emacs bindings"
-        bindkey -e
-	zle-line-init() { zle -K viins; } 
-	;;
+			echo -e "\n---------"
+			echo "emacs bindings"
+			bindkey -e
+			zle-line-init() { zle -K viins; } 
+			;;
 
-	    * )
-	echo "no valid variant chosen"
-	return $EX_USAGE
-	;;
-    esac 
-    zle -N zle-line-init
-    zle send-break
+		* )
+			echo "no valid variant chosen"
+			return $EX_USAGE
+			;;
+	esac 
+	zle -N zle-line-init
+	zle send-break
 }
 
 zle -N toggle_bindings
 function multi_bind()
 {
-    bindkey -M emacs $*
-    bindkey -M viins $*
-    bindkey -M vicmd $*
+	bindkey -M emacs $*
+	bindkey -M viins $*
+	bindkey -M vicmd $*
 }
 function multi_bind_str()
 {
-    bindkey -s -M emacs $*
-    bindkey -s -M viins $*
-    bindkey -s -M vicmd $*
+	bindkey -s -M emacs $*
+	bindkey -s -M viins $*
+	bindkey -s -M vicmd $*
 }
 multi_bind "\e'" toggle_bindings
 
@@ -332,36 +332,36 @@ bindkey -s -M vicmd "\C-u" 'if -e nvim '
 
 toggle_bindings vi
 function dance(){
-    bf=/home/hypen9/Documents/code/tasking/.tasknotes.d/2896ed34-be60-4650-84b8-f7240ad6e871.txt
-    logf=$HOME/.dance-log
-    ue=$(sed '1q;d' $bf)
-    na=$(sed '2q;d' $bf)
-    de=$(sed '3q;d' $bf)
-    sp=$(sed '4q;d' $bf)
-    ra=$(sed '5q;d' $bf)
+	bf=/home/hypen9/Documents/code/tasking/.tasknotes.d/2896ed34-be60-4650-84b8-f7240ad6e871.txt
+	logf=$HOME/.dance-log
+	ue=$(sed '1q;d' $bf)
+	na=$(sed '2q;d' $bf)
+	de=$(sed '3q;d' $bf)
+	sp=$(sed '4q;d' $bf)
+	ra=$(sed '5q;d' $bf)
 
-    tot=$(echo "scale=3; $ue*$ra+$na-$de" | bc)
-    echo "----------" | tee -a $logf | cat -
-    echo "totals: $tot" | tee -a $logf | cat -
-    le=$(echo "scale=3; $tot/$sp*30" | bc)
-    echo "days: $le" | tee -a $logf | cat -
-    cu=$(date -u '+%F %T')
-    cur=$(date -u '+%F %T.%N %Z')
-    echo $cu | tee -a $logf | cat -
-    ro=$(echo "($le+0.5)/1" | bc)
-    ne=$(date -d"$cur +$ro days" '+%F %T');
-    echo | tee -a $logf | cat -
-    echo "eow: $ne" | tee -a $logf | cat -
-    echo -e "----------\n" | tee -a $logf | cat -
+	tot=$(echo "scale=3; $ue*$ra+$na-$de" | bc)
+	echo "----------" | tee -a $logf | cat -
+	echo "totals: $tot" | tee -a $logf | cat -
+	le=$(echo "scale=3; $tot/$sp*30" | bc)
+	echo "days: $le" | tee -a $logf | cat -
+	cu=$(date -u '+%F %T')
+	cur=$(date -u '+%F %T.%N %Z')
+	echo $cu | tee -a $logf | cat -
+	ro=$(echo "($le+0.5)/1" | bc)
+	ne=$(date -d"$cur +$ro days" '+%F %T');
+	echo | tee -a $logf | cat -
+	echo "eow: $ne" | tee -a $logf | cat -
+	echo -e "----------\n" | tee -a $logf | cat -
 
 }
 
 function rip {
-    tempfile="$(mktemp -t tmp.XXXXXX)"
-    ranger --choosedir="$tempfile" "${@:-$(pwd)}"
-    test -f "$tempfile" &&
-    if [ "$(cat -- "$tempfile")" != "$(echo -n `pwd`)" ]; then
-        cd -- "$(cat "$tempfile")"
-    fi
-    rm -f -- "$tempfile"
-}
+	tempfile="$(mktemp -t tmp.XXXXXX)"
+	ranger --choosedir="$tempfile" "${@:-$(pwd)}"
+	test -f "$tempfile" &&
+		if [ "$(cat -- "$tempfile")" != "$(echo -n `pwd`)" ]; then
+			cd -- "$(cat "$tempfile")"
+		fi
+		rm -f -- "$tempfile"
+	}
