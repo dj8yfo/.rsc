@@ -148,9 +148,9 @@ alias ra='ranger'
 alias atq='atq | sort'
 alias t='task'
 alias to='taskopen -A'
+alias ta='task attach'
 alias active='task +ACTIVE'
 book=4e09bbe4-eff4-4ae2-bd1e-2c82394be509
-alias read='task $book link'
 alias buzz='task +alarm'
 alias abst='task context abstract'
 alias phony='task context background'
@@ -302,9 +302,9 @@ function multi_bind()
 }
 function multi_bind_str()
 {
-	bindkey -s -M emacs $*
-	bindkey -s -M viins $*
-	bindkey -s -M vicmd $*
+	bindkey -s -M emacs "$1" "$2"
+	bindkey -s -M viins "$1" "$2"
+	bindkey -s -M vicmd "$1" "i$2"
 }
 multi_bind "\e'" toggle_bindings
 
@@ -312,8 +312,10 @@ multi_bind  '\C-r' history-incremental-pattern-search-backward
 multi_bind  '\C-s' history-incremental-pattern-search-forward
 
 multi_bind "\e/" where-is
-multi_bind "\ep" history-beginning-search-backward
-multi_bind "\en" history-beginning-search-forward
+bindkey -M viins "\C-p" history-beginning-search-backward
+bindkey -M vicmd "\C-p" history-beginning-search-backward
+bindkey -M viins "\C-n" history-beginning-search-forward
+bindkey -M vicmd "\C-n" history-beginning-search-forward
 multi_bind "\eb" backward-word
 multi_bind "\ef" forward-word
 multi_bind "\ed" kill-word
@@ -326,8 +328,7 @@ multi_bind "\C-f" forward-char
 multi_bind "\C-a" beginning-of-line
 multi_bind "\C-e" end-of-line
 multi_bind "\C-k" kill-line
-multi_bind "\C-p" up-line-or-history
-multi_bind "\C-n" down-line-or-history
+multi_bind "\C-u" vi-kill-line
 multi_bind "\C-y" yank
 multi_bind "\C-G" send-break
 multi_bind "\ey" yank-pop
@@ -336,9 +337,6 @@ multi_bind "\ew" copy-region-as-kill
 multi_bind '^[[1;6D' insert-cycledleft
 multi_bind '^[[1;6C' insert-cycledright
 #dircycle bindings for urxvt
-bindkey -s -M emacs "\C-u" 'f -e nvim '
-bindkey -s -M viins "\C-u" 'f -e nvim '
-bindkey -s -M vicmd "\C-u" 'if -e nvim '
 
 toggle_bindings vi
 function dance(){
@@ -376,11 +374,23 @@ function rip {
 		rm -f -- "$tempfile"
 	}
 
+multi_bind_str "\er" 'rip\n'
+
 function hs() { fc -lim "*$@*" 1 }
 
-bindkey -s -M emacs "\C-t" 'hs'
-bindkey -s -M viins "\C-t" 'hs'
-bindkey -s -M vicmd "\C-t" 'ihs '
+multi_bind_str "\en" 'f -e nvim '
+multi_bind_str "\C-t" 'hs '
 bindkey -s -M vicmd "1" 'i!'
-multi_bind_str "\C-q" 'task attach '
+bindkey -M vicmd "s" vi-history-search-backward 
+multi_bind_str "\el" '$()\C-b'
 
+
+function addTextFromFile () {
+	text_to_add=$(cat "$1")
+	RBUFFER=${text_to_add}${RBUFFER}
+}
+funciton addtt () {
+	addTextFromFile /home/hypen9/Documents/code/tasking/.tasknotes.d/snippets/tt.snip
+}
+zle -N addtt
+multi_bind '\et' addtt

@@ -34,7 +34,7 @@ uda.totalactivetime.label=Total active time
 uda.totalactivetime.values=
 
 report.link.description=link list
-report.link.columns=start.age,entry.age,depends,priority,project,tags,recur,scheduled.countdown,due.relative,until.remaining,description,uuid,urgency
+report.link.columns=start.age,entry.age,depends,priority,project,tags,recur,scheduled.countdown,due.relative,until.remaining,description.combined,uuid,urgency
 report.link.filter=+ref status:completed
 report.link.labels=Active,Age,Deps,P,Project,Tag,Recur,S,Due,Until,Description,uuid,Urg
 report.link.sort=project-/,tags+/,entry-,start+/
@@ -68,4 +68,3 @@ verbose=yes
 context.abstract=proj.not:zy_energy -background
 context.background=+background
 alias.attach=exec '\/usr\/local\/bin\/attach_vifm' -t
-context=background
