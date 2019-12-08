@@ -102,6 +102,7 @@ export PIPENV_VENV_IN_PROJECT=1
 # source ~/.bash-git-prompt/gitprompt.sh
 
 alias vim=nvim
+export MANPAGER="/bin/sh -c \"unset MANPAGER;col -b -x | nvim -c 'set ft=man nomod nolist'\""
 
 function mypushd {
     pushd "${@}" >/dev/null;
