@@ -56,7 +56,6 @@ report._reviewed.sort=reviewed+,modified+
 report._reviewed.filter=( reviewed.none: or reviewed.before:now-6days ) and ( +PENDING or +WAITING )
 
 color.tagged=white
-color.tag.background=inverse
 color.tag.ref=rgb432
 color.due=rgb505 on black
 color.tag.next=rgb530 on black
@@ -66,5 +65,6 @@ color.active=underline on black
 color.footnote=color5
 
 verbose=yes
-context.abstract=proj.not:zy_energy
+context.abstract=proj.not:zy_energy -background
+context.background=+background
 alias.attach=exec '\/usr\/local\/bin\/attach_vifm' -t

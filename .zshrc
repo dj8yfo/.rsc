@@ -122,6 +122,8 @@ alias et='emacsclient -nw  -c -a ""'
 alias ec='emacsclient -c -a ""'
 alias sudo='sudo '
 alias ff='f -e fe'
+alias notes='ff notes.org'
+alias webnotes='firefox $HOME/Documents/code/tasking/notes-html/notes.html'
 export CMUS_SOCKET=$HOME/.config/cmus/socket
 export LSCOLORS=
 alias zmus='tmux attach-session -t cmus || tmux new-session -A -D -s cmus "$(which cmus) --listen $CMUS_SOCKET"'
@@ -130,7 +132,6 @@ alias next='cmus-remote --server $HOME/.config/cmus/socket -n'
 alias prev='cmus-remote --server $HOME/.config/cmus/socket -r'
 unset TMUX
 alias mutt='neomutt'
-alias notes='firefox $HOME/Documents/code/tasking/notes-html/notes.html'
 alias launch='cd $HOME/Documents/code/tasking && gitpush'
 alias pull_notes='cd $HOME/Documents/code/tasking && ./pullscript.sh'
 alias go='xdg-open'
@@ -144,6 +145,7 @@ book=4e09bbe4-eff4-4ae2-bd1e-2c82394be509
 alias read='task $book link'
 alias buzz='task +alarm'
 alias abst='task context abstract'
+alias phony='task context background'
 alias real='task context none'
 alias tsum='timew summary'
 alias kiss='cvlc $HOME/Documents/code/KissFM.m3u'
@@ -319,4 +321,14 @@ function dance(){
     echo "eow: $ne" | tee -a $logf | cat -
     echo -e "----------\n" | tee -a $logf | cat -
 
+}
+
+function rip {
+    tempfile="$(mktemp -t tmp.XXXXXX)"
+    ranger --choosedir="$tempfile" "${@:-$(pwd)}"
+    test -f "$tempfile" &&
+    if [ "$(cat -- "$tempfile")" != "$(echo -n `pwd`)" ]; then
+        cd -- "$(cat "$tempfile")"
+    fi
+    rm -f -- "$tempfile"
 }

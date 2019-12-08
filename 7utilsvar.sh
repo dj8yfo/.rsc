@@ -2,6 +2,9 @@
 sudo apt-get install -y ranger caca-utils highlight atool w3m poppler-utils mediainfo
 ranger --copy-config=all
 
+rm -rf $HOME/.config/ranger
+ln -s $PWD/subconfs/ranger $HOME/.config/ranger
+
 sudo apt install -y cmus vlc
 sudo apt install -y at
 cp ./var-scripts/alarm_clock_1.mp3 $HOME/Desktop/
