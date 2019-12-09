@@ -7,7 +7,7 @@ ln -s $PWD/subconfs/ranger $HOME/.config/ranger
 
 sudo apt install -y cmus vlc
 sudo apt install -y at
-cp ./var-scripts/alarm_clock_1.mp3 $HOME/Desktop/
+cp ./var-scripts/alarm_clock_1.mp3 $HOME/
 # wget -O  ~/Desktop/alarm_clock_1.wav https://soundbible.com/grab.php?id=1477&type=wav
 sudo cp ./var-scripts/alarm_clock.sh ./var-scripts/alarm /usr/local/bin
 

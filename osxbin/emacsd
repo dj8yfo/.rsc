@@ -1,4 +1,0 @@
-#!/bin/bash
-set -e
-source ~/.bashrc
-/Applications/Emacs.app/Contents/MacOS/Emacs --daemon --debug-init

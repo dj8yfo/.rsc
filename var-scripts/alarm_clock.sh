@@ -9,8 +9,7 @@ fi
 [ $stat = "playing" ] && cmus-remote --server $HOME/.config/cmus/socket -u
 for i in $(seq 1);
 do
-    cvlc ~/Desktop/alarm_clock_1.mp3 vlc://quit
+    cvlc $HOME/alarm_clock_1.mp3 vlc://quit
     vlc vlc://quit
 done
 [ $stat = "playing" ] && cmus-remote --server $HOME/.config/cmus/socket -u
-task +alarm

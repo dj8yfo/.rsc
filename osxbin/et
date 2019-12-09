@@ -1,4 +1,0 @@
-#!/bin/bash
-set -e
-EMACSCLIENT=/Applications/Emacs.app/Contents/MacOS/bin/emacsclient
-exec $EMACSCLIENT -t "$@"
