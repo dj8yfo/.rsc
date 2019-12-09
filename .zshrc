@@ -8,6 +8,7 @@
 # #************************************************#
 source ~/.xinitrc
 # If you come from bash you might have to change your $PATH.
+export KEYTIMEOUT=20
 export PATH=$HOME/bin:/usr/local/bin:$HOME/Downloads/firefox:$PATH
 export JAVA_HOME=/usr/lib/jvm/jdk1.8.0_211
 autoload -U edit-command-line
