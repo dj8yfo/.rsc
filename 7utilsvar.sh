@@ -84,3 +84,5 @@ sudo chmod +x /usr/local/bin/xcat
 # http://rvm.io/ - this helped ))
 sudo gem install taskwarrior-web
 
+sudo apt-get install -y nomacs
+

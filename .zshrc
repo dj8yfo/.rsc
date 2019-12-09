@@ -140,7 +140,6 @@ alias next='cmus-remote --server $HOME/.config/cmus/socket -n'
 alias prev='cmus-remote --server $HOME/.config/cmus/socket -r'
 unset TMUX
 alias mutt='neomutt'
-alias launch='cd $HOME/Documents/code/tasking && gitpush'
 alias pull_notes='cd $HOME/Documents/code/tasking && ./pullscript.sh'
 alias go='xdg-open'
 alias histe='nvim $HISTFILE'
@@ -159,9 +158,12 @@ alias tsum='timew summary'
 alias kiss='cvlc $HOME/Documents/code/KissFM.m3u'
 alias xi='xclip -sel clip -i'
 alias xo='xclip -sel clip -o'
-function notes_compile ()
+function launch ()
 {
-	emacs -batch --eval "(progn (require 'ox-html)(load-file \"/home/hypen9/Documents/.spacemacs/private/my-basic/notes.el\")(export-notes-to-html))"
+	cd $HOME/Documents/code/tasking
+	find .tasknotes.d/snippets -type f -exec chmod 400 {} \;
+	gitpush
+	
 }
 function te ()
 {
