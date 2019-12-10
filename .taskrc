@@ -34,9 +34,9 @@ uda.totalactivetime.label=Total active time
 uda.totalactivetime.values=
 
 report.link.description=link list
-report.link.columns=start.age,entry.age,depends,priority,project,tags,recur,scheduled.countdown,due.relative,until.remaining,description.combined,uuid,urgency
+report.link.columns=start.age,entry.age,depends,priority,project,tags,recur,scheduled.countdown,due.relative,until.remaining,description.combined,urgency
 report.link.filter=+ref status:completed
-report.link.labels=Active,Age,Deps,P,Project,Tag,Recur,S,Due,Until,Description,uuid,Urg
+report.link.labels=Active,Age,Deps,P,Project,Tag,Recur,S,Due,Until,Description,Urg
 report.link.sort=project-/,tags+/,entry-,start+/
 report.next.filter=status:pending +UNBLOCKED -ref (-grand and -subtask or +next) -irrelevant
 report.next.sort=project+/,tags+,due-,priority+,entry-,start+/
@@ -55,14 +55,23 @@ report._reviewed.columns=uuid
 report._reviewed.sort=reviewed+,modified+
 report._reviewed.filter=( reviewed.none: or reviewed.before:now-6days ) and ( +PENDING or +WAITING )
 
+color.label=gray10
 color.tagged=white
-color.tag.ref=rgb432
 color.due=rgb505 on black
 color.tag.next=rgb530 on black
 color.due.today=blue on black
 color.active=underline on black
-
-color.footnote=color5
+color.project.bash=rgb205
+color.project.zsh=rgb035
+color.project.python=rgb452
+color.project.taskrc=rgb335
+color.project.zy_energy=rgb050
+color.project.vim=rgb350
+color.project.emacs=rgb500
+color.project.git=rgb205
+color.project.c=rgb355
+color.project._tooling=rgb540
+color.project.linux=rgb352
 
 verbose=yes
 context.real=-background project:zy_energy
