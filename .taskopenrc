@@ -58,8 +58,8 @@ PATH_EXT=/usr/share/taskopen/scripts
 #CUSTOM1_CMD="muttjumpwrapper"
 
 # Custom regular expression that specifies annotations passed to CUSTOM2_CMD.
-#CUSTOM2_REGEX=""
-#CUSTOM2_CMD=""
+CUSTOM2_REGEX="^[a-z0-9]+(-[a-z0-9]+){4}"
+CUSTOM2_CMD="taskopen -A"
 
 # Execute an arbitrary command if there is no annotation available. The corresponding taskwarrior IDs will
 # be passed as arguments, e.g. "addnote 21 42"

@@ -156,6 +156,7 @@ alias abst='task context abstract'
 alias phony='task context background'
 alias real='task context real'
 alias none='task context none'
+alias due='t due:today status:pending'
 alias tsum='timew summary'
 alias kiss='cvlc $HOME/Documents/code/KissFM.m3u'
 alias xi='xclip -sel clip -i'
@@ -344,7 +345,7 @@ multi_bind '^[[1;6C' insert-cycledright
 
 toggle_bindings vi
 function dance(){
-	bf=/home/hypen9/Documents/code/tasking/.tasknotes.d/2896ed34-be60-4650-84b8-f7240ad6e871.txt
+	bf=$HOME/Documents/code/tasking/.tasknotes.d/2896ed34-be60-4650-84b8-f7240ad6e871.txt
 	logf=$HOME/.dance-log
 	ue=$(sed '1q;d' $bf)
 	na=$(sed '2q;d' $bf)
@@ -386,7 +387,7 @@ multi_bind_str "\en" 'f -e nvim '
 multi_bind_str "\C-t" 'hs '
 bindkey -s -M vicmd "1" 'i!'
 bindkey -M vicmd "s" vi-history-search-backward 
-multi_bind_str "\el" '$()\C-b'
+multi_bind_str "\e;" '$()\C-b'
 
 
 function addTextFromFile () {
@@ -394,7 +395,39 @@ function addTextFromFile () {
 	RBUFFER=${text_to_add}${RBUFFER}
 }
 funciton addtt () {
-	addTextFromFile /home/hypen9/Documents/code/tasking/.tasknotes.d/snippets/tt.snip
+	addTextFromFile $HOME/Documents/code/tasking/.tasknotes.d/snippets/tt.snip
 }
 zle -N addtt
+
+funciton addts () {
+	addTextFromFile $HOME/Documents/code/tasking/.tasknotes.d/snippets/task_search.snip
+}
+zle -N addts
+
+funciton addtsw () {
+	addTextFromFile $HOME/Documents/code/tasking/.tasknotes.d/snippets/stopwatch_template.snip
+}
+zle -N addtsw
+
 multi_bind '\et' addtt
+multi_bind '\e]' addts
+multi_bind '\em' addtsw
+
+function createNote () {
+	EX_USAGE=64
+	if [ -z "$1" ]; then
+		echo 'usage: createNote ${new_filename}'
+		return $EX_USAGE
+	fi
+	note_name="$1"
+	echo '# annotation' > $note_name
+	vim $note_name
+	destd=$HOME/Documents/code/tasking/.tasknotes.d/snippets
+	mv $note_name $destd
+	if [ -z "$2" ]; then
+		attach_vifm -f $destd/$note_name
+	else
+		attach_vifm -f $destd/$note_name -t "$2"
+	fi
+}
+alias cn='createNote'

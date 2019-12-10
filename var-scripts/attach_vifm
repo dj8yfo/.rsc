@@ -78,15 +78,15 @@ if [[ "$file_name" == "" ]]; then
         echo "Please, install vifm"
         exit 1
     fi
-    file_name=$(vifm -c only --choose-files -)
+    file_name=$(vifm -c only --choose-files -)  #TODO: transfer to ranger here, pleate
     if [[ "$file_name" == "" ]]; then
         echo "Cancel"
         exit
     fi
 fi
 
-desc=$(task $task_id info | awk '$0 ~ /^Description/ {print substr($0, index($0,$2))}')
-echo "Attaching to task $task_id '$desc'."
+desc=$(task "$task_id" info | awk '$0 ~ /^Description/ {print substr($0, index($0,$2))}')
+echo "Attaching to task "$task_id" '$desc'."
 echo -n "Type a label: "
 read -r label
 annotation=""
@@ -94,4 +94,4 @@ if [[ "$label" != "" ]]; then
     annotation="$label: "
 fi
 
-task $task_id annotate -- "$annotation$file_name"
+task "$task_id" annotate -- "$annotation$file_name"
