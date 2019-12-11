@@ -9,8 +9,8 @@ sudo apt-get install automake
 ./configure && make
 sudo make install
 cd ..
-git clone https://github.com/powerline/fonts.git ~/Downloads/powerfonts
-pushd ~/Downloads/powerfonts/Terminus/PCF
+git clone https://github.com/powerline/fonts.git $HOME/Downloads/powerfonts
+pushd $HOME/Downloads/powerfonts/Terminus/PCF
 sudo cp ter*pcf.gz /usr/share/fonts/X11/misc
 sudo mkfontdir /usr/share/fonts/X11/misc
 sudo rm /etc/fonts/conf.d/70-no-bitmaps.conf
@@ -18,3 +18,4 @@ sudo ln -s /etc/fonts/conf.avail/70-yes-bitmaps.conf /etc/fonts/conf.d/70-yes-bi
 
 popd
 cp ./.tmux-pane.conf $HOME/
+git clone https://github.com/jimeh/tmux-themepack.git $HOME/.tmux-themepack
