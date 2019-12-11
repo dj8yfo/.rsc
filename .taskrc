@@ -34,21 +34,22 @@ uda.totalactivetime.label=Total active time
 uda.totalactivetime.values=
 
 report.link.description=link list
-report.link.columns=start.age,entry.age,depends,priority,project,tags,recur,scheduled.countdown,due.relative,until.remaining,description.count,urgency
+report.link.columns=start.age,entry.age,depends,project,tags,recur,scheduled.countdown,due.relative,until.remaining,description.count,urgency
 report.link.filter=+ref status:completed
-report.link.labels=Active,Age,Deps,P,Project,Tag,Recur,S,Due,Until,Description,Urg
+report.link.labels=Active,Age,Deps,Project,Tag,Recur,S,Due,Until,Description,Urg
 report.link.sort=project-/,tags+,entry-,start+/
 
 report.next.filter=status:pending +UNBLOCKED -ref (-grand and -subtask or +next) -irrelevant
-report.next.sort=project+/,tags+/,due-,priority+,entry-,start+/
-report.next.columns=id,totalactivetime,entry.age,depends,project,tags,priority,recur,scheduled.countdown,due.relative,until.remaining,description.count,urgency
-report.next.labels=ID,SPENT_ON,Age,Deps,Project,Tag,PRIO,Recur,S,Due,Until,Description,Urg
+report.next.sort=priority+,project+/,tags+/,due-,entry-,start+/
+report.next.columns=start.age,id,totalactivetime,entry.age,depends,priority,project,tags,recur,scheduled.countdown,due.relative,until.remaining,description.count,urgency
+report.next.labels=Active,ID,SPENT_ON,Age,Deps,PRIO,Project,Tag,Recur,S,Due,Until,Description,Urg
 
 urgency.user.tag.later.coefficient=-6.0
 urgency.blocking.coefficient=15.0
 urgency.uda.priority.H.coefficient=40.0 # high Priority
 urgency.uda.priority.M.coefficient=20.0 # medium Priority
 urgency.uda.priority.L.coefficient=10.0 # low Priority
+uda.priority.values=H,M,L,
 search.case.sensitive=no
 uda.reviewed.type=date
 uda.reviewed.label=Reviewed
@@ -59,10 +60,10 @@ report._reviewed.filter=( reviewed.none: or reviewed.before:now-6days ) and ( +P
 
 color.label=gray10
 color.tagged=white
-color.due=rgb505 on black
-color.tag.next=rgb530 on black
-color.due.today=blue on black
-color.active=underline on black
+color.tag.n=bold on gray7
+color.due=on gray4
+color.due.today=on gray12
+color.active=inverse
 color.project.bash=rgb404
 color.project.zsh=rgb035
 color.project.python=rgb452
@@ -80,4 +81,3 @@ context.real=-background project:zy_energy
 context.abstract=proj.not:zy_energy -background
 context.background=+background
 alias.attach=exec '\/usr\/local\/bin\/attach_vifm' -t
-context=real
