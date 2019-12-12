@@ -151,7 +151,7 @@ alias to='taskopen -A'
 alias ta='task attach'
 alias active='task +ACTIVE'
 book=4e09bbe4-eff4-4ae2-bd1e-2c82394be509
-alias buzz='task +alarm'
+alias buzz='task +alarm status:pending'
 alias abst='task context abstract'
 alias phony='task context background'
 alias real='task context real'
@@ -248,9 +248,6 @@ export PATH=/usr/local/texlive/2019/bin/x86_64-linux:$PATH
 export ANDROID_SDK_ROOT=$HOME/Android/Sdk
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"
-[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
-zsh $HOME/Documents/.conf/var-scripts/stat.sh
-export SCR_SAVE_FILE=$HOME/.scripts-run
 eval $(dircolors -b $HOME/.dircolors)
 # wget https://raw.github.com/trapd00r/LS_COLORS/master/LS_COLORS -O $HOME/.dircolors
 # echo 'eval $(dircolors -b $HOME/.dircolors)' >> $HOME/.bashrc
@@ -295,7 +292,10 @@ function toggle_bindings()
 			;;
 	esac 
 	zle -N zle-line-init
-	zle send-break
+	if [ -z "$1" ];
+	then
+		zle send-break
+	fi
 }
 
 zle -N toggle_bindings
@@ -431,3 +431,8 @@ function createNote () {
 	fi
 }
 alias cn='createNote'
+[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
+zsh $HOME/Documents/.conf/var-scripts/stat.sh
+export SCR_SAVE_FILE=$HOME/.scripts-run
+alias pya='source ./.venv/bin/activate'
+

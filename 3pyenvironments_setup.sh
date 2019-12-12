@@ -12,7 +12,7 @@ ln -s $PWD/ipython_config.py $HOME/.ipython/profile_default/ipython_config.py
 ln -s $PWD/flake8 $HOME/.config/flake8
 # profile_default
 pip install --user pipenv
-
+. ./pylookup_inst.sh
 pyenv install 2.7.14
 pyenv virtualenv 2.7.14 neovim2
 pyenv virtualenv 3.8.0b4 neovim3

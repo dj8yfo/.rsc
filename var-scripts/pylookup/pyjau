@@ -1,0 +1,10 @@
+#!/bin/bash
+PYINDEXF=$HOME/.pyindex.txt
+PYLINKF=$HOME/.pylink.txt
+PYLOOKUP_DIR=$HOME/Documents/code/pylookup
+
+line=$(sed "$1q;d" $PYLINKF)
+echo $line
+#link=${line#*:}
+#echo $link
+firefox $line &
