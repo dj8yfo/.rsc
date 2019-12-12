@@ -81,8 +81,7 @@ sudo chmod +x /usr/local/bin/attach_vifm
 
 sudo cp ./var-scripts/xcat /usr/local/bin
 sudo chmod +x /usr/local/bin/xcat
-# http://rvm.io/ - this helped ))
-sudo gem install taskwarrior-web
+sudo gem install zeal
 
 sudo apt-get install -y nomacs
 sudo apt-get install -y  sdcv

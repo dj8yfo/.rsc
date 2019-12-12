@@ -1,4 +1,3 @@
-# bash header placeholder
 # #************************************************#
 # #                .zshrc                          #
 # #               written by dj8yfo                #
@@ -435,4 +434,5 @@ alias cn='createNote'
 zsh $HOME/Documents/.conf/var-scripts/stat.sh
 export SCR_SAVE_FILE=$HOME/.scripts-run
 alias pya='source ./.venv/bin/activate'
+. /home/hypen9/Documents/code/tasking/.tasknotes.d/snippets/turn_off_laptop_keyboard.sh
 
