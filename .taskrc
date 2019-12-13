@@ -77,7 +77,7 @@ color.project._tooling=rgb540
 color.project.linux=rgb352
 
 verbose=yes
-context.real=-background project:zy_energy
+context.real=-background (project:zy_energy or project:zyzyzyzyzy)
 context.abstract=proj.not:zy_energy -background
 context.background=+background
 alias.attach=exec '\/usr\/local\/bin\/attach_vifm' -t

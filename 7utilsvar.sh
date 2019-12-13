@@ -1,4 +1,7 @@
 #!/bin/bash
+
+git clone --depth 1 https://github.com/junegunn/fzf.git $HOME/.fzf
+$HOME/.fzf/install
 sudo apt-get install -y ranger caca-utils highlight atool w3m poppler-utils mediainfo
 ranger --copy-config=all
 
@@ -85,4 +88,3 @@ sudo gem install zeal
 
 sudo apt-get install -y nomacs
 sudo apt-get install -y  sdcv
-

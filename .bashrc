@@ -246,3 +246,5 @@ case ${TERM} in
                                # --> Shows full pathname of current dir.
         ;;
 esac
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash

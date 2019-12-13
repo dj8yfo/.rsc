@@ -7,7 +7,7 @@
 # #************************************************#
 source ~/.xinitrc
 # If you come from bash you might have to change your $PATH.
-export KEYTIMEOUT=20
+export KEYTIMEOUT=10
 export PATH=$HOME/bin:/usr/local/bin:$HOME/Downloads/firefox:$PATH
 export JAVA_HOME=/usr/lib/jvm/jdk1.8.0_211
 autoload -U edit-command-line
@@ -251,6 +251,34 @@ eval $(dircolors -b $HOME/.dircolors)
 # wget https://raw.github.com/trapd00r/LS_COLORS/master/LS_COLORS -O $HOME/.dircolors
 # echo 'eval $(dircolors -b $HOME/.dircolors)' >> $HOME/.bashrc
 
+terminfo_down_sc=$terminfo[cud1]$terminfo[cuu1]$terminfo[sc]$terminfo[cud1]
+source ./var-scripts/spectrum.zsh
+function insert-mode () { echo -e "%{$FG[160]%}-- INSERT --%{$reset_color%}" }
+function normal-mode () { echo -e "%{$FG[051]%}-- NORMAL --%{$reset_color%}" }
+precmd () {
+    # yes, I actually like to have a new line, then some stuff and then 
+    # the input line
+    print -rP "
+[%D{%F %T}] %n %{$fg[blue]%}%m%{$reset_color%}"
+
+    # this is required for initial prompt and a problem I had with Ctrl+C or
+    # Enter when in normal mode (a new line would come up in insert mode,
+    # but normal mode would be indicated)
+    PS1="%{$terminfo_down_sc$(normal-mode)$terminfo[rc]%}%~ $ "
+}
+function set-prompt () {
+    case ${KEYMAP} in
+      (vicmd)      VI_MODE="$(normal-mode)" ;;
+      (main|viins) VI_MODE="$(insert-mode)" ;;
+      (*)          VI_MODE="$(insert-mode)" ;;
+    esac
+    PS1="%{$terminfo_down_sc$VI_MODE$terminfo[rc]%}%{$FG[051]%}%~%{$reset_color%} $ "
+}
+
+function zle-keymap-select {
+    set-prompt
+    zle reset-prompt
+}
 function toggle_bindings()
 {
 
@@ -274,7 +302,11 @@ function toggle_bindings()
 			echo "vim bindings (emacs like in insert mode) with command mode default "
 			bindkey -v
 			# https://unix.stackexchange.com/questions/438307/zsh-start-new-prompt-in-command-mode-vi-mode
-			zle-line-init() { zle -K vicmd; } 
+			zle-line-init() { 
+				zle -K vicmd; 
+				set-prompt
+				zle reset-prompt
+			} 
 			;;
 
 		"emacs" )
@@ -282,7 +314,11 @@ function toggle_bindings()
 			echo -e "\n---------"
 			echo "emacs bindings"
 			bindkey -e
-			zle-line-init() { zle -K viins; } 
+			zle-line-init() { 
+				zle -K viins; 
+				set-prompt
+				zle reset-prompt
+			} 
 			;;
 
 		* )
@@ -298,6 +334,9 @@ function toggle_bindings()
 }
 
 zle -N toggle_bindings
+zle -N zle-keymap-select
+
+
 function multi_bind()
 {
 	bindkey -M emacs $*
@@ -436,3 +475,5 @@ export SCR_SAVE_FILE=$HOME/.scripts-run
 alias pya='source ./.venv/bin/activate'
 . /home/hypen9/Documents/code/tasking/.tasknotes.d/snippets/turn_off_laptop_keyboard.sh
 
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
