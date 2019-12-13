@@ -65,6 +65,7 @@ color.active=underline on black
 color.footnote=color5
 
 verbose=yes
+context.real=-background project:zy_energy
 context.abstract=proj.not:zy_energy -background
 context.background=+background
 alias.attach=exec '\/usr\/local\/bin\/attach_vifm' -t
