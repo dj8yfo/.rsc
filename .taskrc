@@ -34,9 +34,9 @@ uda.totalactivetime.label=Total active time
 uda.totalactivetime.values=
 
 report.link.description=link list
-report.link.columns=start.age,entry.age,depends,project,tags,recur,scheduled.countdown,due.relative,until.remaining,description.count,urgency
+report.link.columns=start.age,uuid.short,depends,project,description.count,tags,recur,scheduled.countdown,due.relative,until.remaining,urgency
 report.link.filter=+ref status:completed
-report.link.labels=Active,Age,Deps,Project,Tag,Recur,S,Due,Until,Description,Urg
+report.link.labels=Active,UUID,Deps,Project,Description,Tag,Recur,S,Due,Until,Urg
 report.link.sort=project-/,tags+,entry-,start+/
 
 report.next.filter=status:pending +UNBLOCKED -ref (-grand and -subtask or +next) -irrelevant
@@ -58,12 +58,13 @@ report._reviewed.columns=uuid
 report._reviewed.sort=reviewed+,modified+
 report._reviewed.filter=( reviewed.none: or reviewed.before:now-6days ) and ( +PENDING or +WAITING )
 
-color.label=gray10
-color.tagged=white
+color.label=gray20
+color.footnote=rgb150
+color.tagged=on black
 color.tag.n=bold on gray7
 color.due=on gray4
 color.due.today=on gray12
-color.active=inverse
+color.active=underline
 color.project.bash=rgb404
 color.project.zsh=rgb035
 color.project.python=rgb452
@@ -76,8 +77,12 @@ color.project.c=rgb355
 color.project._tooling=rgb540
 color.project.linux=rgb352
 
+_forcecolor=yes
+defaultwidth=150
+column.padding=2
 verbose=yes
 context.real=-background (project:zy_energy or project:zyzyzyzyzy)
 context.abstract=proj.not:zy_energy -background
 context.background=+background
 alias.attach=exec '\/usr\/local\/bin\/attach_vifm' -t
+context=abstract

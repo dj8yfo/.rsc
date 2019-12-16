@@ -6,97 +6,15 @@
 # #           private bathtub babe .               #
 # #************************************************#
 source ~/.xinitrc
-# If you come from bash you might have to change your $PATH.
-export KEYTIMEOUT=10
+export KEYTIMEOUT=20
 export PATH=$HOME/bin:/usr/local/bin:$HOME/Downloads/firefox:$PATH
 export JAVA_HOME=/usr/lib/jvm/jdk1.8.0_211
 autoload -U edit-command-line
 PS1='%m %1d$ '
-#NETKIT_HOME Path to your oh-my-zsh installation.
-
-# Set name of the theme to load. Optionally, if you set this to "random"
-# it'll load a random theme each time that oh-my-zsh is loaded.
-# See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 ZSH_THEME=re5et
 
-# Set list of themes to load
-# Setting this variable when ZSH_THEME=random
-# cause zsh load theme from this variable instead of
-# looking in ~/.oh-my-zsh/themes/
-# An empty array have no effect
-# ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
-
-# Uncomment the following line to use case-sensitive completion.
-# CASE_SENSITIVE="true"
-
-# Uncomment the following line to use hypen-insensitive completion. Case
-# sensitive completion must be off. _ and - will be interchangeable.
-# HYPHEN_INSENSITIVE="true"
-
-# Uncomment the following line to disable bi-weekly auto-update checks.
-# DISABLE_AUTO_UPDATE="true"
-
-# Uncomment the following line to change how often to auto-update (in days).
-# export UPDATE_ZSH_DAYS=13
-
-# Uncomment the following line to disable colors in ls.
 DISABLE_LS_COLORS="true"
 
-# Uncomment the following line to disable auto-setting terminal title.
-# DISABLE_AUTO_TITLE="true"
-
-# Uncomment the following line to enable command auto-correction.
-# ENABLE_CORRECTION="true"
-
-# Uncomment the following line to display red dots whilst waiting for completion.
-# COMPLETION_WAITING_DOTS="true"
-
-# Uncomment the following line if you want to disable marking untracked files
-# under VCS as dirty. This makes repository status check for large repositories
-# much, much faster.
-# DISABLE_UNTRACKED_FILES_DIRTY="true"
-
-# Uncomment the following line if you want to change the command execution time
-# stamp shown in the history command output.
-# The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
-# HIST_STAMPS="mm/dd/yyyy"
-
-# Would you like to use another custom folder than $ZSH/custom?
-# ZSH_CUSTOM=/path/to/new-custom-folder
-
-# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
-# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
-# Example format: plugins=(rails git textmate ruby lighthouse)
-# Add wisely, as too many plugins slow down shell startup.
-
-# User configuration
-
-# export MANPATH="/usr/local/man:$MANPATH"
-
-# You may need to manually set your language environment
-# export LANG=en_US.UTF-8
-
-# Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
-
-# Compilation flags
-# export ARCHFLAGS="-arch x86_64"
-
-# ssh
-# export SSH_KEY_PATH="~/.ssh/rsa_id"
-
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
-# For a full list of active aliases, run `alias`.
-#
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
 export TERM="xterm-256color"
 
 export PATH="$HOME/.pyenv/bin:$PATH"
@@ -122,16 +40,12 @@ function mypopd {
 	dirs -v;
 }
 
-# alias d='dirs -v'
-# alias c='mypushd'
-# alias o='mypopd'
 alias ls='ls -ah --color  --group-directories-first'
 alias et='emacsclient -nw  -c -a ""'
 alias ec='emacsclient -c -a ""'
 alias sudo='sudo '
 alias ff='f -e fe'
 alias notes='ff notes.org'
-alias webnotes='firefox $HOME/Documents/code/tasking/notes-html/notes.html'
 export CMUS_SOCKET=$HOME/.config/cmus/socket
 export LSCOLORS=
 alias zmus='tmux attach-session -t cmus || tmux new-session -A -D -s cmus "$(which cmus) --listen $CMUS_SOCKET"'
@@ -140,37 +54,13 @@ alias next='cmus-remote --server $HOME/.config/cmus/socket -n'
 alias prev='cmus-remote --server $HOME/.config/cmus/socket -r'
 unset TMUX
 alias mutt='neomutt'
-alias pull_notes='cd $HOME/Documents/code/tasking && ./pullscript.sh'
 alias go='xdg-open'
 alias histe='nvim $HISTFILE'
 alias ra='ranger'
 alias atq='atq | sort'
-alias t='task'
-alias to='taskopen -A'
-alias ta='task attach'
-alias active='task +ACTIVE'
-book=4e09bbe4-eff4-4ae2-bd1e-2c82394be509
-alias buzz='task +alarm status:pending'
-alias abst='task context abstract'
-alias phony='task context background'
-alias real='task context real'
-alias none='task context none'
-alias due='t due:today status:pending'
-alias tsum='timew summary'
 alias kiss='cvlc $HOME/Documents/code/KissFM.m3u'
 alias xi='xclip -sel clip -i'
 alias xo='xclip -sel clip -o'
-function launch ()
-{
-	cd $HOME/Documents/code/tasking
-	find .tasknotes.d/snippets -type f -exec chmod 400 {} \;
-	gitpush
-	
-}
-function te ()
-{
-	task "$*" edit
-}
 
 function poptask ()
 {
@@ -209,7 +99,6 @@ function prg ()
 	ps afx -o ruser,pid,comm | grep --color=always -C $context "$1"
 }
 
-#export EDITOR='emacsclient -nw  -c -a ""'
 export EDITOR='nvim'
 function eman ()
 {
@@ -245,8 +134,6 @@ export PATH=~/bin:$PATH
 export PATH=/usr/local/texlive/2019/bin/x86_64-linux:$PATH
 
 export ANDROID_SDK_ROOT=$HOME/Android/Sdk
-#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
-export SDKMAN_DIR="$HOME/.sdkman"
 eval $(dircolors -b $HOME/.dircolors)
 # wget https://raw.github.com/trapd00r/LS_COLORS/master/LS_COLORS -O $HOME/.dircolors
 # echo 'eval $(dircolors -b $HOME/.dircolors)' >> $HOME/.bashrc
@@ -255,17 +142,14 @@ terminfo_down_sc=$terminfo[cud1]$terminfo[cuu1]$terminfo[sc]$terminfo[cud1]
 source ./var-scripts/spectrum.zsh
 function insert-mode () { echo -e "%{$FG[160]%}-- INSERT --%{$reset_color%}" }
 function normal-mode () { echo -e "%{$FG[051]%}-- NORMAL --%{$reset_color%}" }
+
 precmd () {
-    # yes, I actually like to have a new line, then some stuff and then 
-    # the input line
     print -rP "
 [%D{%F %T}] %n %{$fg[blue]%}%m%{$reset_color%}"
 
-    # this is required for initial prompt and a problem I had with Ctrl+C or
-    # Enter when in normal mode (a new line would come up in insert mode,
-    # but normal mode would be indicated)
     PS1="%{$terminfo_down_sc$(normal-mode)$terminfo[rc]%}%~ $ "
 }
+
 function set-prompt () {
     case ${KEYMAP} in
       (vicmd)      VI_MODE="$(normal-mode)" ;;
@@ -288,7 +172,7 @@ function toggle_bindings()
 	then
 		target_mode="$1"
 	else
-		if bindkey -lL main | grep emacs >& /dev/null; 
+		if bindkey -lL main | grep emacs >& /dev/null;
 		then
 			target_mode="vi"
 		else
@@ -302,11 +186,11 @@ function toggle_bindings()
 			echo "vim bindings (emacs like in insert mode) with command mode default "
 			bindkey -v
 			# https://unix.stackexchange.com/questions/438307/zsh-start-new-prompt-in-command-mode-vi-mode
-			zle-line-init() { 
-				zle -K vicmd; 
+			zle-line-init() {
+				zle -K vicmd;
 				set-prompt
 				zle reset-prompt
-			} 
+			}
 			;;
 
 		"emacs" )
@@ -314,18 +198,18 @@ function toggle_bindings()
 			echo -e "\n---------"
 			echo "emacs bindings"
 			bindkey -e
-			zle-line-init() { 
-				zle -K viins; 
+			zle-line-init() {
+				zle -K viins;
 				set-prompt
 				zle reset-prompt
-			} 
+			}
 			;;
 
 		* )
 			echo "no valid variant chosen"
 			return $EX_USAGE
 			;;
-	esac 
+	esac
 	zle -N zle-line-init
 	if [ -z "$1" ];
 	then
@@ -382,30 +266,6 @@ multi_bind '^[[1;6C' insert-cycledright
 #dircycle bindings for urxvt
 
 toggle_bindings vi
-function dance(){
-	bf=$HOME/Documents/code/tasking/.tasknotes.d/2896ed34-be60-4650-84b8-f7240ad6e871.txt
-	logf=$HOME/.dance-log
-	ue=$(sed '1q;d' $bf)
-	na=$(sed '2q;d' $bf)
-	de=$(sed '3q;d' $bf)
-	sp=$(sed '4q;d' $bf)
-	ra=$(sed '5q;d' $bf)
-
-	tot=$(echo "scale=3; $ue*$ra+$na-$de" | bc)
-	echo "----------" | tee -a $logf | cat -
-	echo "totals: $tot" | tee -a $logf | cat -
-	le=$(echo "scale=3; $tot/$sp*30" | bc)
-	echo "days: $le" | tee -a $logf | cat -
-	cu=$(date -u '+%F %T')
-	cur=$(date -u '+%F %T.%N %Z')
-	echo $cu | tee -a $logf | cat -
-	ro=$(echo "($le+0.5)/1" | bc)
-	ne=$(date -d"$cur +$ro days" '+%F %T');
-	echo | tee -a $logf | cat -
-	echo "eow: $ne" | tee -a $logf | cat -
-	echo -e "----------\n" | tee -a $logf | cat -
-
-}
 
 function rip {
 	tempfile="$(mktemp -t tmp.XXXXXX)"
@@ -424,56 +284,40 @@ function hs() { fc -lim "*$@*" 1 }
 multi_bind_str "\en" 'f -e nvim '
 multi_bind_str "\C-t" 'hs '
 bindkey -s -M vicmd "1" 'i!'
-bindkey -M vicmd "s" vi-history-search-backward 
+bindkey -M vicmd "s" history-incremental-pattern-search-backward
 multi_bind_str "\e;" '$()\C-b'
-
 
 function addTextFromFile () {
 	text_to_add=$(cat "$1")
 	RBUFFER=${text_to_add}${RBUFFER}
 }
-funciton addtt () {
-	addTextFromFile $HOME/Documents/code/tasking/.tasknotes.d/snippets/tt.snip
-}
-zle -N addtt
 
-funciton addts () {
-	addTextFromFile $HOME/Documents/code/tasking/.tasknotes.d/snippets/task_search.snip
-}
-zle -N addts
-
-funciton addtsw () {
-	addTextFromFile $HOME/Documents/code/tasking/.tasknotes.d/snippets/stopwatch_template.snip
-}
-zle -N addtsw
-
-multi_bind '\et' addtt
-multi_bind '\e]' addts
-multi_bind '\em' addtsw
-
-function createNote () {
-	EX_USAGE=64
-	if [ -z "$1" ]; then
-		echo 'usage: createNote ${new_filename}'
-		return $EX_USAGE
-	fi
-	note_name="$1"
-	echo '# annotation' > $note_name
-	vim $note_name
-	destd=$HOME/Documents/code/tasking/.tasknotes.d/snippets
-	mv $note_name $destd
-	if [ -z "$2" ]; then
-		attach_vifm -f $destd/$note_name
-	else
-		attach_vifm -f $destd/$note_name -t "$2"
-	fi
-}
-alias cn='createNote'
-[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
 zsh $HOME/Documents/.conf/var-scripts/stat.sh
 export SCR_SAVE_FILE=$HOME/.scripts-run
 alias pya='source ./.venv/bin/activate'
-. /home/hypen9/Documents/code/tasking/.tasknotes.d/snippets/turn_off_laptop_keyboard.sh
-
-
+. $HOME/Documents/code/tasking/.tasknotes.d/snippets/turn_off_laptop_keyboard.sh
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+function multicolor () {
+	local cmd_str=''
+	multicfg="$1"
+	linesmax="$(wc -l $multicfg | awk '{print $1}')"
+	i=1
+	while read color_co word_match;
+	do
+		local template_str="GREP_COLORS=\"$color_co\" grep -E --color=always -e \"^\" -e \"$word_match\""
+		cmd_str="$cmd_str$template_str"
+		if [[ $i != $linesmax ]];
+		then
+			cmd_str="$cmd_str | "
+		fi
+		((i++))
+
+	done < $multicfg
+	echo $cmd_str 1>&2 
+	eval "$cmd_str"
+}
+. $HOME/Documents/.conf/tasking_funcs.zsh
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
+export SDKMAN_DIR="$HOME/.sdkman"

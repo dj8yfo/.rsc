@@ -42,7 +42,7 @@ sudo apt-get install -y install keepass2
 sudo cp ./var-scripts/gitpush /usr/local/bin
 sudo chmod +x /usr/local/bin/gitpush
 
-sudo apt-get install -y taskwarrior cpanminus
+sudo apt-get install -y taskwarrior vit cpanminus
 rm -rf $HOME/.task
 ln -s $HOME/Documents/code/tasking/.task.d $HOME/.task
 rm -rf $HOME/tasknotes
