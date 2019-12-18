@@ -109,9 +109,12 @@ alias cn='createNote'
 alias update_ttags='python $HOME/Documents/.conf/var-scripts/get_color_taskwar_tags.py'
 
 function tc () {
-	task "$@" | multicolor $HOME/.config/.taskwcolorrc 2>/dev/null
+	task rc._forcecolor=no "$@" | multicolor $HOME/.config/.taskwcolorrc 2>/dev/null
 }
 
+function tcm () {
+	task rc._forcecolor=yes "$@" | multicolor $HOME/.config/.taskwcolorrc 2>/dev/null
+}
 function launch ()
 {
 	cd $HOME/Documents/code/tasking
