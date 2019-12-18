@@ -139,7 +139,7 @@ eval $(dircolors -b $HOME/.dircolors)
 # echo 'eval $(dircolors -b $HOME/.dircolors)' >> $HOME/.bashrc
 
 terminfo_down_sc=$terminfo[cud1]$terminfo[cuu1]$terminfo[sc]$terminfo[cud1]
-source ./var-scripts/spectrum.zsh
+source $HOME/Documents/.conf/var-scripts/spectrum.zsh
 function insert-mode () { echo -e "%{$FG[160]%}-- INSERT --%{$reset_color%}" }
 function normal-mode () { echo -e "%{$FG[051]%}-- NORMAL --%{$reset_color%}" }
 

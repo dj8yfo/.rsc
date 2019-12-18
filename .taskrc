@@ -34,15 +34,15 @@ uda.totalactivetime.label=Total active time
 uda.totalactivetime.values=
 
 report.link.description=link list
-report.link.columns=start.age,uuid.short,depends,project,description.count,tags,recur,scheduled.countdown,due.relative,until.remaining,urgency
+report.link.columns=start.age,uuid.short,depends,project,description.count,tags,recur,scheduled.countdown,due.relative,until.remaining
 report.link.filter=+ref status:completed
 report.link.labels=Active,UUID,Deps,Project,Description,Tag,Recur,S,Due,Until
 report.link.sort=project-/,tags-,entry-,start+/
 
 report.next.filter=status:pending +UNBLOCKED -ref (-grand and -subtask or +next) -irrelevant
 report.next.sort=priority+,project+/,tags+/,due-,entry-,start+/
-report.next.columns=start.age,id,totalactivetime,entry.age,depends,priority,project,tags,recur,scheduled.countdown,due.relative,until.remaining,description.count,urgency
-report.next.labels=Active,ID,SPENT_ON,Age,Deps,PRIO,Project,Tag,Recur,S,Due,Until,Description,Urg
+report.next.columns=start.age,id,totalactivetime,entry.age,depends,priority,project,tags,recur,scheduled.countdown,due.relative,until.remaining,description.count
+report.next.labels=Active,ID,SPENT_ON,Age,Deps,PRIO,Project,Tag,Recur,S,Due,Until,Description
 
 urgency.user.tag.later.coefficient=-6.0
 urgency.blocking.coefficient=15.0
