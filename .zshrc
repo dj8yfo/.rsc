@@ -28,7 +28,18 @@ export PIPENV_VENV_IN_PROJECT=1
 # source ~/.bash-git-prompt/gitprompt.sh
 
 alias vim=nvim
-export MANPAGER="/bin/sh -c \"unset MANPAGER;col -b -x | nvim -c 'set ft=man nomod nolist'\""
+export MANPAGER='nvim +Man!'
+
+# Supports bold/underline/etc
+# See https://stackoverflow.com/a/4233818/9782020
+function man {
+    eval "unbuffer man -P cat \"$@\" | $MANPAGER"
+}
+
+# No bold/underline/etc
+function mann {
+    eval "command man \"$@\" | $MANPAGER"
+}
 
 function mypushd {
 	pushd "${@}" >/dev/null;
