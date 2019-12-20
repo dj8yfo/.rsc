@@ -192,8 +192,8 @@ colors:
   # Colors which should be used to draw the terminal cursor. If these are unset,
   # the cursor color will be the inverse of the cell color.
   cursor:
-   text: '0x000000'
-   cursor: '0x77ff77'
+   text:  '0x00ff00'
+   cursor: '0x0000ff'
 
   # Selection colors
   #
@@ -217,7 +217,7 @@ colors:
 
   # Bright colors
   bright:
-    black:   '0x666666'
+    black:  '0x666666'
     red:     '0xff3334'
     green:   '0x9ec400'
     yellow:  '0xe7c547'

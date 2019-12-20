@@ -115,6 +115,11 @@ function tc () {
 function tcm () {
 	task rc._forcecolor=yes "$@" | multicolor $HOME/.config/.taskwcolorrc 2>/dev/null
 }
+
+function treal () {
+	cat $HOME/Documents/code/tasking/notes-org/real_life.org | multicolor $HOME/.config/.org_modenotesrc 2>/dev/null
+}
+
 function launch ()
 {
 	cd $HOME/Documents/code/tasking
