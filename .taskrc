@@ -36,8 +36,8 @@ uda.totalactivetime.values=
 report.link.description=link list
 report.link.columns=start.age,uuid.short,depends,project,description.count,tags,recur,scheduled.countdown,due.relative,until.remaining,urgency
 report.link.filter=+ref status:completed
-report.link.labels=Active,UUID,Deps,Project,Description,Tag,Recur,S,Due,Until,Urg
-report.link.sort=project-/,tags+,entry-,start+/
+report.link.labels=Active,UUID,Deps,Project,Description,Tag,Recur,S,Due,Until
+report.link.sort=project-/,tags-,entry-,start+/
 
 report.next.filter=status:pending +UNBLOCKED -ref (-grand and -subtask or +next) -irrelevant
 report.next.sort=priority+,project+/,tags+/,due-,entry-,start+/
@@ -85,4 +85,4 @@ context.real=-background (project:zy_energy or project:zyzyzyzyzy)
 context.abstract=proj.not:zy_energy -background
 context.background=+background
 alias.attach=exec '\/usr\/local\/bin\/attach_vifm' -t
-context=abstract
+context=real

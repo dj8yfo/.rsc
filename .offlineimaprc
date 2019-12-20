@@ -13,7 +13,7 @@ localfolders = ~/Maildir
 [Repository Remote]
 type = IMAP
 remotehost = imap.gmail.com
-remoteuser = gisochrewhb@gmail.com
+remoteuser = you_use_gmail_feel_retarded@gmail.com
 remotepass = pass
 ssl = yes
 sslcacertfile = /etc/ssl/certs/ca-certificates.crt

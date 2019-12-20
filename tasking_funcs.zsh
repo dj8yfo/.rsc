@@ -145,3 +145,10 @@ function tlink ()
 	task "$1" annotate uuid_"$3": "$2"
 }
 
+
+function tan ()
+{
+	local attach_to="$1"
+	shift;
+	task "$attach_to" annotate "$@"
+}
