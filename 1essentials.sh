@@ -27,6 +27,13 @@ sudo chmod +x /usr/local/bin/set-bri
 curl -LO https://github.com/BurntSushi/ripgrep/releases/download/11.0.2/ripgrep_11.0.2_amd64.deb
 sudo dpkg -i ripgrep_11.0.2_amd64.deb
 sudo apt-get install -y zsh
+sudo apt-get install -y awesome
+mkdir -p $HOME/.config/awesome
+ln -s $PWD/awesome/rc.lua $HOME/.config/awesome/rc.lua
+git clone https://github.com/guotsuan/awesome-revelation ~/.config/awesome/revelation
+ln -s $PWD/awesome/awesome.desktop $HOME/.config/autostart/awesome.desktop
+ln -s $PWD/awesome/compton.desktop $HOME/.config/autostart/compton.desktop
+
 wget https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | zsh
 git clone https://github.com/zsh-users/zsh-completions ${ZSH_CUSTOM:=~/.oh-my-zsh/custom}/plugins/zsh-completions
 
