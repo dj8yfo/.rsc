@@ -88,3 +88,4 @@ sudo gem install zeal
 
 sudo apt-get install -y nomacs
 sudo apt-get install -y  sdcv
+ln -s $PWD/tridactylrc $HOME/.config/tridactyl/tridactylrc
