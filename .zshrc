@@ -72,6 +72,7 @@ alias atq='atq | sort'
 alias kiss='cvlc $HOME/Documents/code/KissFM.m3u'
 alias xi='xclip -sel clip -i'
 alias xo='xclip -sel clip -o'
+alias sdcv='sdcv --color'
 
 function poptask ()
 {
@@ -308,6 +309,8 @@ export SCR_SAVE_FILE=$HOME/.scripts-run
 alias pya='source ./.venv/bin/activate'
 . $HOME/Documents/code/tasking/.tasknotes.d/snippets/turn_off_laptop_keyboard.sh
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+multi_bind_str "\ej" 'vim **\C-i' # zap sh** by needlecast
+ 
 
 function multicolor () {
 	local cmd_str=''
