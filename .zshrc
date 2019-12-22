@@ -303,6 +303,12 @@ function addTextFromFile () {
 	text_to_add=$(cat "$1")
 	RBUFFER=${text_to_add}${RBUFFER}
 }
+funciton tmux_move_pane () {
+	addTextFromFile $HOME/Documents/code/tasking/.tasknotes.d/snippets/move_curent_pane_jaunt.snip
+
+}
+zle -N tmux_move_pane 
+multi_bind "\e." tmux_move_pane 
 
 zsh $HOME/Documents/.conf/var-scripts/stat.sh
 export SCR_SAVE_FILE=$HOME/.scripts-run
