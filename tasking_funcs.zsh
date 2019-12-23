@@ -83,6 +83,11 @@ function createNote () {
 		return $EX_USAGE
 	fi
 	note_name="$1"
+	if [[ "$note_name" =~ _.* ]];
+	then
+		suff="${note_name#*.}"
+		note_name=$(mktemp -u XXXXXXXXXXX)."$suff"
+	fi
 	if [ -n "$2" ];
 	then
 		descri="$(t _get $2.description)"
@@ -139,7 +144,7 @@ function inter_task ()
 
 	local id=$(task $dup_target duplicate | grep 'Created task' \
 		| awk 'match($0, /[0-9]+/) {print substr($0, RSTART, RLENGTH)}') 
-	vit $id
+	te $id
 	local uuid=$(task $id done | grep 'Completed task' \
 		| awk '{print $3}') 
 	echo "Created ref uuid: $uuid"

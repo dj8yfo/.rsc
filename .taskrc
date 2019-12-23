@@ -77,10 +77,11 @@ color.project.c=rgb355
 color.project._tooling=rgb540
 color.project.linux=rgb352
 
-defaultwidth=150
+defaultwidth=120
 column.padding=2
 verbose=yes
 context.real=-background (project:zy_energy or project:zyzyzyzyzy)
 context.abstract=proj.not:zy_energy -background
 context.background=+background
 alias.attach=exec '\/usr\/local\/bin\/attach_vifm' -t
+context=abstract
