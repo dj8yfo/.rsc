@@ -57,6 +57,8 @@ rm $HOME/.taskrc
 ln -s $PWD/.taskrc $HOME/.taskrc
 rm $HOME/.taskopenrc
 ln -s $PWD/.taskopenrc $HOME/.taskopenrc
+rm $HOME/.taskopenrc1
+ln -s $PWD/.taskopenrc1 $HOME/.taskopenrc1
 sudo cpanm install JSON
 
 pip install taskwarrior-time-tracking-hook

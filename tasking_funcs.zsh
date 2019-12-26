@@ -2,6 +2,7 @@
 alias pull_notes='cd $HOME/Documents/code/tasking && ./pullscript.sh'
 alias t='task'
 alias to='taskopen -A'
+alias to1='taskopen -A -c $HOME/.taskopenrc1'
 alias ta='task attach'
 alias active='task +ACTIVE'
 book=4e09bbe4-eff4-4ae2-bd1e-2c82394be509
