@@ -84,4 +84,3 @@ context.real=-background (project:zy_energy or project:zyzyzyzyzy)
 context.abstract=proj.not:zy_energy -background
 context.background=+background
 alias.attach=exec '\/usr\/local\/bin\/attach_vifm' -t
-context=abstract
