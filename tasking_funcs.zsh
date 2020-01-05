@@ -113,7 +113,14 @@ function createNote () {
 }
 alias cn='createNote'
 alias update_ttags='python $HOME/Documents/.conf/var-scripts/get_color_taskwar_tags.py'
+function supert {
+	t link 2>/dev/null | fzf | awk '{ print $1}' 
+}
 
+function superxt {
+	t link 2>/dev/null | fzf | awk '{ print $1}' | xcat
+}
+alias tsup='to $(supert)'
 function tc () {
 	task rc._forcecolor=no "$@" | multicolor $HOME/.config/.taskwcolorrc 2>/dev/null
 }
