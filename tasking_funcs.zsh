@@ -120,7 +120,12 @@ function supert {
 function superxt {
 	t link 2>/dev/null | fzf | awk '{ print $1}' | xcat
 }
+
+function supertask {
+	t status:pending all 2>/dev/null | fzf | awk '{ print $1}' 
+}
 alias tsup='to $(supert)'
+alias tsuper='to $(supertask)'
 function tc () {
 	task rc._forcecolor=no "$@" | multicolor $HOME/.config/.taskwcolorrc 2>/dev/null
 }
@@ -139,6 +144,23 @@ function launch ()
 	find .tasknotes.d/snippets -type f -exec chmod 400 {} \;
 	update_ttags
 	gitpush
+}
+
+function inter_task_yet ()
+{
+	if [ -n "$1" ];
+	then
+		local dup_target=$1
+	else
+		local dup_target=96bbde84
+	fi
+
+	local id=$(task $dup_target duplicate | grep 'Created task' \
+		| awk 'match($0, /[0-9]+/) {print substr($0, RSTART, RLENGTH)}') 
+	te $id
+	local full_uuid=$(task $id uuids)
+	echo "Full ref uuid: $full_uuid"
+	echo $full_uuid | xclip -sel clip -i
 }
 
 function inter_task ()
@@ -161,15 +183,50 @@ function inter_task ()
 	echo $full_uuid | xclip -sel clip -i
 }
 
-function tlink ()
+function id_validate () 
 {
-	task "$1" annotate uuid_"$3": "$2"
+	EX_DATAERR=65
+	local match=$(echo "$1" | gawk --re-interval '/^[0-9]{1,3}$/')
+	if [ -n "$match" ]; 
+	then
+		return 0
+	else
+		return $EX_DATAERR
+	fi
 }
 
-
-function tan ()
+function uuid_validate () 
 {
+	EX_DATAERR=65
+	local match=$(echo "$1" | gawk '/^[a-fA-F0-9]+(-[a-fA-F0-9]+)*$/')
+	if [ -n "$match" ]; 
+	then
+		return 0
+	else
+		return $EX_DATAERR
+	fi
+}
+
+function tyan()
+{
+	EX_DATAERR=65
+	EX_NOINPUT=66
 	local attach_to="$1"
+	id_validate "$attach_to" && attach_to="$(task $attach_to uuids)"
+	if uuid_validate "$attach_to";
+	then
+		local desc=$(task _get "$attach_to.description")
+		if task _get "$attach_to.description";
+		then
+			echo "linking to task: $desc" 1>&2
+		else
+			echo "task doesn't exist: $attach_to" 1>&2
+			return $EX_NOINPUT
+		fi
+	else
+		echo "invalid id format: $attach_to" 1>&2
+		return $EX_DATAERR
+	fi
 	shift;
 	task "$attach_to" annotate "$@"
 }

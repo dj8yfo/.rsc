@@ -73,6 +73,8 @@ alias kiss='cvlc $HOME/Documents/code/KissFM.m3u'
 alias xi='xclip -sel clip -i'
 alias xo='xclip -sel clip -o'
 alias sdcv='sdcv --color'
+alias fired='$HOME/Documents/code/firefox-73.0b4/firefox/firefox'
+
 
 function poptask ()
 {
@@ -312,7 +314,7 @@ multi_bind "\e." tmux_move_pane
 
 zsh $HOME/Documents/.conf/var-scripts/stat.sh
 export SCR_SAVE_FILE=$HOME/.scripts-run
-alias pya='source ./.venv/bin/activate'
+alias pya='. $(pipenv --venv)/bin/activate'
 . $HOME/Documents/code/tasking/.tasknotes.d/snippets/turn_off_laptop_keyboard.sh
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 multi_bind_str "\ej" 'vim **\C-i' # zap sh** by needlecast

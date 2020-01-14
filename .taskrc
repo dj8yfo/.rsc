@@ -40,7 +40,7 @@ report.link.labels=Active,UUID,Deps,Project,Description,Tag,Recur,S,Due,Until
 report.link.sort=project-/,entry-,start+/
 
 report.next.filter=status:pending +UNBLOCKED -ref (-grand and -subtask or +next) -irrelevant
-report.next.sort=priority+,project+/,tags+/,due-,entry-,start+/
+report.next.sort=priority+,project+/,due-,entry-,start+/,tags+/
 report.next.columns=start.age,id,totalactivetime,entry.age,depends,priority,project,tags,recur,scheduled.countdown,due.relative,until.remaining,description.count
 report.next.labels=Active,ID,SPENT_ON,Age,Deps,PRIO,Project,Tag,Recur,S,Due,Until,Description
 
@@ -49,7 +49,7 @@ urgency.blocking.coefficient=15.0
 urgency.uda.priority.H.coefficient=40.0 # high Priority
 urgency.uda.priority.M.coefficient=20.0 # medium Priority
 urgency.uda.priority.L.coefficient=10.0 # low Priority
-uda.priority.values=H,M,L,
+uda.priority.values=NOW,HH,H,M,L,
 search.case.sensitive=no
 uda.reviewed.type=date
 uda.reviewed.label=Reviewed
@@ -71,7 +71,8 @@ color.project.bash=rgb404
 color.project.zsh=rgb035
 color.project.python=rgb452
 color.project.taskrc=rgb335
-color.project.zy_energy=rgb050
+color.project.zy_energy.real=rgb055
+color.project.zy_energy.learn=rgb050
 color.project.vim=rgb350
 color.project.emacs=rgb500
 color.project.git=rgb205
