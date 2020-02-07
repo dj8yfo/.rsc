@@ -1,6 +1,6 @@
 import subprocess
 import os
-
+print('Running tag generation for .taskwcolorrc...')
 all_unique_tags = set()
 compl_pr = subprocess.run(["task", "+ref", "uuids"], capture_output=True)
 # print(compl_pr.stdout)
@@ -20,7 +20,7 @@ for uuid in uuids:
     # print()
 all_unique_tags.remove('ref')
 all_unique_tags = list(all_unique_tags)
-all_unique_tags = sorted(all_unique_tags, key=len)
+all_unique_tags = sorted(all_unique_tags, key=len, reverse=True)
 
 tags_file = f'{os.environ["HOME"]}/.unique_taskwarrior_tags'
 with open(tags_file, 'w') as tagf:
@@ -32,9 +32,9 @@ with open(tags_file, 'w') as tagf:
 
 cfg_color_file=f'{os.environ["HOME"]}/.config/.taskwcolorrc'
 print(cfg_color_file)
-template = 'ms=40;38;5;{color_num}:sl=48;5;234	{tag}\\\\W\n'
+template = 'ms=40;38;5;{color_num}:sl=48;5;234	{tag}\\\\b\n'
 template_rigid = 'ms=40;38;5;171:sl=48;5;234	~\\\\S+~\n'
-template_rigid1 = 'ms=40;38;5;229:sl=48;5;234	ref\\\\W\n'
+template_rigid1 = 'ms=40;38;5;229:sl=48;5;234	\\\\bref\\\\b\n'
 iter_color = 120
 with open(cfg_color_file, 'w') as cfg:
     for tag in all_unique_tags:
@@ -42,7 +42,7 @@ with open(cfg_color_file, 'w') as cfg:
         if iter_color == 0:
             iter_color += 1
         template_form = template.format(color_num=iter_color, tag=tag)
-        print(template_form, end='')
+        # print(template_form, end='')
         cfg.write(template_form)
     cfg.write(template_rigid)
     cfg.write(template_rigid1)

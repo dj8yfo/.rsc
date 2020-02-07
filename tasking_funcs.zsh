@@ -124,6 +124,11 @@ function superxt {
 function supertask {
 	t status:pending all 2>/dev/null | fzf | awk '{ print $1}' 
 }
+
+function tags_list {
+	t _unique tag  |  tr "," " " | tr " " "\n" | sort -u | tr "\n" " "
+}
+
 alias tsup='to $(supert)'
 alias tsuper='to $(supertask)'
 function tc () {

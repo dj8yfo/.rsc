@@ -41,8 +41,8 @@ report.link.sort=project-/,entry-,start+/
 
 report.next.filter=status:pending +UNBLOCKED -ref (-grand and -subtask or +next) -irrelevant
 report.next.sort=priority+,project+/,due-,entry-,start+/,tags+/
-report.next.columns=start.age,id,totalactivetime,entry.age,depends,priority,project,tags,recur,scheduled.countdown,due.relative,until.remaining,description.count
-report.next.labels=Active,ID,SPENT_ON,Age,Deps,PRIO,Project,Tag,Recur,S,Due,Until,Description
+report.next.columns=id,totalactivetime,entry.age,depends,priority,project,tags,recur,scheduled.countdown,due.relative,until.remaining,description.count
+report.next.labels=ID,SPENT_ON,Age,Deps,PRIO,Project,Tag,Recur,S,Due,Until,Description
 
 urgency.user.tag.later.coefficient=-6.0
 urgency.blocking.coefficient=15.0
@@ -80,7 +80,7 @@ color.project.c=rgb355
 color.project._tooling=rgb540
 color.project.linux=rgb352
 
-defaultwidth=120
+defaultwidth=100
 column.padding=2
 verbose=yes
 context.real=-background (project:zy_energy or project:zyzyzyzyzy)
