@@ -10,6 +10,7 @@ ipython profile create default
 rm $HOME/.ipython/profile_default/ipython_config.py
 ln -s $PWD/ipython_config.py $HOME/.ipython/profile_default/ipython_config.py
 ln -s $PWD/flake8 $HOME/.config/flake8
+ln -s $PWD/pycodestyle $HOME/.config/pycodestyle
 # profile_default
 pip install --user pipenv
 . ./pylookup_inst.sh

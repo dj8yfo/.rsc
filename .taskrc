@@ -80,7 +80,7 @@ color.project.c=rgb355
 color.project._tooling=rgb540
 color.project.linux=rgb352
 
-defaultwidth=100
+defaultwidth=150
 column.padding=2
 verbose=yes
 context.real=-background (project:zy_energy or project:zyzyzyzyzy)

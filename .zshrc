@@ -132,7 +132,7 @@ export POWERLINE_CONFIG_COMMAND=$(pyenv which powerline-config)
 source $HOME/.pyenv/versions/3.8.0b4/lib/python3.8/site-packages/powerline/bindings/zsh/powerline.zsh
 export MYPYPATH=$HOME/python/stubs
 export ZSH_COLORIZE_STYLE='stata-dark'
-plugins=(colored-man-pages colorize fasd git vi-mode dircycle zsh-completions colorize)
+plugins=(colored-man-pages colorize fasd git vi-mode dircycle dirhistory zsh-completions colorize)
 autoload -U compinit && compinit
 eval "$(pipenv --completion)"
 
@@ -315,9 +315,28 @@ multi_bind "\e." tmux_move_pane
 zsh $HOME/Documents/.conf/var-scripts/stat.sh
 export SCR_SAVE_FILE=$HOME/.scripts-run
 alias pya='. $(pipenv --venv)/bin/activate'
+alias rmlogs='rm **/*.log'
 . $HOME/Documents/code/tasking/.tasknotes.d/snippets/turn_off_laptop_keyboard.sh
+turn_on_laptop_key
+turn_off_laptop_key
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-multi_bind_str "\ej" 'vim **\C-i' # zap sh** by needlecast
+
+function zapfzf() {
+        var=$(find . -type f | fzf --preview 'cat {}')
+        if [ -n "$var" ]
+        then
+                vim "$var"
+        fi
+}
+function zapfzf_no_hidden() {
+        var=$(find * -type f | fzf --preview 'cat {}')
+        if [ -n "$var" ]
+        then
+                vim "$var"
+        fi
+}
+multi_bind_str "\ej" 'zapfzf \C-j'
+multi_bind_str "\ez" 'zapfzf_no_hidden \C-j'
  
 
 function multicolor () {
