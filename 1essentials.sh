@@ -27,6 +27,12 @@ sudo chmod +x /usr/local/bin/set-bri
 curl -LO https://github.com/BurntSushi/ripgrep/releases/download/11.0.2/ripgrep_11.0.2_amd64.deb
 sudo dpkg -i ripgrep_11.0.2_amd64.deb
 sudo apt-get install -y zsh
+
+pushd /tmp
+wget https://github.com/sharkdp/bat/releases/download/v0.12.1/bat_0.12.1_amd64.deb
+sudo dpkg -i bat_0.12.1_amd64.deb
+popd
+
 sudo apt-get install -y awesome
 mkdir -p $HOME/.config/awesome
 ln -s $PWD/awesome/rc.lua $HOME/.config/awesome/rc.lua

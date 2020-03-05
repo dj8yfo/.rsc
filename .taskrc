@@ -40,7 +40,7 @@ report.link.labels=Active,UUID,Deps,Project,Description,Tag,Recur,S,Due,Until
 report.link.sort=project-/,entry-,start+/
 
 report.next.filter=status:pending +UNBLOCKED -ref (-grand and -subtask or +next) -irrelevant
-report.next.sort=priority+,project+/,due-,entry-,start+/,tags+/
+report.next.sort=priority+,project+/,due-,entry-,start+,tags+
 report.next.columns=id,totalactivetime,entry.age,depends,priority,project,tags,recur,scheduled.countdown,due.relative,until.remaining,description.count
 report.next.labels=ID,SPENT_ON,Age,Deps,PRIO,Project,Tag,Recur,S,Due,Until,Description
 

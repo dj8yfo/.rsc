@@ -73,7 +73,7 @@ zle -N addtsw
 multi_bind '\et' addtt
 multi_bind '\e]' addts
 multi_bind '\eu' addtsuids 
-multi_bind '\em' addtsw
+multi_bind '\e`' addtsw
 multi_bind '\eo' opentst
 multi_bind '\e\\' edittt
 

@@ -133,6 +133,7 @@ source $HOME/.pyenv/versions/3.8.0b4/lib/python3.8/site-packages/powerline/bindi
 export MYPYPATH=$HOME/python/stubs
 export ZSH_COLORIZE_STYLE='stata-dark'
 plugins=(colored-man-pages colorize fasd git vi-mode dircycle dirhistory zsh-completions colorize)
+alias vst='vim -c Gstatus'
 autoload -U compinit && compinit
 eval "$(pipenv --completion)"
 
@@ -249,8 +250,6 @@ function multi_bind_str()
 }
 multi_bind "\e'" toggle_bindings
 
-multi_bind  '\C-r' history-incremental-pattern-search-backward
-multi_bind  '\C-s' history-incremental-pattern-search-forward
 
 multi_bind "\e/" where-is
 bindkey -M viins "\C-p" history-beginning-search-backward
@@ -319,24 +318,65 @@ alias rmlogs='rm **/*.log'
 . $HOME/Documents/code/tasking/.tasknotes.d/snippets/turn_off_laptop_keyboard.sh
 turn_on_laptop_key
 turn_off_laptop_key
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+export FZF_DEFAULT_COMMAND='rg --files --follow --hidden --no-ignore'
+[ -f ~/.fzf.zsh ] && source $HOME/.fzf.zsh
+source "$HOME/.fzf/shell/key-bindings.zsh"
+multi_bind '^T' fzf-file-widget
+multi_bind '\ec' fzf-cd-widget
+multi_bind '^U' fzf-history-widget
+
+multi_bind  '\C-r' history-incremental-pattern-search-backward
+multi_bind  '\C-s' history-incremental-pattern-search-forward
+export FZF_ALT_C_OPTS="--preview 'tree -C {} | head -200'"
+export FZF_CTRL_R_OPTS="--sort --exact --preview 'echo {}' --preview-window down:3:hidden:wrap --bind '?:toggle-preview'"
+export FZF_CTRL_T_OPTS="--preview '(bat --style=numbers --color=always {} || tree -C {}) 2> /dev/null | head -200'"
+
 
 function zapfzf() {
-        var=$(find . -type f | fzf --preview 'cat {}')
+        var=$(rg --files --follow --hidden --no-ignore | fzf --preview 'bat --style=numbers --color=always {} | head -200')
         if [ -n "$var" ]
         then
-                vim "$var"
+                if [ -n "$1" ]
+                then
+                        vim "$var" -c "$1"
+                else
+                        vim "$var"
+                fi
         fi
 }
 function zapfzf_no_hidden() {
-        var=$(find * -type f | fzf --preview 'cat {}')
+        var=$(rg --files --follow --no-ignore| fzf --preview 'bat --style=numbers --color=always {} | head -200')
         if [ -n "$var" ]
         then
-                vim "$var"
+                if [ -n "$1" ]
+                then
+                        vim "$var" -c "$1"
+                else
+                        vim "$var"
+                fi
+        fi
+}
+
+function zapfzf_git_modified() {
+        var=$(git status --porcelain=v2 | awk '{print $9}' | fzf --preview 'bat --style=numbers --color=always {} | head -200')
+        if [ -n "$var" ]
+        then
+                if [ -n "$1" ]
+                then
+                        vim "$var" -c "$1"
+                else
+                        vim "$var"
+                fi
         fi
 }
 multi_bind_str "\ej" 'zapfzf \C-j'
 multi_bind_str "\ez" 'zapfzf_no_hidden \C-j'
+multi_bind_str "\e," 'zapfzf_git_modified Gdiffsplit\C-j'
+multi_bind_str "\em" 'zapfzf_git_modified\C-j'
+alias nuke='tmux kill-session'
+multi_bind_str "\ex" 'nuke\C-j'
+alias scratch='tmux source $HOME/Documents/.conf/tmux_project.conf'
+multi_bind_str "\es" 'scratch\C-j'
  
 
 function multicolor () {
