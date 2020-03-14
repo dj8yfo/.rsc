@@ -5,7 +5,7 @@
 # #                                                #
 # #           private bathtub babe .               #
 # #************************************************#
-source ~/.xinitrc
+source /etc/profile.d/apps-bin-path.sh # https://askubuntu.com/questions/1006916/snaps-suddenly-missing-from-launcher-and-path
 export KEYTIMEOUT=20
 export PATH=$HOME/bin:/usr/local/bin:$HOME/Downloads/firefox:$PATH
 export JAVA_HOME=/usr/lib/jvm/jdk1.8.0_211
@@ -294,6 +294,7 @@ multi_bind_str "\er" 'rip\n'
 
 function hs() { fc -lim "*$@*" 1 }
 
+
 multi_bind_str "\en" 'f -e nvim '
 multi_bind_str "\C-t" 'hs '
 bindkey -s -M vicmd "1" 'i!'
@@ -369,6 +370,10 @@ function zapfzf_git_modified() {
                 fi
         fi
 }
+function rgv() {
+        vim -q <(rg --hidden --vimgrep "$*") -c 'copen' -c 'res 40'
+}
+
 multi_bind_str "\ej" 'zapfzf \C-j'
 multi_bind_str "\ez" 'zapfzf_no_hidden \C-j'
 multi_bind_str "\e," 'zapfzf_git_modified Gdiffsplit\C-j'
@@ -377,6 +382,7 @@ alias nuke='tmux kill-session'
 multi_bind_str "\ex" 'nuke\C-j'
 alias scratch='tmux source $HOME/Documents/.conf/tmux_project.conf'
 multi_bind_str "\es" 'scratch\C-j'
+multi_bind_str '\e0' 'tmux\C-j'
  
 
 function multicolor () {

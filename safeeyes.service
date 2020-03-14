@@ -5,7 +5,7 @@ Description=safeeyes
 Type=forking
 User=hypen9
 ExecStart=/home/hypen9/safeeyes.sh
-Environment="HOME=/home/hypen9" "USERNAME=hypen9"
+Environment="HOME=/home/hypen9" "USERNAME=hypen9" "DISPLAY=:0"
 
 [Install]
 WantedBy=multi-user.target

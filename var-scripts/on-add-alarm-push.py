@@ -23,7 +23,7 @@ if 'alarm' in added_task.get('tags', [None]):
         # print("due date is %s" % due_date_str, file=sys.stderr)
         input_date_format = '%Y%m%dT%H%M%SZ'
         due_date_utc = datetime.datetime.strptime(due_date_str, input_date_format)
-        due_date = due_date_utc + datetime.timedelta(hours=2)
+        due_date = due_date_utc + datetime.timedelta(hours=3)
         schedule_date = due_date.strftime(alarm_schedule_date_format)
         # print('schedule date: %s' % schedule_date, file=sys.stderr)
         cmd_template = f'alarm "{schedule_date}"'
