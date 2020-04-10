@@ -15,4 +15,5 @@ pyenv activate neovim3
 pip install neovim
 pip install pynvim
 pip install jupyter
+pip install urllib3
 pyenv deactivate

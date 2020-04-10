@@ -114,19 +114,28 @@ function createNote () {
 alias cn='createNote'
 alias update_ttags='python $HOME/Documents/.conf/var-scripts/get_color_taskwar_tags.py'
 function supert {
-	t link 2>/dev/null | fzf | awk '{ print $1}' 
+	t rc.defaultwidth=300 link 2>/dev/null | fzf | awk '{ print $1}' 
 }
 
 function superxt {
-	t link 2>/dev/null | fzf | awk '{ print $1}' | xcat
+	t rc.defaultwidth=300 link 2>/dev/null | fzf | awk '{ print $1}' | xcat
 }
 
 function supertask {
-	t status:pending all 2>/dev/null | fzf | awk '{ print $1}' 
+	t rc.defaultwidth=300 status:pending all 2>/dev/null | fzf | awk '{ print $1}' 
 }
 
 function tags_list {
 	t _unique tag  |  tr "," " " | tr " " "\n" | sort -u | tr "\n" " "
+}
+
+function tags_list_choose {
+	t _unique tag  |  tr "," " " | tr " " "\n" | sort -u | fzf
+}
+
+function ttag {
+        task "$@" mod +$(tags_list_choose)
+
 }
 
 alias tsup='to $(supert)'

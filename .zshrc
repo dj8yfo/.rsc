@@ -133,7 +133,7 @@ source $HOME/.pyenv/versions/3.8.0b4/lib/python3.8/site-packages/powerline/bindi
 export MYPYPATH=$HOME/python/stubs
 export ZSH_COLORIZE_STYLE='stata-dark'
 plugins=(colored-man-pages colorize fasd git vi-mode dircycle dirhistory zsh-completions colorize)
-alias vst='vim -c Gstatus'
+alias vst="vim -c Gstatus -c 'let g:semshi#filetypes = []'"
 autoload -U compinit && compinit
 eval "$(pipenv --completion)"
 
@@ -320,6 +320,9 @@ alias rmlogs='rm **/*.log'
 turn_on_laptop_key
 turn_off_laptop_key
 export FZF_DEFAULT_COMMAND='rg --files --follow --hidden --no-ignore'
+export FZF_DEFAULT_OPTS='
+  --color hl:#00ff00,hl+:#00ff00,bg+:#222222
+'
 [ -f ~/.fzf.zsh ] && source $HOME/.fzf.zsh
 source "$HOME/.fzf/shell/key-bindings.zsh"
 multi_bind '^T' fzf-file-widget
@@ -371,7 +374,7 @@ function zapfzf_git_modified() {
         fi
 }
 function rgv() {
-        vim -q <(rg --hidden --vimgrep "$*") -c 'copen' -c 'res 40'
+        vim -q <(rg --hidden --vimgrep $*) -c 'copen' -c 'res 40'
 }
 
 multi_bind_str "\ej" 'zapfzf \C-j'

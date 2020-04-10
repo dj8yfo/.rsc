@@ -33,6 +33,8 @@ uda.totalactivetime.type=duration
 uda.totalactivetime.label=Total active time
 uda.totalactivetime.values=
 
+report.all.columns=id,status.short,uuid.short,start.active,entry.age,end.age,depends.indicator,priority,project.full,tags.count,recur.indicator,wait.remaining,scheduled.remaining,due,until.remaining,description
+
 report.link.description=link list
 report.link.columns=start.age,uuid.short,depends,project,description.count,tags,recur,scheduled.countdown,due.relative,until.remaining
 report.link.filter=+ref status:completed
@@ -41,8 +43,8 @@ report.link.sort=project-/,entry-,start+/
 
 report.next.filter=status:pending +UNBLOCKED -ref (-grand and -subtask or +next) -irrelevant
 report.next.sort=priority+,project+/,due-,entry-,start+,tags+
-report.next.columns=id,totalactivetime,entry.age,depends,priority,project,tags,recur,scheduled.countdown,due.relative,until.remaining,description.count
-report.next.labels=ID,SPENT_ON,Age,Deps,PRIO,Project,Tag,Recur,S,Due,Until,Description
+report.next.columns=id,entry.age,depends,priority,project,tags,scheduled.countdown,due.relative,until.remaining,description.count
+report.next.labels=ID,Age,Deps,PRIO,Project,Tag,S,Due,Until,Description
 
 urgency.user.tag.later.coefficient=-6.0
 urgency.blocking.coefficient=15.0
@@ -80,7 +82,7 @@ color.project.c=rgb355
 color.project._tooling=rgb540
 color.project.linux=rgb352
 
-defaultwidth=150
+defaultwidth=100
 column.padding=2
 verbose=yes
 context.real=-background (project:zy_energy or project:zyzyzyzyzy)
