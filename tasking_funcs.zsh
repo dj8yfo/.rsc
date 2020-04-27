@@ -98,6 +98,7 @@ function createNote () {
 		else
 			echo '# annotation' > $note_name
 		fi
+                echo "# vim: foldmethod=marker" >> $note_name
 		
 	else
 		echo '# annotation' > $note_name

@@ -5,31 +5,45 @@
 # #                                                #
 # #           private bathtub babe .               #
 # #************************************************#
+
 source /etc/profile.d/apps-bin-path.sh # https://askubuntu.com/questions/1006916/snaps-suddenly-missing-from-launcher-and-path
+
+# exports ---------------------------------------------- {{{
 export KEYTIMEOUT=20
 export PATH=$HOME/bin:/usr/local/bin:$HOME/Downloads/firefox:$PATH
 export JAVA_HOME=/usr/lib/jvm/jdk1.8.0_211
-autoload -U edit-command-line
-PS1='%m %1d$ '
-ZSH_THEME=re5et
-
-DISABLE_LS_COLORS="true"
-
 export TERM="xterm-256color"
-
 export PATH="$HOME/.pyenv/bin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
+export PIPENV_VENV_IN_PROJECT=1
+export MANPAGER='nvim +Man!'
+export CMUS_SOCKET=$HOME/.config/cmus/socket
+export LSCOLORS=
+export EDITOR='nvim'
+export GTAGSCONF=/usr/local/share/gtags/gtags.conf
+export GTAGSLABEL=pygments
+export POWERLINE_CONFIG_COMMAND=$(pyenv which powerline-config)
+export MYPYPATH=$HOME/python/stubs
+export ZSH_COLORIZE_STYLE='stata-dark'
+export SCR_SAVE_FILE=$HOME/.scripts-run
+export NETKIT_HOME=$HOME/Documents/code/netkit
+export MANPATH=$MANPATH:$NETKIT_HOME/man
+export PATH="$NETKIT_HOME/bin:$PATH"
+export PATH=~/bin:$PATH
+export PATH=/usr/local/texlive/2019/bin/x86_64-linux:$PATH
+# }}}
+
+
+# pyenv && pipenv ---------------------------------- {{{
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
-export PIPENV_VENV_IN_PROJECT=1
+$HOME/.pyenv/versions/3.8.0b4/bin/powerline-daemon -q
+source $HOME/.pyenv/versions/3.8.0b4/lib/python3.8/site-packages/powerline/bindings/zsh/powerline.zsh
 
+eval "$(pipenv --completion)"
+# }}}
 
-# GIT_PROMPT_ONLY_IN_REPO=1
-# source ~/.bash-git-prompt/gitprompt.sh
-
-alias vim=nvim
-export MANPAGER='nvim +Man!'
-
+# var functions --------------------------------- {{{
 # Supports bold/underline/etc
 # See https://stackoverflow.com/a/4233818/9782020
 function man {
@@ -50,31 +64,6 @@ function mypopd {
 	popd "${@}" >/dev/null;
 	dirs -v;
 }
-
-alias ls='ls -ah --color  --group-directories-first'
-alias et='emacsclient -nw  -c -a ""'
-alias ec='emacsclient -c -a ""'
-alias sudo='sudo '
-alias ff='f -e fe'
-alias notes='ff notes.org'
-export CMUS_SOCKET=$HOME/.config/cmus/socket
-export LSCOLORS=
-alias zmus='tmux attach-session -t cmus || tmux new-session -A -D -s cmus "$(which cmus) --listen $CMUS_SOCKET"'
-alias pause='cmus-remote --server $HOME/.config/cmus/socket -u'
-alias next='cmus-remote --server $HOME/.config/cmus/socket -n'
-alias prev='cmus-remote --server $HOME/.config/cmus/socket -r'
-unset TMUX
-alias mutt='neomutt'
-alias go='xdg-open'
-alias histe='nvim $HISTFILE'
-alias ra='ranger'
-alias atq='atq | sort'
-alias kiss='cvlc $HOME/Documents/code/KissFM.m3u'
-alias xi='xclip -sel clip -i'
-alias xo='xclip -sel clip -o'
-alias sdcv='sdcv --color'
-alias fired='$HOME/Documents/code/firefox-73.0b4/firefox/firefox'
-
 
 function poptask ()
 {
@@ -113,42 +102,96 @@ function prg ()
 	ps afx -o ruser,pid,comm | grep --color=always -C $context "$1"
 }
 
-export EDITOR='nvim'
 function eman ()
 {
 	emacsclient -nw  -c -a "" -e "(progn (switch-to-buffer (man \"$1\")) (delete-other-windows))";
 }
 
-export GTAGSCONF=/usr/local/share/gtags/gtags.conf
-export GTAGSLABEL=pygments
+function rip {
+	tempfile="$(mktemp -t tmp.XXXXXX)"
+	ranger --choosedir="$tempfile" "${@:-$(pwd)}"
+	test -f "$tempfile" &&
+		if [ "$(cat -- "$tempfile")" != "$(echo -n `pwd`)" ]; then
+			cd -- "$(cat "$tempfile")"
+		fi
+		rm -f -- "$tempfile"
+	}
 
+
+
+function hs() { fc -lim "*$@*" 1 }
+
+function addTextFromFile () {
+	text_to_add=$(cat "$1")
+	RBUFFER=${text_to_add}${RBUFFER}
+}
+
+funciton tmux_move_pane () {
+	addTextFromFile $HOME/Documents/code/tasking/.tasknotes.d/snippets/move_curent_pane_jaunt.snip
+
+}
+
+zle -N tmux_move_pane 
+zsh $HOME/Documents/.conf/var-scripts/stat.sh
+. $HOME/Documents/code/tasking/.tasknotes.d/snippets/turn_off_laptop_keyboard.sh
+turn_on_laptop_key
+turn_off_laptop_key
+# }}}
+
+
+
+# aliases ------------------------------------------ {{{
+alias vim=nvim
+alias ls='ls -ah --color  --group-directories-first'
+alias et='emacsclient -nw  -c -a ""'
+alias ec='emacsclient -c -a ""'
+alias sudo='sudo '
+alias ff='f -e fe'
+alias notes='ff notes.org'
+alias zmus='tmux attach-session -t cmus || tmux new-session -A -D -s cmus "$(which cmus) --listen $CMUS_SOCKET"'
+alias pause='cmus-remote --server $HOME/.config/cmus/socket -u'
+alias next='cmus-remote --server $HOME/.config/cmus/socket -n'
+alias prev='cmus-remote --server $HOME/.config/cmus/socket -r'
+unset TMUX
+alias mutt='neomutt'
+alias go='xdg-open'
+alias histe='nvim $HISTFILE'
+alias ra='ranger'
+alias atq='atq | sort'
+alias kiss='cvlc $HOME/Documents/code/KissFM.m3u'
+alias xi='xclip -sel clip -i'
+alias xo='xclip -sel clip -o'
+alias sdcv='sdcv --color'
+alias fired='$HOME/Documents/code/firefox-73.0b4/firefox/firefox'
+alias scratch='tmux source $HOME/Documents/.conf/tmux_project.conf'
+alias vst="vim -c Gstatus -c 'let g:semshi#filetypes = []'"
+alias pya='. $(pipenv --venv)/bin/activate'
+alias rmlogs='rm **/*.log'
+alias nuke='tmux kill-session'
+alias pyscopeupd='find "$PWD/" -name "*.py" -o -iname "*.cfg" > \
+     cscope.files && cscope -bv -i cscope.files -f cscope.out'
+# }}}
+
+# ZSH init ------------------------------------------------------------ {{{
+ZSH_THEME=re5et
+DISABLE_LS_COLORS="true"
 HISTFILE=~/.histfile
 HISTSIZE=100000
 SAVEHIST=1000
 
 
-$HOME/.pyenv/versions/3.8.0b4/bin/powerline-daemon -q
-export POWERLINE_CONFIG_COMMAND=$(pyenv which powerline-config)
-source $HOME/.pyenv/versions/3.8.0b4/lib/python3.8/site-packages/powerline/bindings/zsh/powerline.zsh
-export MYPYPATH=$HOME/python/stubs
-export ZSH_COLORIZE_STYLE='stata-dark'
+autoload -U edit-command-line
 plugins=(colored-man-pages colorize fasd git vi-mode dircycle dirhistory zsh-completions colorize)
-alias vst="vim -c Gstatus -c 'let g:semshi#filetypes = []'"
 autoload -U compinit && compinit
-eval "$(pipenv --completion)"
 
 eval "$(fasd --init posix-alias zsh-hook zsh-ccomp zsh-ccomp-install zsh-wcomp zsh-wcomp-install)"
 
 export ZSH=$HOME/.oh-my-zsh
 source $ZSH/oh-my-zsh.sh
+# }}}
 
-export NETKIT_HOME=$HOME/Documents/code/netkit
-export MANPATH=:$NETKIT_HOME/man
-export PATH="$NETKIT_HOME/bin:$PATH"
-export PATH=~/bin:$PATH
-export PATH=/usr/local/texlive/2019/bin/x86_64-linux:$PATH
 
-export ANDROID_SDK_ROOT=$HOME/Android/Sdk
+# prompt and colors ------------------------------------------- {{{
 eval $(dircolors -b $HOME/.dircolors)
 # wget https://raw.github.com/trapd00r/LS_COLORS/master/LS_COLORS -O $HOME/.dircolors
 # echo 'eval $(dircolors -b $HOME/.dircolors)' >> $HOME/.bashrc
@@ -178,6 +221,90 @@ function zle-keymap-select {
     set-prompt
     zle reset-prompt
 }
+
+zle -N zle-keymap-select
+
+function multicolor () {
+	local cmd_str=''
+	multicfg="$1"
+	linesmax="$(wc -l $multicfg | awk '{print $1}')"
+	i=1
+	while read color_co word_match;
+	do
+		local template_str="GREP_COLORS=\"$color_co\" grep -E --color=always -e \"^\" -e \"$word_match\""
+		cmd_str="$cmd_str$template_str"
+		if [[ $i != $linesmax ]];
+		then
+			cmd_str="$cmd_str | "
+		fi
+		((i++))
+
+	done < $multicfg
+	echo $cmd_str 1>&2 
+	eval "$cmd_str"
+}
+
+# }}}
+
+
+# fzf configuration ----------------------------- {{{
+export FZF_DEFAULT_COMMAND='rg --files --follow --hidden --no-ignore'
+export FZF_DEFAULT_OPTS='
+  --color hl:#00ff00,hl+:#00ff00,bg+:#222222
+'
+[ -f ~/.fzf.zsh ] && source $HOME/.fzf.zsh
+source "$HOME/.fzf/shell/key-bindings.zsh"
+
+export FZF_ALT_C_OPTS="--preview 'tree -C {} | head -200'"
+export FZF_CTRL_R_OPTS="--sort --exact --preview 'echo {}' --preview-window down:3:hidden:wrap --bind '?:toggle-preview'"
+export FZF_CTRL_T_OPTS="--preview '(bat --style=numbers --color=always {} || tree -C {}) 2> /dev/null | head -200'"
+
+
+function zapfzf() {
+        var=$(rg --files --follow --hidden --no-ignore | fzf --preview 'bat --style=numbers --color=always {} | head -200')
+        if [ -n "$var" ]
+        then
+                if [ -n "$1" ]
+                then
+                        vim "$var" -c "$1"
+                else
+                        vim "$var"
+                fi
+        fi
+}
+function zapfzf_no_hidden() {
+        var=$(rg --files --follow --no-ignore| fzf --preview 'bat --style=numbers --color=always {} | head -200')
+        if [ -n "$var" ]
+        then
+                if [ -n "$1" ]
+                then
+                        vim "$var" -c "$1"
+                else
+                        vim "$var"
+                fi
+        fi
+}
+
+function zapfzf_git_modified() {
+        var=$(git status --porcelain=v2 | awk '{print $9}' | fzf --preview 'bat --style=numbers --color=always {} | head -200')
+        if [ -n "$var" ]
+        then
+                if [ -n "$1" ]
+                then
+                        vim "$var" -c "$1"
+                else
+                        vim "$var"
+                fi
+        fi
+}
+function rgv() {
+        vim -q <(rg --hidden --vimgrep $*) -c 'copen' -c 'res 40'
+}
+
+
+# }}}
+
+# bindings --------------------------------------- {{{
 function toggle_bindings()
 {
 
@@ -231,9 +358,7 @@ function toggle_bindings()
 		zle send-break
 	fi
 }
-
 zle -N toggle_bindings
-zle -N zle-keymap-select
 
 
 function multi_bind()
@@ -268,7 +393,7 @@ multi_bind "\C-f" forward-char
 multi_bind "\C-a" beginning-of-line
 multi_bind "\C-e" end-of-line
 multi_bind "\C-k" kill-line
-multi_bind "\C-u" vi-kill-line
+# multi_bind "\C-u" vi-kill-line - superseded by fzf history widget
 multi_bind "\C-y" yank
 multi_bind "\C-G" send-break
 multi_bind "\ey" yank-pop
@@ -276,138 +401,35 @@ multi_bind "\ev" visual-mode
 multi_bind "\ew" copy-region-as-kill
 multi_bind '^[[1;6D' insert-cycledleft
 multi_bind '^[[1;6C' insert-cycledright
-#dircycle bindings for urxvt
-
-toggle_bindings vi
-
-function rip {
-	tempfile="$(mktemp -t tmp.XXXXXX)"
-	ranger --choosedir="$tempfile" "${@:-$(pwd)}"
-	test -f "$tempfile" &&
-		if [ "$(cat -- "$tempfile")" != "$(echo -n `pwd`)" ]; then
-			cd -- "$(cat "$tempfile")"
-		fi
-		rm -f -- "$tempfile"
-	}
-
-multi_bind_str "\er" 'rip\n'
-
-function hs() { fc -lim "*$@*" 1 }
-
-
-multi_bind_str "\en" 'f -e nvim '
-multi_bind_str "\C-t" 'hs '
-bindkey -s -M vicmd "1" 'i!'
-bindkey -M vicmd "s" history-incremental-pattern-search-backward
+multi_bind_str "\ex" 'nuke\C-j'
+multi_bind_str "\es" 'scratch\C-j'
+multi_bind_str '\e0' 'tmux\C-j'
 multi_bind_str "\e;" '$()\C-b'
-
-function addTextFromFile () {
-	text_to_add=$(cat "$1")
-	RBUFFER=${text_to_add}${RBUFFER}
-}
-funciton tmux_move_pane () {
-	addTextFromFile $HOME/Documents/code/tasking/.tasknotes.d/snippets/move_curent_pane_jaunt.snip
-
-}
-zle -N tmux_move_pane 
+multi_bind_str "\er" 'rip\n'
+multi_bind_str "\en" 'f -e nvim '
+#multi_bind_str "\C-t" 'hs '
 multi_bind "\e." tmux_move_pane 
+bindkey -M vicmd "s" history-incremental-pattern-search-backward
+multi_bind  '\C-r' history-incremental-pattern-search-backward
+multi_bind  '\C-s' history-incremental-pattern-search-forward
+bindkey -s -M vicmd "1" 'i!'
 
-zsh $HOME/Documents/.conf/var-scripts/stat.sh
-export SCR_SAVE_FILE=$HOME/.scripts-run
-alias pya='. $(pipenv --venv)/bin/activate'
-alias rmlogs='rm **/*.log'
-. $HOME/Documents/code/tasking/.tasknotes.d/snippets/turn_off_laptop_keyboard.sh
-turn_on_laptop_key
-turn_off_laptop_key
-export FZF_DEFAULT_COMMAND='rg --files --follow --hidden --no-ignore'
-export FZF_DEFAULT_OPTS='
-  --color hl:#00ff00,hl+:#00ff00,bg+:#222222
-'
-[ -f ~/.fzf.zsh ] && source $HOME/.fzf.zsh
-source "$HOME/.fzf/shell/key-bindings.zsh"
 multi_bind '^T' fzf-file-widget
 multi_bind '\ec' fzf-cd-widget
 multi_bind '^U' fzf-history-widget
-
-multi_bind  '\C-r' history-incremental-pattern-search-backward
-multi_bind  '\C-s' history-incremental-pattern-search-forward
-export FZF_ALT_C_OPTS="--preview 'tree -C {} | head -200'"
-export FZF_CTRL_R_OPTS="--sort --exact --preview 'echo {}' --preview-window down:3:hidden:wrap --bind '?:toggle-preview'"
-export FZF_CTRL_T_OPTS="--preview '(bat --style=numbers --color=always {} || tree -C {}) 2> /dev/null | head -200'"
-
-
-function zapfzf() {
-        var=$(rg --files --follow --hidden --no-ignore | fzf --preview 'bat --style=numbers --color=always {} | head -200')
-        if [ -n "$var" ]
-        then
-                if [ -n "$1" ]
-                then
-                        vim "$var" -c "$1"
-                else
-                        vim "$var"
-                fi
-        fi
-}
-function zapfzf_no_hidden() {
-        var=$(rg --files --follow --no-ignore| fzf --preview 'bat --style=numbers --color=always {} | head -200')
-        if [ -n "$var" ]
-        then
-                if [ -n "$1" ]
-                then
-                        vim "$var" -c "$1"
-                else
-                        vim "$var"
-                fi
-        fi
-}
-
-function zapfzf_git_modified() {
-        var=$(git status --porcelain=v2 | awk '{print $9}' | fzf --preview 'bat --style=numbers --color=always {} | head -200')
-        if [ -n "$var" ]
-        then
-                if [ -n "$1" ]
-                then
-                        vim "$var" -c "$1"
-                else
-                        vim "$var"
-                fi
-        fi
-}
-function rgv() {
-        vim -q <(rg --hidden --vimgrep $*) -c 'copen' -c 'res 40'
-}
 
 multi_bind_str "\ej" 'zapfzf \C-j'
 multi_bind_str "\ez" 'zapfzf_no_hidden \C-j'
 multi_bind_str "\e," 'zapfzf_git_modified Gdiffsplit\C-j'
 multi_bind_str "\em" 'zapfzf_git_modified\C-j'
-alias nuke='tmux kill-session'
-multi_bind_str "\ex" 'nuke\C-j'
-alias scratch='tmux source $HOME/Documents/.conf/tmux_project.conf'
-multi_bind_str "\es" 'scratch\C-j'
-multi_bind_str '\e0' 'tmux\C-j'
- 
 
-function multicolor () {
-	local cmd_str=''
-	multicfg="$1"
-	linesmax="$(wc -l $multicfg | awk '{print $1}')"
-	i=1
-	while read color_co word_match;
-	do
-		local template_str="GREP_COLORS=\"$color_co\" grep -E --color=always -e \"^\" -e \"$word_match\""
-		cmd_str="$cmd_str$template_str"
-		if [[ $i != $linesmax ]];
-		then
-			cmd_str="$cmd_str | "
-		fi
-		((i++))
+toggle_bindings vi
 
-	done < $multicfg
-	echo $cmd_str 1>&2 
-	eval "$cmd_str"
-}
+# }}}
+
 . $HOME/Documents/.conf/tasking_funcs.zsh
-#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
 export SDKMAN_DIR="$HOME/.sdkman"
+
+# vim: foldmethod=marker
