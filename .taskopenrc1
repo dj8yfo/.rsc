@@ -1,5 +1,5 @@
 
-BROWSER='firefox $FILE &>/dev/null'
+BROWSER='$HOME/Documents/code/firefox-73.0b4/firefox/firefox $FILE &>/dev/null'
 #EDITOR='vim'
 FILE_CMD='cat'
 TASKBIN='task'

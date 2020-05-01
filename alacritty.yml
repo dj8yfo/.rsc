@@ -136,7 +136,7 @@ font:
     style: Italic
 
   # Point size
-  size: 11.0
+  size: 12.0
 
   # antialias: none
 
@@ -193,7 +193,7 @@ colors:
   # the cursor color will be the inverse of the cell color.
   cursor:
    text:  '0x000000'
-   cursor: '0xffffff'
+   cursor: '0xff00ff'
 
   # Selection colors
   #

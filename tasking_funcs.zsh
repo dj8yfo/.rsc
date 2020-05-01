@@ -8,8 +8,7 @@ alias active='task +ACTIVE'
 book=4e09bbe4-eff4-4ae2-bd1e-2c82394be509
 alias buzz='task +alarm status:pending'
 alias abst='task context abstract'
-alias phony='task context background'
-alias real='task context real'
+alias work='task context work'
 alias none='task context none'
 alias due='t due:today status:pending'
 alias tsum='timew summary'
@@ -115,15 +114,15 @@ function createNote () {
 alias cn='createNote'
 alias update_ttags='python $HOME/Documents/.conf/var-scripts/get_color_taskwar_tags.py'
 function supert {
-	t rc.defaultwidth=300 link 2>/dev/null | fzf | awk '{ print $1}' 
+	t rc.context=none rc.defaultwidth=300 link 2>/dev/null | fzf | awk '{ print $1}' 
 }
 
 function superxt {
-	t rc.defaultwidth=300 link 2>/dev/null | fzf | awk '{ print $1}' | xcat
+	t rc.context=none rc.defaultwidth=300 link 2>/dev/null | fzf | awk '{ print $1}' | xcat
 }
 
 function supertask {
-	t rc.defaultwidth=300 status:pending all 2>/dev/null | fzf | awk '{ print $1}' 
+	t rc.context=none rc.defaultwidth=300 status:pending all 2>/dev/null | fzf | awk '{ print $1}' 
 }
 
 function tags_list {
@@ -140,7 +139,9 @@ function ttag {
 }
 
 alias tsup='to $(supert)'
+alias tsupx='to1 $(supert)'
 alias tsuper='to $(supertask)'
+alias tl='to -r $(supert)'
 function tc () {
 	task rc._forcecolor=no "$@" | multicolor $HOME/.config/.taskwcolorrc 2>/dev/null
 }

@@ -9,7 +9,7 @@
 source /etc/profile.d/apps-bin-path.sh # https://askubuntu.com/questions/1006916/snaps-suddenly-missing-from-launcher-and-path
 
 # exports ---------------------------------------------- {{{
-export KEYTIMEOUT=20
+export KEYTIMEOUT=10
 export PATH=$HOME/bin:/usr/local/bin:$HOME/Downloads/firefox:$PATH
 export JAVA_HOME=/usr/lib/jvm/jdk1.8.0_211
 export TERM="xterm-256color"
@@ -89,7 +89,7 @@ function prip ()
 function prg ()
 {
 	if [ -z "$1" ]; then
-		echo "example: prip 6301 3; prip 6301"
+		echo "example: prg 6301 3; prg 6301"
 		return 2
 	fi
 
@@ -99,7 +99,8 @@ function prg ()
 	else
 		context="$2"
 	fi
-	ps afx -o ruser,pid,comm | grep --color=always -C $context "$1"
+        echo ruser,sid,pgid,pid,tty,comm
+	ps afx -o ruser,sid,pgid,pid,tty,comm| grep --color=always -C $context "$1"
 }
 
 function eman ()
@@ -141,7 +142,10 @@ turn_off_laptop_key
 
 
 # aliases ------------------------------------------ {{{
+alias c='mypushd'
+alias po='mypopd'
 alias vim=nvim
+alias nv=neovide
 alias ls='ls -ah --color  --group-directories-first'
 alias et='emacsclient -nw  -c -a ""'
 alias ec='emacsclient -c -a ""'
@@ -165,6 +169,7 @@ alias sdcv='sdcv --color'
 alias fired='$HOME/Documents/code/firefox-73.0b4/firefox/firefox'
 alias scratch='tmux source $HOME/Documents/.conf/tmux_project.conf'
 alias vst="vim -c Gstatus -c 'let g:semshi#filetypes = []'"
+alias wst="neovide -c Gstatus -c 'let g:semshi#filetypes = []'"
 alias pya='. $(pipenv --venv)/bin/activate'
 alias rmlogs='rm **/*.log'
 alias nuke='tmux kill-session'
@@ -259,7 +264,19 @@ export FZF_ALT_C_OPTS="--preview 'tree -C {} | head -200'"
 export FZF_CTRL_R_OPTS="--sort --exact --preview 'echo {}' --preview-window down:3:hidden:wrap --bind '?:toggle-preview'"
 export FZF_CTRL_T_OPTS="--preview '(bat --style=numbers --color=always {} || tree -C {}) 2> /dev/null | head -200'"
 
-
+export FZF_CTRL_T_COMMAND='rg --files --follow --hidden --no-ignore '
+function zapfzf_gui() {
+        var=$(rg --files --follow --hidden --no-ignore | fzf --preview 'bat --style=numbers --color=always {} | head -200')
+        if [ -n "$var" ]
+        then
+                if [ -n "$1" ]
+                then
+                        neovide "$var" -c "$1"
+                else
+                        neovide "$var"
+                fi
+        fi
+}
 function zapfzf() {
         var=$(rg --files --follow --hidden --no-ignore | fzf --preview 'bat --style=numbers --color=always {} | head -200')
         if [ -n "$var" ]
@@ -413,17 +430,20 @@ bindkey -M vicmd "s" history-incremental-pattern-search-backward
 multi_bind  '\C-r' history-incremental-pattern-search-backward
 multi_bind  '\C-s' history-incremental-pattern-search-forward
 bindkey -s -M vicmd "1" 'i!'
+bindkey -r "^[h"
 
 multi_bind '^T' fzf-file-widget
 multi_bind '\ec' fzf-cd-widget
 multi_bind '^U' fzf-history-widget
 
 multi_bind_str "\ej" 'zapfzf \C-j'
+multi_bind_str "\el" 'zapfzf_gui \C-j'
 multi_bind_str "\ez" 'zapfzf_no_hidden \C-j'
 multi_bind_str "\e," 'zapfzf_git_modified Gdiffsplit\C-j'
 multi_bind_str "\em" 'zapfzf_git_modified\C-j'
+multi_bind_str "\ei" 'tsup \C-j'
 
-toggle_bindings vi
+toggle_bindings emacs
 
 # }}}
 
@@ -432,4 +452,7 @@ toggle_bindings vi
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
 export SDKMAN_DIR="$HOME/.sdkman"
 
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 # vim: foldmethod=marker
