@@ -7,8 +7,8 @@
 # #************************************************#
 
 source /etc/profile.d/apps-bin-path.sh # https://askubuntu.com/questions/1006916/snaps-suddenly-missing-from-launcher-and-path
-
 # exports ---------------------------------------------- {{{
+export DISABLE_AUTO_TITLE="true"
 export KEYTIMEOUT=10
 export PATH=$HOME/bin:/usr/local/bin:$HOME/Downloads/firefox:$PATH
 export JAVA_HOME=/usr/lib/jvm/jdk1.8.0_211
@@ -132,7 +132,13 @@ funciton tmux_move_pane () {
 
 }
 
-zle -N tmux_move_pane 
+function tmux_rename_pane () {
+        pane_name=""
+        vared pane_name
+        tmux select-pane -T "${pane_name}"
+}
+
+zle -N tmux_move_pane
 zsh $HOME/Documents/.conf/var-scripts/stat.sh
 . $HOME/Documents/code/tasking/.tasknotes.d/snippets/turn_off_laptop_keyboard.sh
 turn_on_laptop_key
@@ -153,6 +159,7 @@ alias sudo='sudo '
 alias ff='f -e fe'
 alias notes='ff notes.org'
 alias zmus='tmux attach-session -t cmus || tmux new-session -A -D -s cmus "$(which cmus) --listen $CMUS_SOCKET"'
+alias scr='tmux source $HOME/Documents/.conf/tmux_project.conf'
 alias pause='cmus-remote --server $HOME/.config/cmus/socket -u'
 alias next='cmus-remote --server $HOME/.config/cmus/socket -n'
 alias prev='cmus-remote --server $HOME/.config/cmus/socket -r'
@@ -167,7 +174,6 @@ alias xi='xclip -sel clip -i'
 alias xo='xclip -sel clip -o'
 alias sdcv='sdcv --color'
 alias fired='$HOME/Documents/code/firefox-73.0b4/firefox/firefox'
-alias scratch='tmux source $HOME/Documents/.conf/tmux_project.conf'
 alias vst="vim -c Gstatus -c 'let g:semshi#filetypes = []'"
 alias wst="neovide -c Gstatus -c 'let g:semshi#filetypes = []'"
 alias pya='. $(pipenv --venv)/bin/activate'
@@ -245,7 +251,7 @@ function multicolor () {
 		((i++))
 
 	done < $multicfg
-	echo $cmd_str 1>&2 
+	echo $cmd_str 1>&2
 	eval "$cmd_str"
 }
 
@@ -271,9 +277,9 @@ function zapfzf_gui() {
         then
                 if [ -n "$1" ]
                 then
-                        neovide "$var" -c "$1"
+                        neovide "$var" -c "$1" &
                 else
-                        neovide "$var"
+                        neovide "$var" &
                 fi
         fi
 }
@@ -315,10 +321,12 @@ function zapfzf_git_modified() {
         fi
 }
 function rgv() {
-        vim -q <(rg --hidden --vimgrep $*) -c 'copen' -c 'res 40'
+        vim -q <(rg --hidden --vimgrep $*) -c 'copen' -c 'res 20'
 }
 
-
+function rgw() {
+        neovide -q <(rg --hidden --vimgrep $*) -c 'copen' -c 'res 15'
+}
 # }}}
 
 # bindings --------------------------------------- {{{
@@ -418,14 +426,13 @@ multi_bind "\ev" visual-mode
 multi_bind "\ew" copy-region-as-kill
 multi_bind '^[[1;6D' insert-cycledleft
 multi_bind '^[[1;6C' insert-cycledright
-multi_bind_str "\ex" 'nuke\C-j'
-multi_bind_str "\es" 'scratch\C-j'
+multi_bind_str '\e!' 'nuke\C-j'
 multi_bind_str '\e0' 'tmux\C-j'
 multi_bind_str "\e;" '$()\C-b'
 multi_bind_str "\er" 'rip\n'
 multi_bind_str "\en" 'f -e nvim '
 #multi_bind_str "\C-t" 'hs '
-multi_bind "\e." tmux_move_pane 
+multi_bind "\e." tmux_move_pane
 bindkey -M vicmd "s" history-incremental-pattern-search-backward
 multi_bind  '\C-r' history-incremental-pattern-search-backward
 multi_bind  '\C-s' history-incremental-pattern-search-forward
@@ -442,6 +449,7 @@ multi_bind_str "\ez" 'zapfzf_no_hidden \C-j'
 multi_bind_str "\e," 'zapfzf_git_modified Gdiffsplit\C-j'
 multi_bind_str "\em" 'zapfzf_git_modified\C-j'
 multi_bind_str "\ei" 'tsup \C-j'
+multi_bind_str "\es" 'tmux_rename_pane\C-j'
 
 toggle_bindings emacs
 
