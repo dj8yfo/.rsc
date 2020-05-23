@@ -1,49 +1,67 @@
 import subprocess
 import os
-print('Running tag generation for .taskwcolorrc...')
-all_unique_tags = set()
-compl_pr = subprocess.run(["task", "+ref", "uuids"], capture_output=True)
-# print(compl_pr.stdout)
-uuids = compl_pr.stdout.decode().split()
-for uuid in uuids:
+import random
+import io
+import concurrent.futures
+
+
+def convert(uuid):
+    res = []
     uuid = uuid.rstrip()
     link = f"{uuid}.tags"
-    # print(link)
     tags_pr = subprocess.run(["task", "_get", link], capture_output=True)
-    # print(tags_pr.stdout)
     tags = tags_pr.stdout.decode().split(',')
     for tag in tags:
         tag = tag.rstrip()
         if len(tag) >= 3:
-            all_unique_tags.add(tag)
-        # print(tag, end=' ')
-    # print()
+            res.append(tag)
+    return res
+
+print('Running tag generation for .taskwcolorrc...')
+all_unique_tags = set()
+compl_pr = subprocess.run(["task", "+ref", "uuids"], capture_output=True)
+uuids = compl_pr.stdout.decode().split()
+
+with concurrent.futures.ProcessPoolExecutor() as executor:
+    for tag_res in executor.map(convert, uuids):
+        # print('new tags: %s' % tag_res)
+        all_unique_tags.update(tag_res)
+
+
 all_unique_tags.remove('ref')
 all_unique_tags = list(all_unique_tags)
 all_unique_tags = sorted(all_unique_tags, key=len, reverse=True)
 
 tags_file = f'{os.environ["HOME"]}/.unique_taskwarrior_tags'
+
 with open(tags_file, 'w') as tagf:
+    out = io.StringIO('')
     for tag in all_unique_tags:
-        tagf.write(tag)
-        tagf.write('\n')
+        out.write(tag)
+        out.write('\n')
+    tagf.write(out.getvalue())
 
 
-
+# task rule /credentials/ --> rgb200 match
 cfg_color_file=f'{os.environ["HOME"]}/.config/.taskwcolorrc'
+cfg_base_file=f'{os.environ["HOME"]}/Documents/.conf/base_color_rules'
 print(cfg_color_file)
-template = 'ms=40;38;5;{color_num}:sl=48;5;234	{tag}\\\\b\n'
-template_rigid = 'ms=40;38;5;171:sl=48;5;234	~\\\\S+~\n'
-template_rigid1 = 'ms=40;38;5;229:sl=48;5;234	\\\\bref\\\\b\n'
+print(cfg_base_file)
+with open(cfg_base_file, 'r') as base_cfg:
+    base_rules = base_cfg.read()
+
+# template = 'ms=40;38;5;{color_num}:sl=48;5;234	{tag}\\\\b\n'
+template = r'task rule /\b{tag}\b/ --> color{color_num} match'
+# template_rigid = 'ms=40;38;5;171:sl=48;5;234	~\\\\S+~\n'
 iter_color = 120
 with open(cfg_color_file, 'w') as cfg:
+    out = io.StringIO('')
     for tag in all_unique_tags:
-        iter_color = (iter_color + 1) % 232
-        if iter_color == 0:
-            iter_color += 1
+        iter_color = random.randint(1, 255)
         template_form = template.format(color_num=iter_color, tag=tag)
-        # print(template_form, end='')
-        cfg.write(template_form)
-    cfg.write(template_rigid)
-    cfg.write(template_rigid1)
+        out.write(template_form)
+        out.write('\n')
+    cfg.write(base_rules)
+    cfg.write('\n')
+    cfg.write(out.getvalue())
 

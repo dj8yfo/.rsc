@@ -7,6 +7,8 @@
 # #************************************************#
 
 source /etc/profile.d/apps-bin-path.sh # https://askubuntu.com/questions/1006916/snaps-suddenly-missing-from-launcher-and-path
+DISABLE_MAGIC_FUNCTIONS=true
+export DISABLE_MAGIC_FUNCTIONS=true
 # exports ---------------------------------------------- {{{
 export DISABLE_AUTO_TITLE="true"
 export KEYTIMEOUT=10
@@ -53,6 +55,10 @@ function man {
 # No bold/underline/etc
 function mann {
     eval "command man \"$@\" | $MANPAGER"
+}
+
+function echo_jupyter {
+        echo /home/hypen9/.local/share/jupyter/runtime/ | xclip -sel clip -i
 }
 
 function mypushd {
@@ -138,11 +144,23 @@ function tmux_rename_pane () {
         tmux select-pane -T "${pane_name}"
 }
 
+function update_gtags () {
+    local EXT
+    if [ -n "$1" ];
+    then
+        EXT="$1"
+    else
+        EXT="py"
+    fi
+    find . -name "*.${EXT}" -type f -print > /tmp/list && gtags --accept-dotfiles -i -f /tmp/list
+}
+
+
 zle -N tmux_move_pane
 zsh $HOME/Documents/.conf/var-scripts/stat.sh
 . $HOME/Documents/code/tasking/.tasknotes.d/snippets/turn_off_laptop_keyboard.sh
-turn_on_laptop_key
-turn_off_laptop_key
+# turn_on_laptop_key
+# turn_off_laptop_key
 # }}}
 
 
@@ -166,7 +184,7 @@ alias prev='cmus-remote --server $HOME/.config/cmus/socket -r'
 unset TMUX
 alias mutt='neomutt'
 alias go='xdg-open'
-alias histe='nvim $HISTFILE'
+alias histe='et $HISTFILE'
 alias ra='ranger'
 alias atq='atq | sort'
 alias kiss='cvlc $HOME/Documents/code/KissFM.m3u'
@@ -261,7 +279,7 @@ function multicolor () {
 # fzf configuration ----------------------------- {{{
 export FZF_DEFAULT_COMMAND='rg --files --follow --hidden --no-ignore'
 export FZF_DEFAULT_OPTS='
-  --color hl:#00ff00,hl+:#00ff00,bg+:#222222
+  --color hl:#ffffff,hl+:#ff00ff,bg+:#333333
 '
 [ -f ~/.fzf.zsh ] && source $HOME/.fzf.zsh
 source "$HOME/.fzf/shell/key-bindings.zsh"
@@ -277,9 +295,9 @@ function zapfzf_gui() {
         then
                 if [ -n "$1" ]
                 then
-                        neovide "$var" -c "$1" &
+                        ec "$var" -c "$1" &
                 else
-                        neovide "$var" &
+                        ec "$var" &
                 fi
         fi
 }
@@ -444,7 +462,7 @@ multi_bind '\ec' fzf-cd-widget
 multi_bind '^U' fzf-history-widget
 
 multi_bind_str "\ej" 'zapfzf \C-j'
-multi_bind_str "\el" 'zapfzf_gui \C-j'
+multi_bind_str "\ew" 'zapfzf_gui \C-j'
 multi_bind_str "\ez" 'zapfzf_no_hidden \C-j'
 multi_bind_str "\e," 'zapfzf_git_modified Gdiffsplit\C-j'
 multi_bind_str "\em" 'zapfzf_git_modified\C-j'

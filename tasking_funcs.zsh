@@ -114,15 +114,15 @@ function createNote () {
 alias cn='createNote'
 alias update_ttags='python $HOME/Documents/.conf/var-scripts/get_color_taskwar_tags.py'
 function supert {
-	t rc.context=none rc.defaultwidth=300 link 2>/dev/null | fzf | awk '{ print $1}' 
+	tcchoose rc.context=none rc.defaultwidth=300 link 2>/dev/null | fzf --ansi | awk '{ print $1}' 
 }
 
 function superxt {
-	t rc.context=none rc.defaultwidth=300 link 2>/dev/null | fzf | awk '{ print $1}' | xcat
+	tcchoose rc.context=none rc.defaultwidth=300 link 2>/dev/null | fzf  --ansi | awk '{ print $1}' | xcat
 }
 
 function supertask {
-	t rc.context=none rc.defaultwidth=300 status:pending all 2>/dev/null | fzf | awk '{ print $1}' 
+	tcchoose rc.context=none rc.defaultwidth=300 status:pending all 2>/dev/null | fzf  --ansi | awk '{ print $1}' 
 }
 
 function tags_list {
@@ -130,7 +130,7 @@ function tags_list {
 }
 
 function tags_list_choose {
-	t _unique tag  |  tr "," " " | tr " " "\n" | sort -u | fzf
+	tc _unique tag  |  tr "," " " | tr " " "\n" | sort -u | fzf --ansi
 }
 
 function ttag {
@@ -143,11 +143,15 @@ alias tsupx='to1 $(supert)'
 alias tsuper='to $(supertask)'
 alias tl='to -r $(supert)'
 function tc () {
-	task rc._forcecolor=no "$@" | multicolor $HOME/.config/.taskwcolorrc 2>/dev/null
+        task "$@" | clog -f $HOME/.config/.taskwcolorrc task
 }
 
-function tcm () {
-	task rc._forcecolor=yes "$@" | multicolor $HOME/.config/.taskwcolorrc 2>/dev/null
+function tcc () {
+        task rc.context=none "$@" | clog -f $HOME/.config/.taskwcolorrc task
+}
+
+function tcchoose () {
+        task "$@" | clog -f $HOME/Documents/.conf/base_color_rules task
 }
 
 function treal () {

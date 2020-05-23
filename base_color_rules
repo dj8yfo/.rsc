@@ -1,0 +1,7 @@
+task rule /python/ --> rgb145 line
+task rule /django/ --> rgb133 line
+task rule /plastic/ --> color250 line
+task rule /javascript/ --> rgb540 line
+task rule /linux/ --> rgb545 line
+task rule /~(\w|[.-_])+~/ --> color230 match
+task rule /ref/ --> rgb204 match

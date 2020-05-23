@@ -2,7 +2,11 @@ import os
 import string
 from datetime import datetime, timezone
 
-valid_chars = "-_%s%s" % (string.ascii_letters, string.digits)
+def cyrillic_gen():
+    for c in range(ord('А'), ord('я')+1):
+        yield (chr(c))
+
+valid_chars = "-_%s%s%s" % (string.ascii_letters, string.digits, list(cyrillic_gen()))
 startfold = os.path.abspath(os.path.curdir)
 idmfolder = os.path.join(startfold, "idm")
 djentfolder = os.path.join(startfold, "djent")

@@ -11,7 +11,7 @@ wget -O $dest_d/emacs-26.3.tar.xz http://ftp.gnu.org/gnu/emacs/emacs-26.3.tar.xz
 pushd $dest_d
 tar -xf emacs-26.3.tar.xz
 pushd emacs-26.3
-./configure --with-x-toolkit=lucid
+./configure --with-x-toolkit=lucid --with-modules
 make
 sudo make install
 popd
