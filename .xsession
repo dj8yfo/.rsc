@@ -1,2 +1,5 @@
 xmodmap ~/.xmodmap
-dwm
+while true
+	do
+	dwm
+done

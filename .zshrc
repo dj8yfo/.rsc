@@ -199,6 +199,7 @@ alias rmlogs='rm **/*.log'
 alias nuke='tmux kill-session'
 alias pyscopeupd='find "$PWD/" -name "*.py" -o -iname "*.cfg" > \
      cscope.files && cscope -bv -i cscope.files -f cscope.out'
+alias ms='bash /usr/local/bin/menu-surfraw'
 # }}}
 
 # ZSH init ------------------------------------------------------------ {{{
