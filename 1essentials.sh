@@ -46,7 +46,8 @@ pushd /tmp
 git clone https://github.com/TomboFry/menu-surfraw.git
 pushd menu-surfraw
 sudo cp menu-surfraw /usr/local/bin
-sudo apt install rofi
+sudo apt install -y rofi
+sudo apt-get install -y surfraw
 popd
 
 wget https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | zsh
