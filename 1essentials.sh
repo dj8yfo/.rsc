@@ -42,6 +42,13 @@ sudo make clean install
 popd
 popd
 
+pushd /tmp
+git clone https://github.com/TomboFry/menu-surfraw.git
+pushd menu-surfraw
+sudo cp menu-surfraw /usr/local/bin
+sudo apt install rofi
+popd
+
 wget https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | zsh
 git clone https://github.com/zsh-users/zsh-completions ${ZSH_CUSTOM:=~/.oh-my-zsh/custom}/plugins/zsh-completions
 
