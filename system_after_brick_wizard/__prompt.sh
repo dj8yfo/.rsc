@@ -1,6 +1,7 @@
 #!/bin/bash 
 
 function prompt_install() {
+	cd $HOME/Documents/.conf/system_after_brick_wizard || true
 	echo "----------------------------------"
 	echo "Are you sure you're gonna install the $1 piece?"
 	wrd=''

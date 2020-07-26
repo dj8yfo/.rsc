@@ -32,6 +32,7 @@ ls -l $HOME/.spacemacs
 popd
 emacs --version
 notes_dir=$HOME/Documents/code/tasking
+rm -rf $notes_dir || true
 git clone git@github.com:dj8yfo/tasking.git $notes_dir
 
 sudo cp ./var-scripts/wd /usr/local/bin
@@ -47,5 +48,3 @@ mu index
 sudo apt-get install -y shellcheck
 pip install bashate
 
-mkdir -p $HOME/.docsets
-wget -O $HOME/.docsets/C.tgz http://tokyo.kapeli.com/feeds/C.tgz

@@ -1,3 +1,4 @@
+source ~/.cargo/env
 export TERM="xterm-256color"
 
 export PATH="$HOME/.pyenv/bin:$PATH"
@@ -43,7 +44,7 @@ alias sudo='sudo '
 alias ls='ls --color -h --group-directories-first'
 alias histe='et $HISTFILE'
 
-export EDITOR='nvim'
+export EDITOR='vim'
 eval $(dircolors -b $HOME/.dircolors)
 # wget https://raw.github.com/trapd00r/LS_COLORS/master/LS_COLORS -O $HOME/.dircolors
 # echo 'eval $(dircolors -b $HOME/.dircolors)' >> $HOME/.bashrc

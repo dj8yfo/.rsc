@@ -6,6 +6,7 @@
 # #           private bathtub babe .               #
 # #************************************************#
 
+source ~/.cargo/env
 source /etc/profile.d/apps-bin-path.sh # https://askubuntu.com/questions/1006916/snaps-suddenly-missing-from-launcher-and-path
 DISABLE_MAGIC_FUNCTIONS=true
 export DISABLE_MAGIC_FUNCTIONS=true

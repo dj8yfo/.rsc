@@ -1,7 +1,5 @@
 #!/bin/bash
 
-git clone --depth 1 https://github.com/junegunn/fzf.git $HOME/.fzf
-$HOME/.fzf/install
 sudo apt-get install -y ranger caca-utils highlight atool w3m poppler-utils mediainfo
 ranger --copy-config=all
 
@@ -37,7 +35,6 @@ sudo ln -s $PWD/safeeyes.service /lib/systemd/system/safeeyes.service
 sudo systemctl start safeeyes
 sudo systemctl enable safeeyes
 sudo snap install telegram-desktop
-sudo apt-get install -y install keepass2
 
 sudo cp ./var-scripts/gitpush /usr/local/bin
 sudo chmod +x /usr/local/bin/gitpush
