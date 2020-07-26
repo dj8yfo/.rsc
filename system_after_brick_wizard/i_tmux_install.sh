@@ -16,7 +16,10 @@ sudo make install
 popd
 
 popd
-cp ./resources/.tmux-pane.conf $HOME/
+ln -s $PWD/resources/.tmux-pane.conf $HOME/.tmux-pane.conf || true
+ln -s $PWD/resources/.tmux.conf $HOME/.tmux.conf || true
+
+sudo cp ./resources/ftpane /usr/local/bin || true
 git clone https://github.com/jimeh/tmux-themepack.git $HOME/.tmux-themepack
 
 echo 'Next part'
