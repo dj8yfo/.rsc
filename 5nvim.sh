@@ -1,4 +1,8 @@
 #!/bin/bash
+
+sudo add-apt-repository -y ppa:neovim-ppa/unstable
+sudo apt-get install neovim
+
 apt-get install libboost-all-dev cmake libicu-dev
 sudo -u hypen9 curl https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh > installer.sh
 sudo -u hypen9 sh ./installer.sh ~/.local/share/dein
