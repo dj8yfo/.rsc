@@ -21,7 +21,7 @@ export PIPENV_VENV_IN_PROJECT=1
 export MANPAGER='nvim +Man!'
 export CMUS_SOCKET=$HOME/.config/cmus/socket
 export LSCOLORS=
-export EDITOR='nvim'
+export EDITOR='vim'
 export GTAGSCONF=/usr/local/share/gtags/gtags.conf
 export GTAGSLABEL=pygments
 export POWERLINE_CONFIG_COMMAND=$(pyenv which powerline-config)
@@ -169,7 +169,6 @@ zsh $HOME/Documents/.conf/var-scripts/stat.sh
 # aliases ------------------------------------------ {{{
 alias c='mypushd'
 alias po='mypopd'
-alias vim=nvim
 alias nv=neovide
 alias ls='ls -ah --color  --group-directories-first'
 alias et='emacsclient -nw  -c -a ""'
@@ -344,9 +343,6 @@ function rgv() {
         vim -q <(rg --hidden --vimgrep $*) -c 'copen' -c 'res 20'
 }
 
-function rgw() {
-        neovide -q <(rg --hidden --vimgrep $*) -c 'copen' -c 'res 15'
-}
 # }}}
 
 # bindings --------------------------------------- {{{
@@ -450,7 +446,7 @@ multi_bind_str '\e!' 'nuke\C-j'
 multi_bind_str '\e0' 'tmux\C-j'
 multi_bind_str "\e;" '$()\C-b'
 multi_bind_str "\er" 'rip\n'
-multi_bind_str "\en" 'f -e nvim '
+multi_bind_str "\en" 'f -e vim '
 #multi_bind_str "\C-t" 'hs '
 multi_bind "\e." tmux_move_pane
 bindkey -M vicmd "s" history-incremental-pattern-search-backward

@@ -21,7 +21,6 @@ shopt -s extglob       # Necessary for programmable completion.
 HISTSIZE=100000
 SAVEHIST=1000
 #eval $(gdircolors -b $HOME/.dircolors)
-alias vim=nvim
 
 function mypushd {
 	pushd "${@}" >/dev/null;
