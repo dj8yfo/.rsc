@@ -159,7 +159,7 @@ function update_gtags () {
 
 
 zle -N tmux_move_pane
-zsh $HOME/Documents/.conf/var-scripts/stat.sh
+zsh $HOME/Documents/.conf/system_after_brick_wizard/resources/var-scripts/stat.sh
 . $HOME/Documents/code/tasking/.tasknotes.d/snippets/turn_off_laptop_keyboard.sh
 # turn_on_laptop_key
 # turn_off_laptop_key
@@ -216,9 +216,9 @@ plugins=(colored-man-pages colorize fasd git vi-mode dircycle dirhistory zsh-com
 autoload -U compinit && compinit
 
 eval "$(fasd --init posix-alias zsh-hook zsh-ccomp zsh-ccomp-install zsh-wcomp zsh-wcomp-install)"
-
 export ZSH=$HOME/.oh-my-zsh
 source $ZSH/oh-my-zsh.sh
+
 # }}}
 
 
@@ -228,7 +228,7 @@ eval $(dircolors -b $HOME/.dircolors)
 # echo 'eval $(dircolors -b $HOME/.dircolors)' >> $HOME/.bashrc
 
 terminfo_down_sc=$terminfo[cud1]$terminfo[cuu1]$terminfo[sc]$terminfo[cud1]
-source $HOME/Documents/.conf/var-scripts/spectrum.zsh
+source $HOME/Documents/.conf/system_after_brick_wizard/resources/var-scripts/spectrum.zsh
 function insert-mode () { echo -e "%{$FG[196]%}-- INSERT --%{$reset_color%}" }
 function normal-mode () { echo -e "%{$FG[118]%}-- NORMAL --%{$reset_color%}" }
 
