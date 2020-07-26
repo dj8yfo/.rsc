@@ -50,7 +50,7 @@ zle -N addtt
 funciton addtsuids () {
 	addTextFromFile $HOME/Documents/code/tasking/.tasknotes.d/snippets/task_search_by_uuids.snip
 }
-zle -N addtsuids 
+zle -N addtsuids
 funciton addts () {
 	addTextFromFile $HOME/Documents/code/tasking/.tasknotes.d/snippets/task_search.snip
 }
@@ -71,7 +71,7 @@ zle -N addtsw
 
 multi_bind '\et' addtt
 multi_bind '\e]' addts
-multi_bind '\eu' addtsuids 
+multi_bind '\eu' addtsuids
 multi_bind '\e`' addtsw
 multi_bind '\eo' opentst
 multi_bind '\e\\' edittt
@@ -98,7 +98,7 @@ function createNote () {
 			echo '# annotation' > $note_name
 		fi
                 echo "# vim: foldmethod=marker" >> $note_name
-		
+
 	else
 		echo '# annotation' > $note_name
 	fi
@@ -112,9 +112,9 @@ function createNote () {
 	fi
 }
 alias cn='createNote'
-alias update_ttags='python $HOME/Documents/.conf/var-scripts/get_color_taskwar_tags.py'
+alias update_ttags='python $HOME/Documents/.conf/system_after_brick_wizard/resources/var-scripts/get_color_taskwar_tags.py'
 function supert {
-	tcchoose rc.context=none rc.defaultwidth=300 link 2>/dev/null | fzf --ansi | awk '{ print $1}' 
+	tcchoose rc.context=none rc.defaultwidth=300 link 2>/dev/null | fzf --ansi | awk '{ print $1}'
 }
 
 function superxt {
@@ -122,7 +122,7 @@ function superxt {
 }
 
 function supertask {
-	tcchoose rc.context=none rc.defaultwidth=300 status:pending all 2>/dev/null | fzf  --ansi | awk '{ print $1}' 
+	tcchoose rc.context=none rc.defaultwidth=300 status:pending all 2>/dev/null | fzf  --ansi | awk '{ print $1}'
 }
 
 function tags_list {
@@ -176,7 +176,7 @@ function inter_task_yet ()
 	fi
 
 	local id=$(task $dup_target duplicate | grep 'Created task' \
-		| awk 'match($0, /[0-9]+/) {print substr($0, RSTART, RLENGTH)}') 
+		| awk 'match($0, /[0-9]+/) {print substr($0, RSTART, RLENGTH)}')
 	te $id
 	local full_uuid=$(task $id uuids)
 	echo "Full ref uuid: $full_uuid"
@@ -193,21 +193,21 @@ function inter_task ()
 	fi
 
 	local id=$(task $dup_target duplicate | grep 'Created task' \
-		| awk 'match($0, /[0-9]+/) {print substr($0, RSTART, RLENGTH)}') 
+		| awk 'match($0, /[0-9]+/) {print substr($0, RSTART, RLENGTH)}')
 	te $id
 	local uuid=$(task $id done | grep 'Completed task' \
-		| awk '{print $3}') 
+		| awk '{print $3}')
 	echo "Created ref uuid: $uuid"
 	local full_uuid=$(task $uuid uuids)
 	echo "Full ref uuid: $full_uuid"
 	echo $full_uuid | xclip -sel clip -i
 }
 
-function id_validate () 
+function id_validate ()
 {
 	EX_DATAERR=65
 	local match=$(echo "$1" | gawk --re-interval '/^[0-9]{1,3}$/')
-	if [ -n "$match" ]; 
+	if [ -n "$match" ];
 	then
 		return 0
 	else
@@ -215,11 +215,11 @@ function id_validate ()
 	fi
 }
 
-function uuid_validate () 
+function uuid_validate ()
 {
 	EX_DATAERR=65
 	local match=$(echo "$1" | gawk '/^[a-fA-F0-9]+(-[a-fA-F0-9]+)*$/')
-	if [ -n "$match" ]; 
+	if [ -n "$match" ];
 	then
 		return 0
 	else
