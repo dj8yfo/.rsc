@@ -1,4 +1,5 @@
-subconfs/ranger/bookmarks
-subconfs/ranger/history
-subconfs/ranger/tagged
+system_after_brick_wizard/subconfs/ranger/bookmarks
+system_after_brick_wizard/subconfs/ranger/history
+system_after_brick_wizard/subconfs/ranger/tagged
 *.swp
+*.pyo
