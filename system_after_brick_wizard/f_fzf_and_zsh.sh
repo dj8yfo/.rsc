@@ -6,6 +6,10 @@ prompt_install "Installing zsh and fzf"
 
 set -x
 
+sudo add-apt-repository ppa:aacebedo/fasd
+sudo apt-get update
+sudo apt-get install -y fasd
+
 sudo apt-get install -y zsh
 rm -rf $HOME/.oh-my-zsh || true
 wget https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | zsh

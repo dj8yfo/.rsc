@@ -41,8 +41,8 @@ export TERMCMD=alacritty
 # pyenv && pipenv ---------------------------------- {{{
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
-$HOME/.pyenv/versions/3.8.0b4/bin/powerline-daemon -q
-source $HOME/.pyenv/versions/3.8.0b4/lib/python3.8/site-packages/powerline/bindings/zsh/powerline.zsh
+$HOME/.pyenv/versions/3.8.5/bin/powerline-daemon -q
+source $HOME/.pyenv/versions/3.8.5/lib/python3.8/site-packages/powerline/bindings/zsh/powerline.zsh
 
 eval "$(pipenv --completion)"
 # }}}
