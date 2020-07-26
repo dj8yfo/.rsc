@@ -1,3 +1,4 @@
 subconfs/ranger/bookmarks
 subconfs/ranger/history
 subconfs/ranger/tagged
+*.swp
