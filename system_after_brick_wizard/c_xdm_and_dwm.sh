@@ -19,7 +19,7 @@ ln -s $PWD/resources/.xmodmap $HOME/.xmodmap
 sudo rm /etc/default/keyboard
 sudo cp $PWD/resources/def_keyboard /etc/default/keyboard
 
-sudo apt-get install suckless-tools xdm dmenu xorg
+sudo apt-get install -y suckless-tools xdm dmenu xorg libx11-dev libxft-dev libxinerama-dev
 pushd /tmp
 rm -rf dwm || true
 git clone  https://github.com/dj8yfo/dwm.git

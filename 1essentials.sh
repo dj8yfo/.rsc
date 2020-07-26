@@ -6,6 +6,7 @@ sudo apt-get install neovim
 
 sudo apt-get install curl wget tree
 sudo apt-get install xfonts-terminus console-terminus
+sudo apt install apt-file
 
 sudo apt install -y rxvt-unicode
 #rustup
