@@ -157,6 +157,18 @@ function update_gtags () {
     find . -name "*.${EXT}" -type f -print > /tmp/list && gtags --accept-dotfiles -i -f /tmp/list
 }
 
+function edivim () {
+    export EDITOR='vim'
+}
+
+function edinvim () {
+    export EDITOR='nvim'
+}
+
+function edimacs () {
+    export EDITOR='emacsclient -nw  -c -a ""'
+}
+
 
 zle -N tmux_move_pane
 zsh $HOME/Documents/.conf/system_after_brick_wizard/resources/var-scripts/stat.sh
