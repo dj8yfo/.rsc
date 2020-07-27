@@ -30,3 +30,5 @@ sudo ln -s $PWD/resources/var-scripts/fe /usr/local/bin/fe
 sudo ln -s $PWD/resources/var-scripts/fw /usr/local/bin/fw
 
 chsh -s `which zsh`
+
+ln -s $PWD/resources/.vimrc $HOME/.vimrc
