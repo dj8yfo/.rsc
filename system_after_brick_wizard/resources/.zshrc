@@ -321,9 +321,9 @@ function zapfzf() {
         then
                 if [ -n "$1" ]
                 then
-                        vim "$var" -c "$1"
+			eval "$EDITOR \"$var\" -c \"$1\""
                 else
-                        vim "$var"
+                        eval "$EDITOR \"$var\""
                 fi
         fi
 }
