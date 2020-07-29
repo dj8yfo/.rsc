@@ -1,0 +1,10 @@
+session_name: slack
+windows:
+- window_name: access links jam
+  layout: tiled
+  shell_command_before:
+    - cd ~/                    # run as a first command in all panes
+  panes:
+    - slack
+    - thunderbird
+    - to 60d92301-dcae-40c5-be1f-ba5d500ea7c2 \\not_closed

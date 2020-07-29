@@ -1,0 +1,13 @@
+session_name: jam_links
+windows:
+- window_name: access links jam
+  layout: tiled
+  shell_command_before:
+    - cd ~/                    # run as a first command in all panes
+  panes:
+    - to 1984c494-29aa-413e-a7c2-de488f2605c2 \\root_access.org         # pane no. 2
+    - to 1984c494-29aa-413e-a7c2-de488f2605c2 \\mautic_access.org          # pane no. 3
+    - to 1984c494-29aa-413e-a7c2-de488f2605c2 \\repos.org          # pane no. 3
+    - to1 df7f4f66-6397-4412-85a0-22e968ee82c8 
+    - to1 1229a1e7-c267-4efb-a21b-bd2c98e555a1
+    - to1 c8a4019c-b561-491e-a334-c91850cb3483
