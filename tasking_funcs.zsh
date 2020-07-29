@@ -12,6 +12,7 @@ alias work='task context work'
 alias none='task context none'
 alias due='t due:today status:pending'
 alias tsum='timew summary'
+alias ts='to1 $(supert)'
 
 function te ()
 {
