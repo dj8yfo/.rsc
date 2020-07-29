@@ -15,6 +15,8 @@ sudo apt install -y at
 mkdir -p $HOME/.config/cmus
 echo 'bind -f common q shell tmux detach' > $HOME/.config/cmus/rc
 
+sudo add-apt-repository ppa:slgobinath/safeeyes
+sudo apt update
 sudo apt-get install -y safeeyes
 sudo apt-get install -y xprintidle
 sudo apt-get install -y stgit
@@ -22,6 +24,14 @@ sudo apt-get install -y stgit
 ln -s $PWD/resources/safeeyes.sh $HOME/safeeyes.sh || true
 ls -l $HOME/safeeyes.sh
 mkdir -p $HOME/.config/safeeyes
+
+pushd /tmp
+git clone git@github.com:slgobinath/SafeEyes.git
+pushd SafeEyes
+cp -rv ./safeeyes/config/* $HOME/.config/safeeyes/
+popd
+popd
+rm $HOME/.config/safeeyes/safeeyes.json
 cp ./resources/safeeyes.json $HOME/.config/safeeyes/safeeyes.json
 
 sudo cp ./resources/var-scripts/gitpush /usr/local/bin

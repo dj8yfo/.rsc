@@ -1,7 +1,9 @@
 #!/bin/bash
+set -e
 set -x
 source ./__prompt.sh
 prompt_install "nvim pyenvironments setup"
+set +x
 
 . ~/.zshrc
 pyenv activate neovim2
