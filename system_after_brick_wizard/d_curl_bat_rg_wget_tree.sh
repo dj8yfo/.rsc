@@ -19,3 +19,4 @@ sudo dpkg -i bat_0.12.1_amd64.deb
 popd
 
 sudo apt-get install -y install keepass2
+sudo apt install -y surf
