@@ -25,6 +25,7 @@ sudo cp menu-surfraw /usr/local/bin
 sudo apt install -y rofi
 sudo apt-get install -y surfraw
 popd
+popd
 # -------------------------------
 
 

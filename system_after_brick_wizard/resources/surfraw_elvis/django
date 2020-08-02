@@ -20,5 +20,5 @@ if test -z "$w3_args"; then
 	w3_browse_url "https://docs.djangoproject.com/en/1.11"
 else
     escaped_args=`w3_url_of_arg $w3_args`
-    w3_browse_url "https://docs.djangoproject.com/en/1.11/search/?q=${escaped_args}"
+    w3_browse_url "https://docs.djangoproject.com/en/2.2/search/?q=${escaped_args}"
 fi
