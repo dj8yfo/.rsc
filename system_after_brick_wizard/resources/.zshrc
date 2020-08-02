@@ -9,6 +9,7 @@
 source ~/.cargo/env
 source /etc/profile.d/apps-bin-path.sh # https://askubuntu.com/questions/1006916/snaps-suddenly-missing-from-launcher-and-path
 DISABLE_MAGIC_FUNCTIONS=true
+export TMUXP_CONFIGDIR=$HOME/Documents/.conf/jam
 export DISABLE_MAGIC_FUNCTIONS=true
 # exports ---------------------------------------------- {{{
 export DISABLE_AUTO_TITLE="true"
@@ -201,6 +202,7 @@ alias histe='et $HISTFILE'
 alias ra='ranger'
 alias atq='atq | sort'
 alias kiss='cvlc $HOME/Documents/code/KissFM.m3u'
+alias techno='cvlc $HOME/Documents/code/CUEBASE\ -\ FM.m3u'
 alias xi='xclip -sel clip -i'
 alias xo='xclip -sel clip -o'
 alias sdcv='sdcv --color'
