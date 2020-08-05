@@ -63,6 +63,7 @@ sudo cp ./resources/var-scripts/attach_vifm /usr/local/bin
 sudo chmod +x /usr/local/bin/attach_vifm
 
 sudo cp ./resources/var-scripts/xcat /usr/local/bin
+sudo cp ./resources/var-scripts/xbat /usr/local/bin
 sudo chmod +x /usr/local/bin/xcat
 sudo gem install zeal
 

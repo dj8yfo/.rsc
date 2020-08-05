@@ -1,0 +1,3 @@
+#!/bin/bash
+cat "$@" | xclip -sel clip -i
+bat --pager=never --language=py --style=plain "$@"
