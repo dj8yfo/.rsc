@@ -216,6 +216,7 @@ alias pyscopeupd='find "$PWD/" -name "*.py" -o -iname "*.cfg" > \
      cscope.files && cscope -bv -i cscope.files -f cscope.out'
 alias ms='bash /usr/local/bin/menu-surfraw'
 alias xp='xclip -sel primary -o | xi'
+alias xpi='xo | xclip -sel primary -i'
 # }}}
 
 # ZSH init ------------------------------------------------------------ {{{
