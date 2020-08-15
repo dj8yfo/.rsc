@@ -4,6 +4,7 @@ source ./__prompt.sh
 prompt_install "taskwarrior install..."
 
 sudo apt-get install -y ranger caca-utils highlight atool w3m poppler-utils mediainfo
+sudo apt install -y flameshot
 ranger --copy-config=all
 
 rm -rf $HOME/.config/ranger || true

@@ -11,6 +11,7 @@ source /etc/profile.d/apps-bin-path.sh # https://askubuntu.com/questions/1006916
 DISABLE_MAGIC_FUNCTIONS=true
 export TMUXP_CONFIGDIR=$HOME/Documents/.conf/jam
 export DISABLE_MAGIC_FUNCTIONS=true
+export SURFRAW_graphical_browser=firefox
 # exports ---------------------------------------------- {{{
 export DISABLE_AUTO_TITLE="true"
 export KEYTIMEOUT=10
