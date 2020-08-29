@@ -210,7 +210,7 @@ alias xo='xclip -sel clip -o'
 alias sdcv='sdcv --color'
 alias fired='$HOME/Documents/code/firefox-73.0b4/firefox/firefox'
 alias vst="vim -c Gstatus -c 'let g:semshi#filetypes = []'"
-alias wst="neovide -c Gstatus -c 'let g:semshi#filetypes = []'"
+alias wst="gnvim -- -c Gstatus -c 'let g:semshi#filetypes = []'"
 alias pya='. $(pipenv --venv)/bin/activate'
 alias rmlogs='rm **/*.log'
 alias nuke='tmux kill-session'
@@ -315,9 +315,9 @@ function zapfzf_gui() {
         then
                 if [ -n "$1" ]
                 then
-                        ec "$var" -c "$1" &
+                        gnvim "$var" -c "$1" &
                 else
-                        ec "$var" &
+                        gnvim "$var" &
                 fi
         fi
 }
@@ -339,9 +339,9 @@ function zapfzf_no_hidden() {
         then
                 if [ -n "$1" ]
                 then
-                        vim "$var" -c "$1"
+			eval "$EDITOR \"$var\" -c \"$1\""
                 else
-                        vim "$var"
+                        eval "$EDITOR \"$var\""
                 fi
         fi
 }
@@ -352,9 +352,9 @@ function zapfzf_git_modified() {
         then
                 if [ -n "$1" ]
                 then
-                        vim "$var" -c "$1"
+			eval "$EDITOR \"$var\" -c \"$1\""
                 else
-                        vim "$var"
+                        eval "$EDITOR \"$var\""
                 fi
         fi
 }
