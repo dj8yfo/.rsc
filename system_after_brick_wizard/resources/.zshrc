@@ -199,7 +199,6 @@ alias next='cmus-remote --server $HOME/.config/cmus/socket -n'
 alias prev='cmus-remote --server $HOME/.config/cmus/socket -r'
 unset TMUX
 alias mutt='neomutt'
-alias go='xdg-open'
 alias histe='et $HISTFILE'
 alias ra='ranger'
 alias atq='atq | sort'
@@ -499,3 +498,9 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 # vim: foldmethod=marker
+export PATH=$PATH:/usr/local/go/bin
+export GOPATH='/home/hypen9/Documents/code/GO_PKGS'
+export GOBIN='/home/hypen9/Documents/code/GO_PKGS/bin'
+# go env GOROOT
+# warning: GOPATH set to GOROOT (/usr/local/go) has no effect
+export PATH=$PATH:$GOBIN
