@@ -63,7 +63,7 @@ function mann {
 }
 
 function echo_jupyter {
-        echo /home/hypen9/.local/share/jupyter/runtime/ | xclip -sel clip -i
+        echo $HOME/.local/share/jupyter/runtime/ | xclip -sel clip -i
 }
 
 function mypushd {
@@ -499,8 +499,8 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 # vim: foldmethod=marker
 export PATH=$PATH:/usr/local/go/bin
-export GOPATH='/home/hypen9/Documents/code/GO_PKGS'
-export GOBIN='/home/hypen9/Documents/code/GO_PKGS/bin'
+export GOPATH="$HOME/Documents/code/GO_PKGS"
+export GOBIN="$HOME/Documents/code/GO_PKGS/bin"
 # go env GOROOT
 # warning: GOPATH set to GOROOT (/usr/local/go) has no effect
 export PATH=$PATH:$GOBIN
