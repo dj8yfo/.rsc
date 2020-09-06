@@ -1,0 +1,24 @@
+#!/bin/bash
+PYINDEXF=$HOME/.pyindex.txt
+PYLINKF=$HOME/.pylink.txt
+PYLOOKUP_DIR=$HOME/Documents/code/pylookup
+
+rm $PYINDEXF
+rm $PYLINKF
+cd $PYLOOKUP_DIR
+$HOME/.pyenv/versions/2.7.14/bin/python2 pylookup.py  -i 0 -l "$*" |
+(i=0;
+while read line;
+do
+	#let "num=$i/2"
+	#let "l=$num+1"
+	if ((i%2 == 0));
+	then
+		echo "$line" >> $PYINDEXF
+	else
+		echo "$line" >> $PYLINKF
+	fi
+	let "i+=1"
+done)
+#popd
+cat -n $PYINDEXF

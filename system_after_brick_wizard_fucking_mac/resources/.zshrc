@@ -7,7 +7,7 @@
 # #************************************************#
 
 source ~/.cargo/env
-source /etc/profile.d/apps-bin-path.sh # https://askubuntu.com/questions/1006916/snaps-suddenly-missing-from-launcher-and-path
+# source /etc/profile.d/apps-bin-path.sh # https://askubuntu.com/questions/1006916/snaps-suddenly-missing-from-launcher-and-path
 DISABLE_MAGIC_FUNCTIONS=true
 export TMUXP_CONFIGDIR=$HOME/Documents/.conf/jam
 export DISABLE_MAGIC_FUNCTIONS=true
@@ -94,7 +94,7 @@ function prip ()
 	else
 		context="$2"
 	fi
-	ps afux | grep --color=always -C $context "$1"
+	pstree | grep --color=always -C $context "$1"
 }
 
 function prg ()
@@ -111,7 +111,7 @@ function prg ()
 		context="$2"
 	fi
         echo ruser,sid,pgid,pid,tty,comm
-	ps afx -o ruser,sid,pgid,pid,tty,comm| grep --color=always -C $context "$1"
+	ps ax -o ruser,sid,pgid,pid,tty,comm| grep --color=always -C $context "$1"
 }
 
 function eman ()
@@ -204,8 +204,8 @@ alias ra='ranger'
 alias atq='atq | sort'
 alias kiss='cvlc $HOME/Documents/code/KissFM.m3u'
 alias techno='cvlc $HOME/Documents/code/CUEBASE\ -\ FM.m3u'
-alias xi='xclip -sel clip -i'
-alias xo='xclip -sel clip -o'
+alias xi='pbcopy'
+alias xo='pbpaste'
 alias sdcv='sdcv --color'
 alias fired='$HOME/Documents/code/firefox-73.0b4/firefox/firefox'
 alias vst="vim -c Gstatus -c 'let g:semshi#filetypes = []'"
@@ -494,9 +494,7 @@ toggle_bindings emacs
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
 export SDKMAN_DIR="$HOME/.sdkman"
 
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+source $(brew --prefix nvm)/nvm.sh
 # vim: foldmethod=marker
 export PATH=$PATH:/usr/local/go/bin
 export GOPATH="$HOME/Documents/code/GO_PKGS"

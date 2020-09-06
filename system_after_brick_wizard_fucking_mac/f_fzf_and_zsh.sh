@@ -6,7 +6,7 @@ prompt_install "Installing zsh and fzf"
 
 set -x
 
-brew install fasd wget rg
+brew install fasd wget rg curl bat
 
 rm -rf $HOME/.oh-my-zsh || true
 wget https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | zsh
