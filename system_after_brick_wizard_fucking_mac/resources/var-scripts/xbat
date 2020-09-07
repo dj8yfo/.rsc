@@ -1,0 +1,3 @@
+#!/bin/bash
+cat "$@" | pbcopy
+bat --pager=never --language=py --style=plain "$@"

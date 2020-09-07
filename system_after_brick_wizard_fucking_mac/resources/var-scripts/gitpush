@@ -1,0 +1,13 @@
+#!/bin/bash
+set -e
+if [ -z "$1" ];
+then
+    echo 'no message arg'
+    arg=$(date +\"%Y-%m-%d:%H-%M\")
+else
+    arg="$1"
+fi
+
+git add -A
+git commit -m "$arg"
+git push origin

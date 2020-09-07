@@ -1,0 +1,97 @@
+# [Created by task 2.5.1 10/4/2019 14:13:57]
+# Taskwarrior program configuration file.
+# For more documentation, see http://taskwarrior.org or try 'man task', 'man task-color',
+# 'man task-sync' or 'man taskrc'
+
+# Here is an example of entries that use the default, override and blank values
+#   variable=foo   -- By specifying a value, this overrides the default
+#   variable=      -- By specifying no value, this means no default
+#   #variable=foo  -- By commenting out the line, or deleting it, this uses the default
+
+# Use the command 'task show' to see all defaults and overrides
+
+# Files
+data.location=~/.task
+
+# Color theme (uncomment one to use)
+#include /usr/share/taskwarrior/light-16.theme
+#include /usr/share/taskwarrior/light-256.theme
+#include /usr/share/taskwarrior/dark-16.theme
+#include /usr/share/taskwarrior/dark-256.theme
+#include /usr/share/taskwarrior/dark-red-256.theme
+#include /usr/share/taskwarrior/dark-green-256.theme
+#include /usr/share/taskwarrior/dark-blue-256.theme
+#include /usr/share/taskwarrior/dark-violets-256.theme
+#include /usr/share/taskwarrior/dark-yellow-green.theme
+#include /usr/share/taskwarrior/dark-gray-256.theme
+#include /usr/share/taskwarrior/dark-gray-blue-256.theme
+#include /usr/share/taskwarrior/solarized-dark-256.theme
+#include /usr/share/taskwarrior/solarized-light-256.theme
+#include /usr/share/taskwarrior/no-color.theme
+
+uda.totalactivetime.type=duration
+uda.totalactivetime.label=Total active time
+uda.totalactivetime.values=
+
+report.all.columns=id,status.short,uuid.short,start.active,entry.age,end.age,depends.indicator,priority,project.full,tags.count,recur.indicator,wait.remaining,scheduled.remaining,due,until.remaining,description
+
+report.link.description=link list
+report.link.columns=start.age,uuid.short,depends,project,description.count,tags,recur,scheduled.countdown,due.relative,until.remaining
+report.link.filter=+ref status:completed
+report.link.labels=Active,UUID,Deps,Project,Description,Tag,Recur,S,Due,Until
+report.link.sort=project-/,entry-,start+/
+
+report.links.description=links list
+report.links.columns=start.age,uuid.short,depends,project,description.combined,tags,recur,scheduled.countdown,due.relative,until.remaining
+report.links.filter=+ref status:completed
+report.links.labels=Active,UUID,Deps,Project,Description,Tag,Recur,S,Due,Until
+report.links.sort=project-/,entry-,start+/
+
+report.next.filter=status:pending -ref (-grand and -subtask or +next) -irrelevant
+report.next.sort=priority+,project+/,due-,entry-,start+,tags+
+report.next.columns=id,entry.age,depends,priority,project,tags,scheduled.countdown,due.relative,until.remaining,description.count
+report.next.labels=ID,Age,Deps,PRIO,Project,Tag,S,Due,Until,Description
+
+urgency.user.tag.later.coefficient=-6.0
+urgency.blocking.coefficient=15.0
+urgency.uda.priority.H.coefficient=40.0 # high Priority
+urgency.uda.priority.M.coefficient=20.0 # medium Priority
+urgency.uda.priority.L.coefficient=10.0 # low Priority
+uda.priority.values=NOW,HH,H,M,L,
+search.case.sensitive=no
+uda.reviewed.type=date
+uda.reviewed.label=Reviewed
+report._reviewed.description=Tasksh review report.  Adjust the filter to your needs.
+report._reviewed.columns=uuid
+report._reviewed.sort=reviewed+,modified+
+report._reviewed.filter=( reviewed.none: or reviewed.before:now-6days ) and ( +PENDING or +WAITING )
+
+color.label=gray20
+color.footnote=rgb150
+color.tagged=on black
+color.tag.n=bold on gray4
+color.due=on gray2
+color.overdue=yellow
+color.due.today=on gray6
+color.status.recurring=red
+color.active=gray4 on rgb040
+color.project.bash=rgb404
+color.project.zsh=rgb035
+color.project.python=rgb452
+color.project.taskrc=rgb335
+color.project.energy_work.real=rgb055
+color.project.energy_work.learn=rgb050
+color.project.vim=rgb350
+color.project.emacs=rgb500
+color.project.git=rgb205
+color.project.plastic_jam=grey21
+color.project.c=rgb355
+color.project._tooling=rgb540
+color.project.linux=rgb352
+
+defaultwidth=100
+column.padding=2
+verbose=yes
+context.work=(project:energy_work or project:zyzyzyzyzy)
+context.abstract=proj.not:energy_work
+alias.attach=exec '\/usr\/local\/bin\/attach_vifm' -t
