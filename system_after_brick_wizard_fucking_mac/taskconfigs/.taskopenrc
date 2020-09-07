@@ -1,5 +1,5 @@
 
-BROWSER='firefox $FILE &>/dev/null'
+BROWSER='/Applications/Firefox.app/Contents/MacOS/firefox $FILE &>/dev/null'
 #EDITOR='vim'
 FILE_CMD='rifle'
 TASKBIN='task'
