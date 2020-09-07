@@ -13,7 +13,7 @@ notes_dir=$HOME/Documents/code/tasking
 rm -rf $notes_dir || true
 git clone git@github.com:dj8yfo/tasking.git $notes_dir
 
-brew install task cpanminus clog
+brew install task cpanminus clog gawk
 rm -rf $HOME/.task
 ln -s $HOME/Documents/code/tasking/.task.d $HOME/.task
 rm -rf $HOME/tasknotes
