@@ -503,3 +503,4 @@ export GOBIN="$HOME/Documents/code/GO_PKGS/bin"
 # go env GOROOT
 # warning: GOPATH set to GOROOT (/usr/local/go) has no effect
 export PATH=$PATH:$GOBIN
+nvm use --delete-prefix v12.18.3

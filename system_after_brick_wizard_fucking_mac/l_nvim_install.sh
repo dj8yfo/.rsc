@@ -7,7 +7,7 @@ prompt_install "nvim installation"
 pyenv virtualenv 2.7.14 neovim2
 pyenv virtualenv 3.8.5 neovim3
 
-brew install neovim
+brew install neovim ctags
 
 # sudo apt-get install -y libboost-all-dev cmake libicu-dev
 sudo -u rblstrmtp curl https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh > installer.sh
