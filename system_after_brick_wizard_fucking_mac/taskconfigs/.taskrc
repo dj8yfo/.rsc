@@ -92,6 +92,6 @@ color.project.linux=rgb352
 defaultwidth=100
 column.padding=2
 verbose=yes
-context.work=(project:energy_work or project:zyzyzyzyzy)
+context.work=(project:rollercoin or project:zyzyzyzyzy)
 context.abstract=proj.not:energy_work
 alias.attach=exec '\/usr\/local\/bin\/attach_vifm' -t

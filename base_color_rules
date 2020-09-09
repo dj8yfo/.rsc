@@ -5,3 +5,4 @@ task rule /javascript/ --> rgb540 line
 task rule /linux/ --> rgb545 line
 task rule /~(\w|[.-_])+~/ --> color230 match
 task rule /ref/ --> rgb204 match
+task rule /rollercoin/ --> rgb453 line
