@@ -210,7 +210,7 @@ alias sdcv='sdcv --color'
 alias fired='$HOME/Documents/code/firefox-73.0b4/firefox/firefox'
 alias firefox='/Applications/Firefox.app/Contents/MacOS/firefox'
 alias vst="nvim -c Gstatus -c 'let g:semshi#filetypes = []'"
-alias wst="gnvim -- -c Gstatus -c 'let g:semshi#filetypes = []'"
+alias wst="goneovim -- -c Gstatus -c 'let g:semshi#filetypes = []'"
 alias pya='. $(pipenv --venv)/bin/activate'
 alias rmlogs='rm **/*.log'
 alias nuke='tmux kill-session'
