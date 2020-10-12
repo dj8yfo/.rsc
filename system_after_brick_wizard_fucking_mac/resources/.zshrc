@@ -318,9 +318,9 @@ function zapfzf_gui() {
         then
                 if [ -n "$1" ]
                 then
-                        gnvim "$var" -c "$1" &
+                        goneovim "$var" -c "$1" &
                 else
-                        gnvim "$var" &
+                        goneovim "$var" &
                 fi
         fi
 }
