@@ -1,7 +1,7 @@
 
 BROWSER='/Applications/Firefox.app/Contents/MacOS/firefox $FILE &>/dev/null'
 #EDITOR='vim'
-FILE_CMD='rifle'
+FILE_CMD='/Users/rblstrmtp/.pyenv/versions/3.8.5/bin/rifle'
 TASKBIN='task'
 
 # If you sync tasks NOTES_FOLDER should be a location that syncs and is available to
