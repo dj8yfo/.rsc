@@ -319,9 +319,9 @@ function zapfzf_gui() {
         then
                 if [ -n "$1" ]
                 then
-                        goneovim "$var" -c "$1" &
+                        goneovim "$var" -c "$1" 2>/dev/null &
                 else
-                        goneovim "$var" &
+                        goneovim "$var" 2> /dev/null &
                 fi
         fi
 }
