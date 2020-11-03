@@ -222,6 +222,7 @@ alias xpi='xo | xclip -sel primary -i'
 alias rollethsession="cp /Users/rblstrmtp/Documents/code/tasking/.tasknotes.d/snippets/B2m6JcpBbcu.vim ./Session.vim && nvim -c 'call LoadSessionAndDoNotTrack()'"
 alias goneovim="/Applications/goneovim.app/Contents/MacOS/goneovim"
 alias vim=nvim
+alias lg=lazygit
 
 # }}}
 
@@ -469,7 +470,7 @@ multi_bind_str '\e!' 'nuke\C-j'
 multi_bind_str '\e0' 'tmux\C-j'
 multi_bind_str "\e;" '$()\C-b'
 multi_bind_str "\er" 'rip\n'
-multi_bind_str "\en" 'f -e vim '
+multi_bind_str "\en" 'f -e nvim '
 #multi_bind_str "\C-t" 'hs '
 multi_bind "\e." tmux_move_pane
 bindkey -M vicmd "s" history-incremental-pattern-search-backward
