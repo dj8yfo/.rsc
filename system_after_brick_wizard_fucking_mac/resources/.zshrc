@@ -172,6 +172,13 @@ function edimacs () {
     export EDITOR='emacsclient -nw  -c -a ""'
 }
 
+function decimy () {
+        echo $(($1))
+}
+function hexify () {
+        echo 0x$(printf "%x\n" "$1")
+}
+
 
 zle -N tmux_move_pane
 zsh $HOME/Documents/.conf/system_after_brick_wizard/resources/var-scripts/stat.sh
