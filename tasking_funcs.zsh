@@ -73,9 +73,9 @@ multi_bind '\et' addtt
 multi_bind '\e]' addts
 multi_bind '\eu' addtsuids
 multi_bind '\e`' addtsw
-multi_bind '\eo' opentst
+#multi_bind '\eo' opentst
 multi_bind '\e\\' edittt
-
+ 
 function createNote () {
 	EX_USAGE=64
 	if [ -z "$1" ]; then
@@ -140,7 +140,7 @@ function ttag {
 
 alias tsup='to $(supert)'
 alias tsupx='to1 $(supert)'
-alias tsuper='to $(supertask)'
+alias tsuper='to1 $(supertask)'
 alias tl='to -r $(supert)'
 function tc () {
         task "$@" | clog -f $HOME/.config/.taskwcolorrc task

@@ -483,6 +483,8 @@ multi_bind_str "\ez" 'zapfzf_no_hidden \C-j'
 multi_bind_str "\e," 'zapfzf_git_modified Gdiffsplit\C-j'
 multi_bind_str "\em" 'zapfzf_git_modified\C-j'
 multi_bind_str "\ei" 'tsup \C-j'
+multi_bind_str "\eo" 'tsupx \C-j'
+multi_bind_str "\ep" 'tsuper \C-j'
 multi_bind_str "\es" 'tmux_rename_pane\C-j'
 
 toggle_bindings emacs

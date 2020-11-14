@@ -3,3 +3,4 @@ system_after_brick_wizard/subconfs/ranger/history
 system_after_brick_wizard/subconfs/ranger/tagged
 *.swp
 *.pyo
+!.zshrc

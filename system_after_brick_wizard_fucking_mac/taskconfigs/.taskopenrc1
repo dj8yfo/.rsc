@@ -1,7 +1,7 @@
 
 BROWSER='surf'
 #EDITOR='vim'
-FILE_CMD='xbat'
+FILE_CMD='split_snippet_into_commands'
 TASKBIN='task'
 
 # If you sync tasks NOTES_FOLDER should be a location that syncs and is available to
