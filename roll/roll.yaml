@@ -1,0 +1,27 @@
+session_name: rolling
+windows:
+- window_name: rolller_core
+  shell_command_before:
+    - cd /Users/rblstrmtp/Documents/code/rollercoin/RollerCoin-Core  # run as a first command in all panes
+- window_name: api
+  shell_command_before:
+    - cd /Users/rblstrmtp/Documents/code/rollercoin/ETH-Go-API  # run as a first command in all panes
+- window_name: receive_tx
+  shell_command_before:
+    - cd /Users/rblstrmtp/Documents/code/rollercoin/ETH-Go-Receive-Transactions-Service  # run as a first command in all panes
+- window_name: collect_cron
+  shell_command_before:
+    - cd /Users/rblstrmtp/Documents/code/rollercoin/ETH-Go-CollectMoney-Service  # run as a first command in all panes
+- window_name: roller_deposits
+  shell_command_before:
+    - cd /Users/rblstrmtp/Documents/code/rollercoin/RollerCoin-Go-Deposit-Service  # run as a first command in all panes
+- window_name: stage_eth_server
+  panes:
+      - shell_command:
+        - sleep 1
+        - ssh root@157.245.240.113  # run as a first command in all panes
+- window_name: dev_server
+  panes:
+      - shell_command:
+        - sleep 2
+        - ssh root@142.93.9.131  # run as a first command in all panes
