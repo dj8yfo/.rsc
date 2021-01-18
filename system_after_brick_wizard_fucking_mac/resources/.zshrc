@@ -469,6 +469,7 @@ multi_bind "\C-k" kill-line
 multi_bind "\C-y" yank
 multi_bind "\C-G" send-break
 multi_bind "\ey" yank-pop
+bindkey -M vicmd v edit-command-line
 multi_bind "\ev" visual-mode
 multi_bind "\ew" copy-region-as-kill
 multi_bind '^[[1;6D' insert-cycledleft
