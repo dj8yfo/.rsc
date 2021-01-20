@@ -230,6 +230,7 @@ alias rollethsession="cp /Users/rblstrmtp/Documents/code/tasking/.tasknotes.d/sn
 alias goneovim="/Applications/goneovim.app/Contents/MacOS/goneovim"
 alias vim=nvim
 alias lg=lazygit
+alias clogf='clog -f ~/.config/golog eth'
 
 # }}}
 
