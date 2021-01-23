@@ -237,7 +237,7 @@ SAVEHIST=1000
 
 
 autoload -U edit-command-line
-plugins=(colored-man-pages colorize fasd git vi-mode dircycle dirhistory zsh-completions colorize)
+plugins=(colored-man-pages colorize fasd git vi-mode dircycle dirhistory zsh-completions colorize ripgrep)
 autoload -U compinit && compinit
 
 eval "$(fasd --init posix-alias zsh-hook zsh-ccomp zsh-ccomp-install zsh-wcomp zsh-wcomp-install)"
