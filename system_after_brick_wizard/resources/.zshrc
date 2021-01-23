@@ -53,6 +53,13 @@ eval "$(pipenv --completion)"
 # var functions --------------------------------- {{{
 # Supports bold/underline/etc
 # See https://stackoverflow.com/a/4233818/9782020
+
+function decimy () {
+        echo $(($1))
+}
+function hexify () {
+        echo 0x$(printf "%x\n" "$1")
+}
 function man {
     eval "unbuffer man -P cat \"$@\" | $MANPAGER"
 }
@@ -218,6 +225,7 @@ alias pyscopeupd='find "$PWD/" -name "*.py" -o -iname "*.cfg" > \
 alias ms='bash /usr/local/bin/menu-surfraw'
 alias xp='xclip -sel primary -o | xi'
 alias xpi='xo | xclip -sel primary -i'
+
 # }}}
 
 # ZSH init ------------------------------------------------------------ {{{
