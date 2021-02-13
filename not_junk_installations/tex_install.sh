@@ -8,6 +8,6 @@ mkdir -p $tex_home
 wget -O  $tex_home/install-tl-unx.tar.gz http://mirror.ctan.org/systems/texlive/tlnet/install-tl-unx.tar.gz
 pushd $tex_home
 tar -xf install-tl-unx.tar.gz
-cd install-tl-20191113
+cd install-tl-20210211
 sudo ./install-tl
 popd
