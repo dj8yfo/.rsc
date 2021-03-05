@@ -6,6 +6,8 @@ keycode 64 = Control_L
 keycode 108 = Control_R
 keycode 105 = Alt_R Meta_R
 keycode 134 = Super_R
+keycode 122 = XF86AudioLowerVolume
+keycode 123 = XF86AudioRaiseVolume
 
 !keycode  66 = Escape NoSymbol Escape
 add control = Control_L Control_R

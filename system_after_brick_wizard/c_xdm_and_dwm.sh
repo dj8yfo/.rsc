@@ -4,7 +4,11 @@ set -e
 source ./__prompt.sh
 prompt_install "Install xdm and dwm ..."
 
+
 set -x
+sudo apt-get update -y
+sudo apt-get install xfce4-volumed
+
 sudo apt-get install -y build-essential
 echo 'Cloning configs for Xorg...'
 
