@@ -367,7 +367,7 @@ function zapfzf_git_modified() {
         fi
 }
 function rgv() {
-        vim -q <(rg --hidden --vimgrep $*) -c 'copen' -c 'res 20'
+        nvim -q <(rg --hidden --vimgrep $*) -c 'copen' -c 'res 20'
 }
 
 # }}}
