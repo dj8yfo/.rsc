@@ -516,3 +516,6 @@ export GOBIN="$HOME/Documents/code/GO_PKGS/bin"
 # go env GOROOT
 # warning: GOPATH set to GOROOT (/usr/local/go) has no effect
 export PATH=$PATH:$GOBIN
+
+export PATH=$PATH:/usr/local/bin/nvim-linux64/bin
+
