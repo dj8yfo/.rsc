@@ -226,7 +226,6 @@ alias pyscopeupd='find "$PWD/" -name "*.py" -o -iname "*.cfg" > \
 alias ms='bash /usr/local/bin/menu-surfraw'
 alias xp='xclip -sel primary -o | xi'
 alias xpi='xo | xclip -sel primary -i'
-alias rollethsession="cp /Users/rblstrmtp/Documents/code/tasking/.tasknotes.d/snippets/B2m6JcpBbcu.vim ./Session.vim && nvim -c 'call LoadSessionAndDoNotTrack()'"
 alias goneovim="/Applications/goneovim.app/Contents/MacOS/goneovim"
 alias vim=nvim
 alias lg=lazygit
