@@ -17,5 +17,8 @@ cat ~/.ssh/id_rsa.pub | xclip -sel clip -i
 
 echo 'Copied the pub key to clipboard...'
 echo 'Please enter it on git ui... and press any key...'
+sudo add-apt-repository ppa:lazygit-team/release
+sudo apt-get update
+sudo apt-get install lazygit
 read next_key
 

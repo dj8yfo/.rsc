@@ -18,5 +18,5 @@ wget https://github.com/sharkdp/bat/releases/download/v0.12.1/bat_0.12.1_amd64.d
 sudo dpkg -i bat_0.12.1_amd64.deb
 popd
 
-sudo apt-get install -y install keepass2
+sudo apt-get install -y keepass2
 sudo apt install -y surf
