@@ -6,6 +6,7 @@ prompt_install "taskwarrior install..."
 sudo apt-get install -y ranger caca-utils highlight atool w3m poppler-utils mediainfo
 sudo apt install -y flameshot
 sudo apt install -y guake
+sudo apt install -y gawk
 ranger --copy-config=all
 
 rm -rf $HOME/.config/ranger || true
@@ -50,12 +51,12 @@ git clone https://github.com/ValiValpas/taskopen.git /tmp/taskopen
 pushd /tmp/taskopen
 sudo make PREFIX=/usr install
 popd
-rm $HOME/.taskrc
+rm $HOME/.taskrc || true
 ln -s $PWD/taskconfigs/.taskrc $HOME/.taskrc
 
-rm $HOME/.taskopenrc
+rm $HOME/.taskopenrc || true
 ln -s $PWD/taskconfigs/.taskopenrc $HOME/.taskopenrc
-rm $HOME/.taskopenrc1
+rm $HOME/.taskopenrc1 || true
 ln -s $PWD/taskconfigs/.taskopenrc1 $HOME/.taskopenrc1
 sudo cpanm install JSON
 
