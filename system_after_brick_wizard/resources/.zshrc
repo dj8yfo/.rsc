@@ -518,4 +518,5 @@ export GOBIN="$HOME/Documents/code/GO_PKGS/bin"
 export PATH=$PATH:$GOBIN
 
 export PATH=$PATH:/usr/local/bin/nvim-linux64/bin
+export PATH="$PATH:$HOME/.local/bin"
 
