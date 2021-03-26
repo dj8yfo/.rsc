@@ -1,5 +1,5 @@
 
-BROWSER='firefox $FILE &>/dev/null'
+BROWSER='google-chrome $FILE &>/dev/null'
 #EDITOR='vim'
 FILE_CMD='rifle'
 TASKBIN='task'
