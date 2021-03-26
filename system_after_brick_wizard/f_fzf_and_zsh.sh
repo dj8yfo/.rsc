@@ -10,7 +10,7 @@ sudo add-apt-repository ppa:aacebedo/fasd
 sudo apt-get update
 sudo apt-get install -y fasd
 
-sudo apt-get install -y zsh
+sudo apt-get install -y zsh direnv
 rm -rf $HOME/.oh-my-zsh || true
 wget https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | zsh
 git clone https://github.com/zsh-users/zsh-completions ${ZSH_CUSTOM:=~/.oh-my-zsh/custom}/plugins/zsh-completions
