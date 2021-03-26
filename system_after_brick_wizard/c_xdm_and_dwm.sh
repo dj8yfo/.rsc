@@ -18,7 +18,12 @@ do
 done
 ln -s $PWD/resources/.bashrc $HOME/.bashrc
 ln -s $PWD/resources/.xinitrc $HOME/.xinitrc
+
+# ------------- come back, if you need to -----------
+# sudo apt install ubuntu-session gdm3
+# sudo dpkg-reconfigure gdm3
 ln -s $PWD/resources/.xsession $HOME/.xsession
+
 ln -s $PWD/resources/.xmodmap $HOME/.xmodmap
 sudo rm /etc/default/keyboard
 sudo cp $PWD/resources/def_keyboard /etc/default/keyboard
