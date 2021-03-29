@@ -73,5 +73,6 @@ sudo gem install zeal
 sudo apt-get install -y nomacs
 sudo apt-get install -y  sdcv
 sudo apt install clog
+ln -s $PWD/resources/clog_rules $HOME/.config/clog_rules
 mkdir -p $HOME/.config/tridactyl
 ln -s $PWD/resources/tridactylrc $HOME/.config/tridactyl/tridactylrc

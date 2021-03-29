@@ -83,6 +83,10 @@ function mypopd {
 	dirs -v;
 }
 
+function clogf {
+    clog -f $HOME/.config/clog_rules log
+}
+
 function poptask ()
 {
 	atrm $(atq | sort -k1 -rn | sed -n 1p | awk '{print $1}')
