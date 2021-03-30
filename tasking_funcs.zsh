@@ -138,6 +138,10 @@ function ttag {
 
 }
 
+function tcur {
+    to "$(t '/current task/' uuids)"
+}
+
 alias tsup='to $(supert)'
 alias tsupx='to1 $(supert)'
 alias tsuper='to1 $(supertask)'
