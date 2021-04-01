@@ -219,7 +219,7 @@ alias xi='xclip -sel clip -i'
 alias xo='xclip -sel clip -o'
 alias sdcv='sdcv --color'
 alias fired='$HOME/Documents/code/firefox-73.0b4/firefox/firefox'
-alias vst="vim -c Gstatus -c 'let g:semshi#filetypes = []'"
+alias vst="nvim -c Gstatus -c 'let g:semshi#filetypes = []'"
 alias wst="gnvim -- -c Gstatus -c 'let g:semshi#filetypes = []'"
 alias pya='. $(pipenv --venv)/bin/activate'
 alias rmlogs='rm **/*.log'
