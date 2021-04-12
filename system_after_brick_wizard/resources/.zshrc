@@ -63,6 +63,10 @@ function hexify () {
 function man {
     eval "unbuffer man -P cat \"$@\" | $MANPAGER"
 }
+function split_lines {
+sed -e 's/\\n/\
+/g' -e 's/\\r//g' -e 's/\\t/    /g'
+}
 
 # No bold/underline/etc
 function mann {
