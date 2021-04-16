@@ -46,7 +46,7 @@ eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
 $HOME/.pyenv/versions/3.8.5/bin/powerline-daemon -q
 source $HOME/.pyenv/versions/3.8.5/lib/python3.8/site-packages/powerline/bindings/zsh/powerline.zsh
-
+source /usr/share/google-cloud-sdk/completion.zsh.inc
 eval "$(pipenv --completion)"
 # }}}
 

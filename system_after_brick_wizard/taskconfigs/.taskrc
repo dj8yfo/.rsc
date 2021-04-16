@@ -95,4 +95,4 @@ verbose=yes
 context.work=(project:energy_work or project:zyzyzyzyzy or project:golang.prj or project:rust.study)
 context.abstract=proj.not:energy_work
 alias.attach=exec '\/usr\/local\/bin\/attach_vifm' -t
-context=abstract
+context=work
