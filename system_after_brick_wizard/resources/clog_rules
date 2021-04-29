@@ -8,6 +8,7 @@ log rule /log/ --> rgb302 match
 log rule /FAIL/ --> rgb500 line
 log rule /PASS/ --> rgb150 line
 log rule /RUN/ --> rgb150 line
+log rule /config/ --> rgb150 match
 
 log rule /module=/ --> rgb550 match
 log rule /service=/ --> rgb550 match
