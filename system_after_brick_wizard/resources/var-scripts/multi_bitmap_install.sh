@@ -15,9 +15,15 @@ fi
 pushd "$HOME/Downloads"
 git clone https://github.com/Tecate/bitmap-fonts.git
 pushd bitmap-fonts
-cp -avr bitmap/ /usr/share/fonts
+cp -vr bitmap/ /usr/share/fonts
+cd /usr/share/fonts/bitmap
+sudo mkfontscale
+sudo mkfontdir
 xset fp+ /usr/share/fonts/bitmap
 fc-cache -fv
 popd; popd
 
-# check succhess with __  xfontsel __
+sudo rm /etc/fonts/conf.d/70-no-bitmaps.conf
+sudo ln -s /etc/fonts/conf.avail/70-yes-bitmaps.conf /etc/fonts/conf.d/70-yes-bitmaps.conf
+
+# check succhess with __  xfontsel -print__

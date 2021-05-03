@@ -529,4 +529,5 @@ export PATH=$PATH:$GOBIN
 
 export PATH=$PATH:/usr/local/bin/nvim-linux64/bin
 export PATH="$PATH:$HOME/.local/bin"
+export PATH="$PATH:$HOME/.yarn/bin"
 
