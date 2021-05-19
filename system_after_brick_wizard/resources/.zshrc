@@ -235,6 +235,7 @@ alias xp='xclip -sel primary -o | xi'
 alias xpi='xo | xclip -sel primary -i'
 alias lg='lazygit'
 alias rum='rusty-man'
+alias mkubectl='microk8s kubectl'
 
 # }}}
 
@@ -530,4 +531,5 @@ export PATH=$PATH:$GOBIN
 export PATH=$PATH:/usr/local/bin/nvim-linux64/bin
 export PATH="$PATH:$HOME/.local/bin"
 export PATH="$PATH:$HOME/.yarn/bin"
+source <(kubectl completion zsh)
 
