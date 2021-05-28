@@ -1,5 +1,5 @@
 log rule /info/ --> rgb250 match
-log rule /debug/ --> rgb205 match
+log rule /debug/ --> gray7 match
 log rule /fatal/ --> rgb505 match
 log rule /error/ --> rgb500 match
 log rule /trace/ --> rgb540 match

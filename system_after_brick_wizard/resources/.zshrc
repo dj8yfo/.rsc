@@ -236,6 +236,8 @@ alias xpi='xo | xclip -sel primary -i'
 alias lg='lazygit'
 alias rum='rusty-man'
 alias mkubectl='microk8s kubectl'
+alias kubedesc='kubectl describe pod'
+alias kubelog='kubectl logs'
 
 # }}}
 
