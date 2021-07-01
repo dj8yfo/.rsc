@@ -1,8 +1,9 @@
 log rule /info/ --> rgb250 match
-log rule /debug/ --> gray7 match
+log rule /route/ --> rgb250 match
+log rule /debug/ --> rgb540 match
 log rule /fatal/ --> rgb505 match
 log rule /error/ --> rgb500 match
-log rule /trace/ --> rgb540 match
+log rule /trace/ --> gray12 match
 log rule /warning/ --> rgb455 match
 log rule /log/ --> rgb302 match
 log rule /FAIL/ --> rgb500 line
