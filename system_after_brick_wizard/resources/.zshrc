@@ -238,6 +238,7 @@ alias rum='rusty-man'
 alias mkubectl='microk8s kubectl'
 alias kubedesc='kubectl describe pod'
 alias kubelog='kubectl logs'
+alias comfyenv='turn_off_laptop_key && nmcli conn up restriction_defy && xfce4-volumed'
 
 # }}}
 
