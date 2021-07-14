@@ -38,6 +38,7 @@ export PATH=~/bin:$PATH
 export PATH=/usr/local/texlive/2020/bin/x86_64-linux:$PATH
 export TERMCMD=alacritty
 export EDITOR=nvim
+export LESS=-RS
 # }}}
 
 
