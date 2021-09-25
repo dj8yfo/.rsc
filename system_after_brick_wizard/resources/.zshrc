@@ -338,9 +338,9 @@ function zapfzf_gui() {
         then
                 if [ -n "$1" ]
                 then
-                        gnvim "$var" -c "$1" &
+                        neovide "$var" -c "$1" &
                 else
-                        gnvim "$var" &
+                        neovide "$var" &
                 fi
         fi
 }
