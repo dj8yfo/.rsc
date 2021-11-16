@@ -241,6 +241,7 @@ alias kubedesc='kubectl describe pod'
 alias kubelog='kubectl logs'
 alias comfyenv='turn_off_laptop_key && nmcli conn up restriction_defy && xfce4-volumed'
 alias bake='make build > tmp.err.log 2>&1'
+alias lake='make lint > tmp.err.log 2>&1'
 
 # }}}
 
