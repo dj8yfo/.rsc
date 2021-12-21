@@ -243,6 +243,8 @@ alias comfyenv='turn_off_laptop_key && nmcli conn up restriction_defy && xfce4-v
 alias bake='make build > tmp.err.log 2>&1'
 alias lake='make lint > tmp.err.log 2>&1'
 alias take='make test > tmp.err.log 2>&1'
+alias ns='cd $HOME/Documents/code/tasking/zettelkasten && neuron search -e'
+alias no='cd $HOME/Documents/code/tasking/zettelkasten && neuron open'
 
 # }}}
 
