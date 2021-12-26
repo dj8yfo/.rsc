@@ -247,6 +247,15 @@ alias ns='cd $HOME/Documents/code/tasking/zettelkasten && neuron search -e'
 alias no='cd $HOME/Documents/code/tasking/zettelkasten && neuron open'
 alias nsf='cd $HOME/Documents/code/tasking/zettelkasten && nvim "$(neuron search -a)"'
 
+# backlinks
+function nb {
+    neuron query --backlinks-of "$1" | jq '.[].result | .[] | .[1].ID'
+}
+
+function nq {
+    neuron query | jq '.[].ID'
+}
+
 
 # }}}
 
