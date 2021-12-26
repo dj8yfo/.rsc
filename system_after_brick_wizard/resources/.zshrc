@@ -256,6 +256,10 @@ function nq {
     neuron query | jq '.[].ID'
 }
 
+function ne {
+    nvim $(find . -name "$1".md)
+}
+
 
 # }}}
 
