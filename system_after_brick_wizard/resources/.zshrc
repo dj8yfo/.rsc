@@ -249,11 +249,11 @@ alias nsf='cd $HOME/Documents/code/tasking/zettelkasten && nvim "$(neuron search
 
 # backlinks
 function nb {
-    neuron query --backlinks-of "$1" | jq '.[].result | .[] | .[1].ID'
+    neuron query --backlinks-of "$1" 2>/dev/null | jq -r '.[].result | .[] | .[1].ID'
 }
 
 function nq {
-    neuron query | jq '.[].ID'
+    neuron query 2>/dev/null | jq -r '.[].ID'
 }
 
 function ne {
