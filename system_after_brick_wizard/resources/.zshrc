@@ -188,6 +188,12 @@ function edimacs () {
     export EDITOR='emacsclient -nw  -c -a ""'
 }
 
+function goplay () {
+    mkdir "$1"
+    cd "$1"
+    go mod init goplayground
+}
+
 
 zle -N tmux_move_pane
 zsh $HOME/Documents/.conf/system_after_brick_wizard/resources/var-scripts/stat.sh
@@ -246,6 +252,7 @@ alias take='make test > tmp.err.log 2>&1'
 alias ns='cd $HOME/Documents/code/tasking/zettelkasten && neuron search -e'
 alias no='cd $HOME/Documents/code/tasking/zettelkasten && neuron open'
 alias nsf='cd $HOME/Documents/code/tasking/zettelkasten && nvim "$(neuron search -a)"'
+alias zke="zk edit --interactive"
 
 # backlinks
 function nb {
