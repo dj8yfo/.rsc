@@ -253,6 +253,9 @@ alias ns='cd $HOME/Documents/code/tasking/zettelkasten && neuron search -e'
 alias no='cd $HOME/Documents/code/tasking/zettelkasten && neuron open'
 alias nsf='cd $HOME/Documents/code/tasking/zettelkasten && nvim "$(neuron search -a)"'
 alias zke="zk edit --interactive"
+alias mt='make test'
+alias mb='make build'
+alias ml='make lint'
 
 # backlinks
 function nb {
