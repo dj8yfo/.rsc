@@ -39,6 +39,7 @@ export PATH=/usr/local/texlive/2020/bin/x86_64-linux:$PATH
 export TERMCMD=alacritty
 export EDITOR=nvim
 export LESS=-RS
+export ZK_NOTEBOOK_DIR="$HOME/Documents/code/tasking/zettelkasten"
 # }}}
 
 
@@ -256,6 +257,7 @@ alias zke="zk edit --interactive"
 alias mt='make test'
 alias mb='make build'
 alias ml='make lint'
+alias flowy='$HOME/Documents/code/WorkFlowy-x86_64.AppImage'
 
 # backlinks
 function nb {
